@@ -37,6 +37,67 @@ body {
 
 .hidden { display: none !important; }
 
+/* ===== Category Icons ===== */
+.cat-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  color: var(--gray-300);
+}
+.cat-icon--img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: grayscale(100%) contrast(1.2);
+  border-radius: 2px;
+}
+.cat-icon-inline {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.cat-icon-inline .cat-icon {
+  width: 11px;
+  height: 11px;
+}
+.cat-icon-inline .cat-icon--img {
+  width: 12px;
+  height: 12px;
+}
+
+/* Icons in category badges */
+.otd-card__cat .cat-icon,
+.tl-item__cat .cat-icon,
+.event-detail__cat .cat-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+.otd-card__cat .cat-icon--img,
+.tl-item__cat .cat-icon--img,
+.event-detail__cat .cat-icon--img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Large icon in event detail modal */
+.event-detail__icon {
+  margin-bottom: 0.75rem;
+}
+.event-detail__icon .cat-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--gray-300);
+}
+.event-detail__icon .cat-icon--img {
+  width: 56px;
+  height: 56px;
+  filter: grayscale(100%) contrast(1.3);
+}
+
 .section__inner {
   max-width: var(--max-width);
   margin: 0 auto;

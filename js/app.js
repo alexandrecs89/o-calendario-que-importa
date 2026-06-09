@@ -15,6 +15,18 @@
     idolo: "Ídolo", recorde: "Recorde", comunidade: "Comunidade",
   };
 
+  /* SVG icons per category (monochrome) */
+  const CAT_ICONS = {
+    titulo: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 22V2h4v20"/><path d="M6 9v4a6 6 0 0 0 12 0V9"/></svg>`,
+    classico: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+    marco: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`,
+    idolo: `<img class="cat-icon cat-icon--img" src="img/socrates.png" alt="Ídolo"/>`,
+    recorde: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    comunidade: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  };
+
+  function catIcon(cat) { return CAT_ICONS[cat] || ""; }
+
   function pad(n) { return String(n).padStart(2, "0"); }
   function fmtDate(iso) {
     const [y, m, d] = iso.split("-");
@@ -104,7 +116,7 @@
         const show = dayEvents.slice(0, 3);
         eventsHtml = '<div class="calendar__day-events">' +
           show.map(e =>
-            `<div class="calendar__day-event calendar__day-event--${e.category}" title="${e.title}">${e.title}</div>`
+            `<div class="calendar__day-event calendar__day-event--${e.category}" title="${e.title}"><span class="cat-icon-inline">${catIcon(e.category)}</span>${e.title}</div>`
           ).join("") +
           (dayEvents.length > 3 ? `<div class="calendar__day-more">+${dayEvents.length - 3} mais</div>` : "") +
           '</div>';
@@ -156,7 +168,7 @@
             <div class="otd-card__year">${year}</div>
             <div class="otd-card__ago">há ${ago} ano${ago !== 1 ? "s" : ""}</div>
             <div class="otd-card__title">${e.title}</div>
-            <span class="otd-card__cat">${CAT_LABELS[e.category] || e.category}</span>
+            <span class="otd-card__cat">${catIcon(e.category)}${CAT_LABELS[e.category] || e.category}</span>
             <div class="otd-card__desc">${e.description.slice(0, 140)}${e.description.length > 140 ? "…" : ""}</div>
           </div>`;
       }).join("");
@@ -216,7 +228,7 @@
       <div class="tl-item" data-id="${e.id}">
         <div class="tl-item__date">${fmtDate(e.date)}</div>
         <div class="tl-item__title">${e.title}</div>
-        <span class="tl-item__cat">${CAT_LABELS[e.category] || e.category}</span>
+        <span class="tl-item__cat">${catIcon(e.category)}${CAT_LABELS[e.category] || e.category}</span>
       </div>
     `).join("");
 
@@ -255,9 +267,10 @@
     }
 
     eventModalContent.innerHTML = `
+      <div class="event-detail__icon">${catIcon(event.category)}</div>
       <div class="event-detail__date">${fmtDate(event.date)}</div>
       <div class="event-detail__title">${event.title}</div>
-      <span class="event-detail__cat">${CAT_LABELS[event.category] || event.category}</span>
+      <span class="event-detail__cat">${catIcon(event.category)}${CAT_LABELS[event.category] || event.category}</span>
       <div class="event-detail__desc">${event.description}</div>
       ${relatedHtml}
     `;
