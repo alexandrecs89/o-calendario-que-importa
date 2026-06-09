@@ -247,4 +247,121 @@ const CORINTHIANS_EVENTS = [
 
   // --- Yuri Alberto — 2022- ---
   { id: 245, date: "2001-03-18", title: "Nasce Yuri Alberto — o artilheiro atual", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Yuri Alberto Monteiro da Silva nasceu em São José dos Campos, SP. Atacante e atual camisa 9 do Corinthians, chegou em 2022 e se tornou referência do ataque corinthiano com gols importantes em clássicos e competições." },
+
+  // ===== EXPANSÃO: JOGADORES HISTÓRICOS E ELENCO ATUAL =====
+
+  // --- Olavo (Olavo Martins de Oliveira) — 1952-1961 ---
+  { id: 300, date: "1927-11-09", title: "Nasce Olavo — pilar da defesa dos anos 50", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Olavo Martins de Oliveira nasceu em Santos. Zagueiro titular nos anos 50, disputou 508 jogos pelo Corinthians, sendo o 10º jogador com mais partidas na história do clube. Campeão paulista em 1953 e 1954." },
+  { id: 301, date: "2004-03-12", title: "Olavo — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Olavo Martins de Oliveira, zagueiro que disputou 508 jogos pelo Corinthians, aos 76 anos." },
+
+  // --- Idário (Idário Sanches Peinado) — 1949-1959 ---
+  { id: 302, date: "1927-05-09", title: "Nasce Idário — Sangue Azul", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Idário Sanches Peinado nasceu em São Paulo. Lateral-direito raçudo apelidado de 'Sangue Azul', revelado na base corinthiana. Disputou 472 jogos pelo Timão, sendo o 12º com mais partidas. Campeão do IV Centenário em 1954." },
+  { id: 303, date: "2009-09-18", title: "Idário — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Idário Sanches Peinado, 'Sangue Azul', lateral icônico que disputou 472 jogos pelo Corinthians, aos 82 anos." },
+
+  // --- Servílio (Servílio de Jesus) — 1938-1949 ---
+  { id: 304, date: "1915-12-15", title: "Nasce Servílio — O Bailarino", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Servílio de Jesus nasceu em São Félix, BA. Apelidado de 'O Bailarino' pela elegância de seu jogo, disputou 364 jogos e marcou 200 gols pelo Corinthians entre 1938 e 1949." },
+  { id: 305, date: "1984-04-10", title: "Servílio — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Servílio de Jesus, 'O Bailarino', que marcou 200 gols em 364 jogos pelo Corinthians, aos 68 anos." },
+
+  // --- Oreco (Valdemar Rodrigues Martins) — 1949-1964 ---
+  { id: 306, date: "1932-06-13", title: "Nasce Oreco — defensor incansável", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Valdemar Rodrigues Martins, o Oreco, nasceu em Santa Maria, RS. Zagueiro e lateral-esquerdo, disputou 409 jogos pelo Corinthians entre 1949 e 1964. Convocado 7 vezes pela Seleção Brasileira." },
+  { id: 307, date: "1985-04-03", title: "Oreco — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Valdemar Rodrigues Martins, o Oreco, que disputou 409 jogos pelo Corinthians, aos 52 anos, durante uma partida de veteranos." },
+
+  // --- Gilmar (Gylmar dos Santos Neves) — 1951-1961 ---
+  { id: 308, date: "1930-08-22", title: "Nasce Gilmar — o goleiro bicampeão do mundo", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Gylmar dos Santos Neves nasceu em Santos. Goleiro titular da Seleção Brasileira nas Copas de 1958 e 1962, iniciou sua carreira no Corinthians onde disputou 397 jogos de 1951 a 1961. Um dos maiores goleiros da história do futebol." },
+  { id: 309, date: "2013-08-25", title: "Gilmar — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Gylmar dos Santos Neves, goleiro bicampeão mundial pela Seleção Brasileira e ídolo do Corinthians, aos 83 anos." },
+
+  // --- Vaguinho (Wagno de Freitas) — 1971-1981 ---
+  { id: 310, date: "1950-02-11", title: "Nasce Vaguinho — herói do Paulista de 1977", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Wagno de Freitas, o Vaguinho, nasceu em Sete Lagoas, MG. Ponta-direita que disputou 551 jogos e marcou 110 gols pelo Corinthians entre 1971 e 1981. Peça-chave no título paulista de 1977 que encerrou 23 anos de jejum." },
+
+  // --- Tião (Sebastião Carlos Silva) — 1968-1977 ---
+  { id: 311, date: "1948-03-08", title: "Nasce Tião Corinthians — escudeiro de Rivellino", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Sebastião Carlos Silva, o Tião, nasceu em Santa Leopoldina, ES. Volante que formou dupla icônica com Rivellino no meio-campo corinthiano. Disputou 367 jogos pelo Timão entre 1968 e 1977." },
+
+  // --- Wilson Mano — 1986-1992, 1994 ---
+  { id: 312, date: "1964-05-23", title: "Nasce Wilson Mano — o coringa alvinegro", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Wilson Carlos Mano nasceu em Auriflama, SP. Jogador polivalente que atuou como volante, lateral, zagueiro e meia, disputou 405 jogos pelo Corinthians. Campeão paulista em 1988 e brasileiro em 1990." },
+
+  // --- Viola (Paulo Sérgio Rosa) — 1988-1995 ---
+  { id: 313, date: "1969-01-01", title: "Nasce Viola — o gol do título em 1988", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Paulo Sérgio Rosa, o Viola, nasceu em São Paulo. Atacante que marcou o gol decisivo do título paulista de 1988 contra o Guarani. Campeão do mundo pela Seleção Brasileira em 1994. Disputou 144 jogos e marcou 49 gols pelo Timão." },
+
+  // --- Ralf (Ralf de Souza Teles) — 2010-2015, 2018-2020 ---
+  { id: 314, date: "1984-06-09", title: "Nasce Ralf — o Pitbull do meio-campo", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Ralf de Souza Teles nasceu em São Paulo. Volante apelidado de 'Pitbull' por seus desarmes precisos, disputou 437 jogos pelo Corinthians. Peça fundamental nos títulos do Brasileiro 2011, Libertadores 2012 e Mundial 2012." },
+
+  // --- Fábio Santos (Fábio Santos Romeu) — 2011-2015, 2020-2023 ---
+  { id: 315, date: "1985-09-16", title: "Nasce Fábio Santos — lateral multicampeão", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Fábio Santos Romeu nasceu em São Paulo. Lateral-esquerdo que disputou 374 jogos pelo Corinthians em duas passagens. Campeão do Brasileiro 2011, Libertadores 2012, Mundial 2012 e Paulista 2013." },
+
+  // --- Chicão (Anderson Sebastião Cardoso) — 2008-2013 ---
+  { id: 316, date: "1981-06-03", title: "Nasce Chicão — zagueiro da reconstrução", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Anderson Sebastião Cardoso, o Chicão, nasceu em Mogi Guaçu, SP. Zagueiro que foi pilar da reconstrução corinthiana desde a Série B em 2008. Campeão do Brasileiro 2011, Libertadores 2012 e Mundial 2012." },
+
+  // --- Alessandro (Alessandro Mori Nunes) — 2008-2013 ---
+  { id: 317, date: "1979-01-10", title: "Nasce Alessandro — o Capitão América", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Alessandro Mori Nunes nasceu em Assis Chateaubriand, PR. Lateral-direito apelidado de 'Capitão América' pela raça e liderança. Capitão do Corinthians na conquista da Libertadores 2012 e Mundial 2012." },
+
+  // --- Danilo (Danilo Gabriel de Andrade) — 2010-2018 ---
+  { id: 318, date: "1979-06-11", title: "Nasce Danilo — Zidanilo, gênio da Libertadores", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Danilo Gabriel de Andrade nasceu em São Gotardo, MG. Meia elegante apelidado de 'Zidanilo', disputou 359 jogos pelo Corinthians. Marcou gols decisivos na Libertadores 2012 e foi fundamental no título brasileiro de 2011." },
+
+  // --- Jorge Henrique — 2009-2013 ---
+  { id: 319, date: "1982-04-23", title: "Nasce Jorge Henrique — o Robozinho da Fiel", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Jorge Henrique de Souza nasceu em Resende, RJ. Atacante versátil apelidado de 'Robozinho', foi titular na final da Libertadores 2012 e no Mundial contra o Chelsea. Disputou 216 jogos pelo Corinthians." },
+
+  // --- Liedson — 2003, 2011-2012 ---
+  { id: 320, date: "1977-12-17", title: "Nasce Liedson — do Timão ao Sporting", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Liedson da Silva Muniz nasceu em Cairu, BA. Atacante que brilhou no Paulista 2003 pelo Corinthians antes de se consagrar no Sporting de Portugal. Retornou ao Timão em 2011 e participou da campanha do Brasileiro daquele ano." },
+
+  // --- Alexandre Pato — 2013-2016 ---
+  { id: 321, date: "1989-09-02", title: "Nasce Alexandre Pato — o menino de ouro", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Alexandre Rodrigues da Silva, o Pato, nasceu em Pato Branco, PR. Atacante prodígio que brilhou no Milan, assinou com o Corinthians em 2013 por 15 milhões de euros. Campeão paulista em 2013 pelo Timão." },
+
+  // --- Dentinho (Bruno Ferreira Bonfim) — 2007-2011 ---
+  { id: 322, date: "1989-01-19", title: "Nasce Dentinho — revelação da base", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Bruno Ferreira Bonfim, o Dentinho, nasceu em São Paulo. Atacante revelado pela base do Corinthians, foi destaque na conquista da Série B 2008 ao lado de Ronaldo. Artilheiro do time na temporada." },
+
+  // --- Vágner Love — 2015-2016, 2019-2020 ---
+  { id: 323, date: "1984-06-11", title: "Nasce Vágner Love — o Artilheiro do Amor", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Vágner Silva de Souza nasceu no Rio de Janeiro. Atacante decisivo que foi artilheiro do Brasileiro 2015 pelo Corinthians. Marcou o gol do título paulista de 2019 contra o São Paulo. 29 gols em 121 jogos pelo Timão." },
+
+  // --- Danilo Avelar — 2018-2022 ---
+  { id: 324, date: "1989-06-09", title: "Nasce Danilo Avelar — polivalente defensor", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Danilo Fernando Avelar nasceu em Paranavaí, PR. Lateral-esquerdo e zagueiro versátil, marcou gols decisivos em clássicos contra Palmeiras e São Paulo. Campeão paulista em 2019 pelo Corinthians." },
+
+  // --- Ángel Romero — 2014-2019, 2023-2025 ---
+  { id: 325, date: "1992-07-04", title: "Nasce Ángel Romero — o paraguaio corintiano", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Ángel Rodrigo Romero Villamayor nasceu em Fernando de la Mora, Paraguai. Atacante que disputou 377 jogos pelo Corinthians em duas passagens. Campeão brasileiro em 2015 e 2017, além de três paulistas." },
+
+  // ===== ELENCO ATUAL 2026 =====
+
+  // --- Hugo Souza — 2024- ---
+  { id: 326, date: "1999-01-31", title: "Nasce Hugo Souza — o novo paredão", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Hugo de Souza Nogueira nasceu em Duque de Caxias, RJ. Goleiro titular do Corinthians desde 2024, chegou emprestado do Flamengo e rapidamente se consolidou como um dos melhores goleiros do Brasil." },
+
+  // --- Rodrigo Garro — 2024- ---
+  { id: 327, date: "1998-01-04", title: "Nasce Rodrigo Garro — o Mago argentino", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Rodrigo Garro nasceu em General Pico, Argentina. Meia ofensivo que chegou ao Corinthians em 2024 e foi eleito melhor jogador do Brasileirão com 10 gols e 10 assistências. Camisa 8 do Timão." },
+
+  // --- Matheus Pereira — 2026- ---
+  { id: 328, date: "1998-02-25", title: "Nasce Matheus Pereira — meia criativo", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Matheus Pereira da Silva nasceu em São Paulo. Meia central habilidoso, chegou ao Corinthians em 2026 emprestado pelo Fortaleza para reforçar o meio-campo alvinegro." },
+
+  // --- Jesse Lingard — 2026- ---
+  { id: 329, date: "1992-12-15", title: "Nasce Jesse Lingard — Lingardinho", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Jesse Ellis Lingard nasceu em Warrington, Inglaterra. Meia-atacante formado no Manchester United, campeão da Europa League e da FA Cup. Chegou ao Corinthians em 2026 após passagem pelo FC Seoul." },
+
+  // --- Breno Bidon — 2023- ---
+  { id: 330, date: "2005-02-20", title: "Nasce Breno Bidon — joia do futuro", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Breno de Souza Bidon nasceu em São Paulo. Volante revelado pela base do Corinthians, promovido ao profissional em 2023. Uma das maiores promessas da base corinthiana." },
+
+  // --- Gabriel Paulista — 2026- ---
+  { id: 331, date: "1990-11-26", title: "Nasce Gabriel Paulista — zagueiro corintiano de coração", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Gabriel Armando de Abreu nasceu em São Paulo. Zagueiro com passagens por Arsenal e Valencia, escolheu o Corinthians em 2026 por ser corintiano desde criança, em homenagem ao irmão falecido." },
+
+  // --- André Ramalho — 2024- ---
+  { id: 332, date: "1992-02-16", title: "Nasce André Ramalho — experiência europeia", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "André Ramalho Silva nasceu em Ibiúna, SP. Zagueiro com longa carreira na Europa (Red Bull Salzburg, PSV), chegou ao Corinthians em 2024 trazendo experiência e liderança para a defesa." },
+
+  // --- Matheuzinho — 2024- ---
+  { id: 333, date: "2000-09-08", title: "Nasce Matheuzinho — lateral campeão", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Matheus França Silva nasceu em Londrina, PR. Lateral-direito campeão da Libertadores pelo Flamengo, chegou ao Corinthians em 2024. Eleito melhor lateral-direito do Paulista 2025." },
+
+  // --- Matheus Bidu — 2023- ---
+  { id: 334, date: "1999-05-04", title: "Nasce Matheus Bidu — velocidade pela esquerda", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Matheus Lima Beltrão Oliveira, o Matheus Bidu, nasceu em São Paulo. Lateral-esquerdo veloz que chegou ao Corinthians em 2023. Campeão paulista em 2025." },
+
+  // --- Raniele — 2024- ---
+  { id: 335, date: "1996-12-31", title: "Nasce Raniele — volante aguerrido", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Raniele Almeida Melo nasceu em Baixa Grande, BA. Volante que chegou ao Corinthians em 2024 após se destacar no Cruzeiro. Campeão paulista em 2025." },
+
+  // --- Gustavo Henrique — 2024- ---
+  { id: 336, date: "1993-03-24", title: "Nasce Gustavo Henrique — zagueiro experiente", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Gustavo Henrique Vernes nasceu em São Paulo. Zagueiro de 1,94m formado no Santos, com passagens por Flamengo e Valladolid. Chegou ao Corinthians em 2024 como reforço para a defesa." },
+
+  // --- José Martínez — 2024- ---
+  { id: 337, date: "1994-08-07", title: "Nasce José Martínez — garra venezuelana", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "José Andrés Martínez Torres nasceu em Maracaibo, Venezuela. Volante internacional pela Venezuela, chegou ao Corinthians em 2024 vindo do Philadelphia Union da MLS." },
+
+  // --- Pedro Raul — 2024- ---
+  { id: 338, date: "1996-11-05", title: "Nasce Pedro Raul — centroavante de área", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Pedro Raul Garay da Silva nasceu em Porto Alegre, RS. Centroavante de 1,93m que chegou ao Corinthians em 2024. Campeão paulista em 2025 pelo Timão." },
+
+  // --- Gui Negão — base ---
+  { id: 339, date: "2007-02-06", title: "Nasce Gui Negão — promessa da base", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Guilherme William Silva Inácio, o Gui Negão, nasceu em 2007. Atacante revelado pela base do Corinthians, é uma das maiores promessas da nova geração do futebol brasileiro." },
+
+  // --- Cacá (Carlos de Menezes Júnior) — 2024-2025 ---
+  { id: 340, date: "1999-04-25", title: "Nasce Cacá — zagueiro artilheiro", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Carlos de Menezes Júnior, o Cacá, nasceu em Visconde do Rio Branco, MG. Zagueiro que se destacou no Corinthians em 2024 com gols importantes, incluindo contra o Fluminense." },
 ];

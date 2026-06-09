@@ -175,7 +175,6 @@ body {
 .header__logo {
   width: 56px;
   height: 56px;
-  filter: grayscale(100%) brightness(1.8);
 }
 .header__title {
   font-family: var(--font-heading);
