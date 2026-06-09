@@ -364,6 +364,10 @@
           <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
           ${L.reportError}
         </button>
+        <button class="event-action event-action--share" data-event-title="${event.title}" data-event-date="${event.date}">
+          <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+          Compartilhar
+        </button>
       </div>
       ${relatedHtml}
     `;
@@ -644,6 +648,102 @@
     });
   }
 
+  /* ---------- Donations ---------- */
+  function setupDonations() {
+    const cfg = CFG.donations;
+    if (!cfg || !cfg.enabled) {
+      const section = $("#donationSection");
+      if (section) section.style.display = "none";
+      return;
+    }
+
+    const title = $("#donationTitle");
+    const subtitle = $("#donationSubtitle");
+    const btn = $("#donateBtn");
+    const thanks = $("#donationThanks");
+    const modal = $("#donationModal");
+    const closeBtn = $("#closeDonationModal");
+    const methodsEl = $("#donationMethods");
+
+    if (title) title.textContent = cfg.title;
+    if (subtitle) subtitle.textContent = cfg.subtitle;
+    if (btn) btn.textContent = cfg.cta;
+    if (thanks) thanks.textContent = cfg.thanks;
+
+    if (methodsEl && cfg.methods) {
+      methodsEl.innerHTML = cfg.methods.map(m => {
+        const info = m.key ? `Chave: ${m.key}` : "Chave Pix será configurada em breve";
+        return `<div class="donation-modal__method">
+          <div class="donation-modal__method-label">${m.label}</div>
+          <div class="donation-modal__method-info">${info}</div>
+        </div>`;
+      }).join("");
+    }
+
+    if (btn && modal) {
+      btn.addEventListener("click", () => modal.classList.remove("hidden"));
+    }
+    if (closeBtn && modal) {
+      closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+    }
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) modal.classList.add("hidden");
+      });
+    }
+  }
+
+  /* ---------- Share ---------- */
+  function bindShareButtons() {
+    document.addEventListener("click", (e) => {
+      const shareBtn = e.target.closest(".event-action--share");
+      if (!shareBtn) return;
+      e.stopPropagation();
+      const title = shareBtn.dataset.eventTitle;
+      const date = shareBtn.dataset.eventDate;
+      const text = `${title} (${fmtDate(date)}) — ${CFG.name}`;
+      const url = window.location.href;
+
+      if (navigator.share) {
+        navigator.share({ title: CFG.name, text, url }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
+          shareBtn.textContent = "Copiado!";
+          setTimeout(() => { shareBtn.innerHTML = `<svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg> Compartilhar`; }, 2000);
+        });
+      }
+    });
+  }
+
+  /* ---------- PWA Install ---------- */
+  let deferredPrompt = null;
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const banner = $("#pwaInstall");
+    if (banner) banner.classList.remove("hidden");
+  });
+
+  function bindPWAInstall() {
+    const installBtn = $("#pwaInstallBtn");
+    const dismissBtn = $("#pwaInstallDismiss");
+    const banner = $("#pwaInstall");
+    if (installBtn) {
+      installBtn.addEventListener("click", () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(() => { deferredPrompt = null; });
+        }
+        if (banner) banner.classList.add("hidden");
+      });
+    }
+    if (dismissBtn) {
+      dismissBtn.addEventListener("click", () => {
+        if (banner) banner.classList.add("hidden");
+      });
+    }
+  }
+
   /* ---------- Init ---------- */
   async function init() {
     setupFromConfig();
@@ -662,6 +762,9 @@
     }
 
     injectFilterIcons();
+    bindShareButtons();
+    bindPWAInstall();
+    setupDonations();
     renderAll();
   }
 

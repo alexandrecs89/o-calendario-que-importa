@@ -86,6 +86,18 @@ const CLUB_CONFIG = {
     line2: "Dados históricos compilados com carinho. Ajude a completar adicionando eventos!",
   },
 
+  /* ---------- Donations ---------- */
+  donations: {
+    enabled: true,
+    title: "Apoie este projeto",
+    subtitle: "Este é um projeto de fãs sem fins lucrativos. Sua doação ajuda a manter e expandir a memória corinthiana.",
+    methods: [
+      { type: "pix", label: "Pix", key: "", qrCode: "" },
+    ],
+    cta: "Fazer uma doação",
+    thanks: "Obrigado pelo apoio, Fiel! ❤🖤",
+  },
+
   /* ---------- Storage key prefix (avoids collision across clubs) ---------- */
   storagePrefix: "corinthians",
 

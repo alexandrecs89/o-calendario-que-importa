@@ -9,6 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="favicon.ico" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon" href="img/logo.png" />
 </head>
 <body>
 
@@ -116,14 +121,49 @@
     </div>
   </div>
 
+  <!-- Donation Section -->
+  <section class="donation-section" id="donationSection">
+    <div class="section__inner">
+      <h2 class="section-title" id="donationTitle">Apoie este projeto</h2>
+      <p class="section-subtitle" id="donationSubtitle">Este é um projeto de fãs sem fins lucrativos. Sua doação ajuda a manter e expandir a memória corinthiana.</p>
+      <div class="donation__content">
+        <button class="btn btn--primary btn--donate" id="donateBtn">Fazer uma doação</button>
+        <p class="donation__note">100% voluntário. Nenhuma funcionalidade é bloqueada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Modal -->
+  <div class="modal-overlay hidden" id="donationModal">
+    <div class="modal modal--donation">
+      <button class="modal__close" id="closeDonationModal">&#10005;</button>
+      <h2 class="modal__title">Apoie o Calendário</h2>
+      <p class="donation-modal__text">Escolha como contribuir. Toda ajuda mantém o projeto vivo!</p>
+      <div class="donation-modal__methods" id="donationMethods"></div>
+      <p class="donation-modal__thanks" id="donationThanks"></p>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <p>Vai, Corinthians! — Feito com amor pela Fiel Torcida</p>
     <p class="footer__small">Dados históricos compilados com carinho. Ajude a completar adicionando eventos!</p>
   </footer>
 
+  <!-- Install PWA banner -->
+  <div class="pwa-install hidden" id="pwaInstall">
+    <p>Instale o app para acesso offline!</p>
+    <button class="btn btn--primary btn--sm" id="pwaInstallBtn">Instalar</button>
+    <button class="btn btn--ghost btn--sm" id="pwaInstallDismiss">&#10005;</button>
+  </div>
+
   <script src="js/config.js"></script>
   <script src="js/events.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
 </body>
 </html>

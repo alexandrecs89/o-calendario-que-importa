@@ -964,3 +964,83 @@ body {
     margin: 2px auto 0;
   }
 }
+
+/* ===== PWA Install Banner ===== */
+.pwa-install {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gray-900);
+  border: 1px solid var(--gray-700);
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 9999;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.pwa-install p { font-size: 0.9rem; color: var(--gray-200); white-space: nowrap; }
+.btn--sm { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+
+/* ===== Share Button ===== */
+.event-action--share {
+  background: var(--gray-800);
+  border: 1px solid var(--gray-600);
+}
+.event-action--share:hover {
+  background: var(--gray-700);
+  border-color: var(--gray-500);
+}
+
+/* ===== Donation Section ===== */
+.donation-section {
+  background: var(--gray-900);
+  border-top: 1px solid var(--gray-800);
+  padding: 3rem 0;
+  text-align: center;
+}
+.donation__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+.btn--donate {
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  background: var(--gray-700);
+  border: 1px solid var(--gray-500);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn--donate:hover { background: var(--gray-600); }
+.donation__note {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+/* Donation Modal */
+.modal--donation { max-width: 420px; text-align: center; }
+.donation-modal__text { color: var(--gray-300); margin-bottom: 1.5rem; font-size: 0.95rem; }
+.donation-modal__methods { display: flex; flex-direction: column; gap: 0.8rem; }
+.donation-modal__method {
+  background: var(--gray-800);
+  border: 1px solid var(--gray-600);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.donation-modal__method:hover { background: var(--gray-700); }
+.donation-modal__method-label { font-weight: 600; font-size: 1rem; color: var(--white); }
+.donation-modal__method-info { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.3rem; }
+.donation-modal__thanks {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--gray-400);
+}
