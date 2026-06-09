@@ -417,6 +417,8 @@ body {
 .calendar__day-event--classico { border-left-color: var(--gray-400); }
 .calendar__day-event--marco { border-left-color: var(--gray-300); }
 .calendar__day-event--idolo { border-left-color: var(--gray-500); }
+.calendar__day-event--jogador { border-left-color: var(--gray-400); }
+.calendar__day-event--ex_jogador { border-left-color: var(--gray-500); }
 .calendar__day-event--recorde { border-left-color: var(--gray-600); }
 .calendar__day-event--comunidade { border-left-color: var(--gray-700); }
 
@@ -481,8 +483,15 @@ body {
   margin-bottom: 0.3rem;
   line-height: 1.3;
 }
+.otd-card__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
 .otd-card__cat {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -491,7 +500,6 @@ body {
   border: 1px solid var(--gray-700);
   padding: 0.1rem 0.5rem;
   border-radius: 3px;
-  margin-bottom: 0.5rem;
 }
 .otd-card__desc {
   font-size: 0.95rem;
@@ -668,8 +676,15 @@ body {
   color: var(--white);
   margin: 0.15rem 0;
 }
+.tl-item__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
 .tl-item__cat {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -749,8 +764,15 @@ body {
   line-height: 1.2;
   margin-bottom: 0.5rem;
 }
+.event-detail__cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
 .event-detail__cat {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -759,7 +781,6 @@ body {
   border: 1px solid var(--gray-600);
   padding: 0.15rem 0.6rem;
   border-radius: 3px;
-  margin-bottom: 1rem;
 }
 .event-detail__desc {
   font-size: 1.05rem;

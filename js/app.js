@@ -12,7 +12,8 @@
 
   const CAT_LABELS = {
     titulo: "Título", classico: "Clássico", marco: "Marco",
-    idolo: "Ídolo", recorde: "Recorde", comunidade: "Comunidade",
+    idolo: "Ídolo", jogador: "Jogador", ex_jogador: "Ex-Jogador",
+    recorde: "Recorde", comunidade: "Comunidade",
   };
 
   /* SVG icons per category — filled/solid style with clear outlines */
@@ -22,10 +23,17 @@
     marco: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M5 2v20h2v-7c0 0 1.5-1 4.5-1s4 1.5 7 1.5c1 0 1.5-.2 1.5-.2V3.5S19 4.5 17 4.5c-3 0-4-1.5-7-1.5C7.5 3 7 3.5 7 3.5V2H5z"/></svg>`,
     idolo: `<img class="cat-icon cat-icon--img" src="img/socrates.png" alt="Ídolo"/>`,
     recorde: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M16 1a7 7 0 0 1 5.75 11H22l-4 4-4-4h2.27A5 5 0 1 0 11 7H9a7 7 0 0 1 7-7zM8 23a7 7 0 0 1-5.75-11H2l4-4 4 4H7.73A5 5 0 1 0 13 17h2a7 7 0 0 1-7 7z"/></svg>`,
+    jogador: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/></svg>`,
+    ex_jogador: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M16.5 3L12 5 7.5 3 2 6.5V11l3.5-1V22h13V10l3.5 1V6.5L16.5 3z"/></svg>`,
     comunidade: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><circle cx="9" cy="7" r="3.5"/><circle cx="17" cy="7" r="2.5"/><path d="M1 19v-1c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v1H1z"/><path d="M17 19v-1c0-1.5-.5-2.8-1.3-4 .7-.3 1.5-.5 2.3-.5h1c2.8 0 5 2.2 5 5v.5h-7z"/></svg>`,
   };
 
   function catIcon(cat) { return CAT_ICONS[cat] || ""; }
+
+  /* Helper: get all categories for an event (supports multi-category) */
+  function getEventCategories(event) {
+    return event.categories || [event.category];
+  }
 
   function pad(n) { return String(n).padStart(2, "0"); }
   function fmtDate(iso) {
@@ -114,7 +122,7 @@
 
   /* ---------- Helpers ---------- */
   function filtered() {
-    return allEvents().filter(e => activeFilter === "all" || e.category === activeFilter);
+    return allEvents().filter(e => activeFilter === "all" || getEventCategories(e).includes(activeFilter));
   }
 
   function eventsForMonthDay(m, d) {
@@ -225,7 +233,7 @@
             <div class="otd-card__year">${year}</div>
             <div class="otd-card__ago">há ${ago} ano${ago !== 1 ? "s" : ""}</div>
             <div class="otd-card__title">${e.title}</div>
-            <span class="otd-card__cat">${catIcon(e.category)}${CAT_LABELS[e.category] || e.category}</span>
+            <div class="otd-card__cats">${getEventCategories(e).map(cat => `<span class="otd-card__cat">${catIcon(cat)}${CAT_LABELS[cat] || cat}</span>`).join('')}</div>
             <div class="otd-card__desc">${e.description.slice(0, 140)}${e.description.length > 140 ? "…" : ""}</div>
             ${parabensHtml}
           </div>`;
@@ -297,7 +305,7 @@
       <div class="tl-item" data-id="${e.id}">
         <div class="tl-item__date">${fmtDate(e.date)}</div>
         <div class="tl-item__title">${e.title}</div>
-        <span class="tl-item__cat">${catIcon(e.category)}${CAT_LABELS[e.category] || e.category}</span>
+        <div class="tl-item__cats">${getEventCategories(e).map(cat => `<span class="tl-item__cat">${catIcon(cat)}${CAT_LABELS[cat] || cat}</span>`).join('')}</div>
       </div>
     `).join("");
 
@@ -359,7 +367,7 @@
       <div class="event-detail__icon">${catIcon(event.category)}</div>
       <div class="event-detail__date">${fmtDate(event.date)}</div>
       <div class="event-detail__title">${event.title}</div>
-      <span class="event-detail__cat">${catIcon(event.category)}${CAT_LABELS[event.category] || event.category}</span>
+      <div class="event-detail__cats">${getEventCategories(event).map(cat => `<span class="event-detail__cat">${catIcon(cat)}${CAT_LABELS[cat] || cat}</span>`).join('')}</div>
       <div class="event-detail__desc">${event.description}</div>
       <div class="event-detail__actions">
         ${videoHtml}
@@ -466,7 +474,7 @@
       searchResults.innerHTML = results.map(e => `
         <div class="search-results__item" data-id="${e.id}">
           <div class="search-results__item-title">${e.title}</div>
-          <div class="search-results__item-meta">${fmtDate(e.date)} · ${CAT_LABELS[e.category] || e.category}</div>
+          <div class="search-results__item-meta">${fmtDate(e.date)} · ${getEventCategories(e).map(cat => CAT_LABELS[cat] || cat).join(' · ')}</div>
         </div>`).join("");
     }
     searchResults.classList.remove("hidden");
