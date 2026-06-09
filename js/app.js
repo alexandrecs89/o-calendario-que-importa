@@ -60,6 +60,38 @@
     return data[eventId];
   }
 
+  /* ---------- Error reports & suggestions (localStorage) ---------- */
+  const ERRORS_KEY = "corinthians_error_reports";
+  const VIDEO_SUGGESTIONS_KEY = "corinthians_video_suggestions";
+  const NEWS_SUGGESTIONS_KEY = "corinthians_news_suggestions";
+
+  function loadStore(key) {
+    try { return JSON.parse(localStorage.getItem(key)) || {}; }
+    catch { return {}; }
+  }
+  function saveStore(key, data) { localStorage.setItem(key, JSON.stringify(data)); }
+
+  function reportError(eventId, message) {
+    const data = loadStore(ERRORS_KEY);
+    if (!data[eventId]) data[eventId] = [];
+    data[eventId].push({ message, date: new Date().toISOString() });
+    saveStore(ERRORS_KEY, data);
+  }
+
+  function suggestVideo(eventId, url) {
+    const data = loadStore(VIDEO_SUGGESTIONS_KEY);
+    if (!data[eventId]) data[eventId] = [];
+    data[eventId].push({ url, date: new Date().toISOString() });
+    saveStore(VIDEO_SUGGESTIONS_KEY, data);
+  }
+
+  function suggestNews(eventId, url) {
+    const data = loadStore(NEWS_SUGGESTIONS_KEY);
+    if (!data[eventId]) data[eventId] = [];
+    data[eventId].push({ url, date: new Date().toISOString() });
+    saveStore(NEWS_SUGGESTIONS_KEY, data);
+  }
+
   /* ---------- State ---------- */
   let curMonth = new Date().getMonth();
   let curYear = new Date().getFullYear();
@@ -303,23 +335,97 @@
         </div>`;
     }
 
+    const videoHtml = event.videoUrl
+      ? `<a href="${event.videoUrl}" target="_blank" rel="noopener" class="event-action event-action--video">
+           <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+           Assistir vídeo
+         </a>`
+      : `<button class="event-action event-action--suggest-video" data-event-id="${event.id}">
+           <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+           Sugerir vídeo
+         </button>`;
+
+    const newsHtml = event.newsUrl
+      ? `<a href="${event.newsUrl}" target="_blank" rel="noopener" class="event-action event-action--news">
+           <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h7v2H7zm0 4h10v2H7zm0 4h10v2H7z"/></svg>
+           Ver reportagem
+         </a>`
+      : `<button class="event-action event-action--suggest-news" data-event-id="${event.id}">
+           <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h7v2H7zm0 4h10v2H7zm0 4h10v2H7z"/></svg>
+           Sugerir reportagem
+         </button>`;
+
     eventModalContent.innerHTML = `
       <div class="event-detail__icon">${catIcon(event.category)}</div>
       <div class="event-detail__date">${fmtDate(event.date)}</div>
       <div class="event-detail__title">${event.title}</div>
       <span class="event-detail__cat">${catIcon(event.category)}${CAT_LABELS[event.category] || event.category}</span>
       <div class="event-detail__desc">${event.description}</div>
+      <div class="event-detail__actions">
+        ${videoHtml}
+        ${newsHtml}
+        <button class="event-action event-action--error" data-event-id="${event.id}">
+          <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+          Reportar erro
+        </button>
+      </div>
       ${relatedHtml}
     `;
 
     eventModal.classList.remove("hidden");
 
+    /* Bind related items */
     eventModalContent.querySelectorAll(".event-detail__related-item").forEach(item => {
       item.addEventListener("click", () => {
         const ev = allEvents().find(e => e.id == item.dataset.id);
         if (ev) openEventModal(ev);
       });
     });
+
+    /* Bind report error */
+    const errBtn = eventModalContent.querySelector(".event-action--error");
+    if (errBtn) {
+      errBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const msg = prompt("Descreva o erro encontrado neste evento:");
+        if (msg && msg.trim()) {
+          reportError(errBtn.dataset.eventId, msg.trim());
+          errBtn.textContent = "Erro reportado!";
+          errBtn.disabled = true;
+          errBtn.classList.add("event-action--submitted");
+        }
+      });
+    }
+
+    /* Bind suggest video */
+    const vidBtn = eventModalContent.querySelector(".event-action--suggest-video");
+    if (vidBtn) {
+      vidBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const url = prompt("Cole o link do vídeo (YouTube, etc.):");
+        if (url && url.trim()) {
+          suggestVideo(vidBtn.dataset.eventId, url.trim());
+          vidBtn.textContent = "Vídeo sugerido!";
+          vidBtn.disabled = true;
+          vidBtn.classList.add("event-action--submitted");
+        }
+      });
+    }
+
+    /* Bind suggest news */
+    const newsBtn = eventModalContent.querySelector(".event-action--suggest-news");
+    if (newsBtn) {
+      newsBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const url = prompt("Cole o link da reportagem:");
+        if (url && url.trim()) {
+          suggestNews(newsBtn.dataset.eventId, url.trim());
+          newsBtn.textContent = "Reportagem sugerida!";
+          newsBtn.disabled = true;
+          newsBtn.classList.add("event-action--submitted");
+        }
+      });
+    }
   }
 
   function openDayModal(events, day) {

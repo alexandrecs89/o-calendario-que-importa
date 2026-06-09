@@ -40,7 +40,7 @@ const CORINTHIANS_EVENTS = [
   { id: 31, date: "2019-04-21", title: "Campeonato Paulista 2019", category: "titulo", description: "Tricampeonato paulista consecutivo — domínio total do Corinthians no estadual." },
 
   // ===== TÍTULOS BRASILEIROS =====
-  { id: 32, date: "1990-12-16", title: "Campeonato Brasileiro 1990", category: "titulo", description: "Primeiro título brasileiro oficial do Corinthians! Campanha emocionante sob o comando de Neto, Tupãzinho e cia." },
+  { id: 32, date: "1990-12-16", title: "Campeonato Brasileiro 1990", category: "titulo", description: "Primeiro título brasileiro oficial do Corinthians! Campanha emocionante sob o comando de Neto, Tupãzinho e cia.", videoUrl: "https://www.youtube.com/watch?v=3nO-s9EhFJ0" },
   { id: 33, date: "1998-12-13", title: "Campeonato Brasileiro 1998", category: "titulo", description: "Bicampeonato brasileiro! Time de Dida, Rincón, Edilson e Marcelinho Carioca conquista o título em campanha brilhante." },
   { id: 34, date: "1999-12-22", title: "Campeonato Brasileiro 1999", category: "titulo", description: "Tricampeonato consecutivo! Time comandado por Oswaldo de Oliveira faz história." },
   { id: 35, date: "2005-12-04", title: "Campeonato Brasileiro 2005", category: "titulo", description: "Título brasileiro com Tevez, Mascherano e cia. Corinthians de grandes estrelas internacionais." },
@@ -54,11 +54,11 @@ const CORINTHIANS_EVENTS = [
   { id: 41, date: "2009-07-01", title: "Copa do Brasil 2009", category: "titulo", description: "Terceira Copa do Brasil! Ronaldo marca na final e o Corinthians levanta a taça." },
 
   // ===== LIBERTADORES =====
-  { id: 42, date: "2012-07-04", title: "Copa Libertadores da América 2012", category: "titulo", description: "O MAIOR TÍTULO DA HISTÓRIA! Corinthians conquista a Libertadores pela primeira vez, vencendo o Boca Juniors na final com gols de Emerson Sheik. Cássio faz defesas históricas. Vai, Corinthians!" },
+  { id: 42, date: "2012-07-04", title: "Copa Libertadores da América 2012", category: "titulo", description: "O MAIOR TÍTULO DA HISTÓRIA! Corinthians conquista a Libertadores pela primeira vez, vencendo o Boca Juniors na final com gols de Emerson Sheik. Cássio faz defesas históricas. Vai, Corinthians!", videoUrl: "https://www.youtube.com/watch?v=GyKXFKJZeno", newsUrl: "https://ge.globo.com/futebol/times/corinthians/noticia/2012/07/corinthians-e-campeao-da-libertadores.ghtml" },
 
   // ===== MUNDIAIS =====
-  { id: 43, date: "2000-01-14", title: "Mundial de Clubes FIFA 2000", category: "titulo", description: "Corinthians é o primeiro campeão mundial de clubes da FIFA! Venceu o Vasco na final nos pênaltis, com Dida pegando a cobrança decisiva. Rincón, Marcelinho e Edilson brilharam." },
-  { id: 44, date: "2012-12-16", title: "Mundial de Clubes FIFA 2012", category: "titulo", description: "BICAMPEÃO MUNDIAL! Corinthians vence o Chelsea na final com gol de Guerrero. Time inesquecível de Cássio, Chicão, Ralf, Paulinho, Emerson Sheik e cia." },
+  { id: 43, date: "2000-01-14", title: "Mundial de Clubes FIFA 2000", category: "titulo", description: "Corinthians é o primeiro campeão mundial de clubes da FIFA! Venceu o Vasco na final nos pênaltis, com Dida pegando a cobrança decisiva. Rincón, Marcelinho e Edilson brilharam.", videoUrl: "https://www.youtube.com/watch?v=z8WPGNZfKcY" },
+  { id: 44, date: "2012-12-16", title: "Mundial de Clubes FIFA 2012", category: "titulo", description: "BICAMPEÃO MUNDIAL! Corinthians vence o Chelsea na final com gol de Guerrero. Time inesquecível de Cássio, Chicão, Ralf, Paulinho, Emerson Sheik e cia.", videoUrl: "https://www.youtube.com/watch?v=fWYbMqFJVdI", newsUrl: "https://ge.globo.com/futebol/times/corinthians/noticia/2012/12/corinthians-vence-chelsea-e-e-bicampeao-mundial.ghtml" },
 
   // ===== RECOPA =====
   { id: 45, date: "2013-07-17", title: "Recopa Sul-Americana 2013", category: "titulo", description: "Corinthians vence o São Paulo na final da Recopa Sul-Americana." },
@@ -72,7 +72,7 @@ const CORINTHIANS_EVENTS = [
   { id: 55, date: "1999-12-19", title: "Corinthians 3 x 0 Atlético-MG — Decisão do Brasileiro 1999", category: "classico", description: "Vitória categórica que garantiu o título brasileiro de 1999." },
   { id: 56, date: "2000-01-14", title: "Corinthians x Vasco — Final do Mundial 2000", category: "classico", description: "O Corinthians vence o Vasco nos pênaltis no Maracanã e se torna o primeiro campeão mundial de clubes da FIFA. Dida pega o pênalti decisivo." },
   { id: 57, date: "2009-06-24", title: "Corinthians 2 x 1 Internacional — Final Copa do Brasil", category: "classico", description: "Ronaldo marca o gol decisivo na final da Copa do Brasil 2009 em Porto Alegre." },
-  { id: 58, date: "2012-06-27", title: "Corinthians 2 x 0 Boca Juniors — Final Libertadores (ida)", category: "classico", description: "Emerson Sheik marca os dois gols na vitória sobre o Boca Juniors na Bombonera." },
+  { id: 58, date: "2012-06-27", title: "Corinthians 2 x 0 Boca Juniors — Final Libertadores (ida)", category: "classico", description: "Emerson Sheik marca os dois gols na vitória sobre o Boca Juniors na Bombonera.", videoUrl: "https://www.youtube.com/watch?v=9qF3UlBNmsQ" },
   { id: 59, date: "2012-07-04", title: "Corinthians 2 x 0 Boca Juniors — Final Libertadores (volta)", category: "classico", description: "No Pacaembu, Emerson Sheik marca novamente e o Corinthians conquista a primeira Libertadores. Cássio faz defesas milagrosas." },
   { id: 60, date: "2012-12-16", title: "Corinthians 1 x 0 Chelsea — Final Mundial de Clubes", category: "classico", description: "Guerrero marca de cabeça e o Corinthians vence o Chelsea, campeão da Champions League, para se sagrar bicampeão mundial!" },
   { id: 61, date: "2020-02-22", title: "Corinthians 2 x 1 Palmeiras — Derby na Arena", category: "classico", description: "Vitória emocionante no Derby com gol nos acréscimos." },
@@ -81,7 +81,7 @@ const CORINTHIANS_EVENTS = [
   // ===== MARCOS HISTÓRICOS =====
   { id: 70, date: "1910-09-01", title: "Fundação do Corinthians", category: "marco", description: "O Sport Club Corinthians Paulista foi fundado no Bom Retiro por operários e trabalhadores." },
   { id: 71, date: "1933-01-01", title: "Corinthians se profissionaliza", category: "marco", description: "O Corinthians adere ao futebol profissional, um dos primeiros clubes do Brasil a dar o passo." },
-  { id: 72, date: "1982-03-01", title: "Início da Democracia Corinthiana", category: "marco", description: "Movimento político-social dentro do clube onde jogadores, funcionários e dirigentes tinham poder de voto igualitário. Liderado por Sócrates, Wladimir e Casagrande, foi um marco na história do futebol brasileiro e da luta pela democracia no país." },
+  { id: 72, date: "1982-03-01", title: "Início da Democracia Corinthiana", category: "marco", description: "Movimento político-social dentro do clube onde jogadores, funcionários e dirigentes tinham poder de voto igualitário. Liderado por Sócrates, Wladimir e Casagrande, foi um marco na história do futebol brasileiro e da luta pela democracia no país.", videoUrl: "https://www.youtube.com/watch?v=Pd3Y5dGAHQo" },
   { id: 73, date: "2008-12-17", title: "Retorno à Série A", category: "marco", description: "Corinthians conquista o acesso à Série A do Brasileirão em 2008, encerrando um dos momentos mais difíceis da história do clube." },
   { id: 74, date: "2014-05-18", title: "Inauguração da Arena Corinthians", category: "marco", description: "A Arena Corinthians (Itaquerão) é inaugurada oficialmente, servindo também como sede da Copa do Mundo de 2014. Um sonho antigo realizado pela Fiel Torcida." },
   { id: 75, date: "2014-06-12", title: "Copa do Mundo 2014 — Jogo de Abertura na Arena Corinthians", category: "marco", description: "A Arena Corinthians sedia o jogo de abertura da Copa do Mundo FIFA 2014: Brasil 3 x 1 Croácia." },
