@@ -116,4 +116,135 @@ const CORINTHIANS_EVENTS = [
   { id: 116, date: "2019-10-01", title: "Cássio: goleiro com mais jogos pelo Corinthians", category: "recorde", description: "Cássio ultrapassa marcas históricas e se torna o goleiro com mais partidas pelo Corinthians." },
   { id: 117, date: "2023-04-01", title: "Wladimir: 806 jogos — recorde absoluto", category: "recorde", description: "O lateral Wladimir detém o recorde de mais jogos pelo Corinthians com 806 partidas." },
   { id: 118, date: "1990-12-16", title: "Neto: artilheiro decisivo no título de 1990", category: "recorde", description: "Neto termina o Brasileirão de 1990 como artilheiro do time, com gols decisivos na campanha do título." },
+
+  // ===== ANIVERSÁRIOS DE JOGADORES =====
+  // Cada evento de aniversário tem type:"aniversario" e playerStatus:"vivo" ou "falecido"
+  // Eventos de falecimento têm type:"falecimento"
+
+  // --- Neco (Manuel Nunes) — 1913-1930 ---
+  { id: 200, date: "1895-03-07", title: "Nasce Neco — primeiro grande ídolo do Corinthians", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Manuel Nunes, o Neco, nasceu em São Paulo. Foi o primeiro grande ídolo corinthiano, jogando de 1913 a 1930 com 297 jogos e 242 gols. Conquistou 8 Campeonatos Paulistas." },
+  { id: 201, date: "1977-05-31", title: "Neco — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Manuel Nunes, o Neco, primeiro grande ídolo da história do Corinthians, aos 82 anos." },
+
+  // --- Teleco (Uriel Fernandes) — 1934-1944 ---
+  { id: 202, date: "1913-11-12", title: "Nasce Teleco — o artilheiro lendário", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Uriel Fernandes, o Teleco, nasceu em Curitiba. Jogou pelo Corinthians de 1934 a 1944 com média de mais de 1 gol por jogo (257 gols em 250 jogos). Terceiro maior artilheiro da história do clube." },
+  { id: 203, date: "2000-07-22", title: "Teleco — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Uriel Fernandes, o Teleco, lendário artilheiro do Corinthians, aos 86 anos." },
+
+  // --- Cláudio (Cláudio Christóvam de Pinho) — 1945-1957 ---
+  { id: 204, date: "1922-07-18", title: "Nasce Cláudio — maior artilheiro da história do Corinthians", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Cláudio Christóvam de Pinho nasceu em Santos. Com 311 gols, é o maior goleador de todos os tempos do Corinthians. Apelidado de 'O Gerente', formou trio devastador com Baltazar e Luizinho." },
+  { id: 205, date: "2000-05-01", title: "Cláudio — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Cláudio Christóvam de Pinho, o maior artilheiro da história do Corinthians (311 gols), aos 77 anos." },
+
+  // --- Baltazar (Oswaldo Silva) — 1945-1957 ---
+  { id: 206, date: "1926-01-14", title: "Nasce Baltazar — Cabecinha de Ouro", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Oswaldo Silva, o Baltazar, nasceu em Santos. Segundo maior artilheiro da história do Corinthians com 269 gols, era conhecido como 'Cabecinha de Ouro' por suas jogadas aéreas." },
+  { id: 207, date: "1997-03-25", title: "Baltazar — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Oswaldo Silva, o Baltazar, 'Cabecinha de Ouro', segundo maior artilheiro da história do Corinthians, aos 71 anos." },
+
+  // --- Luizinho (Luis Trochillo) — 1948-1962 ---
+  { id: 208, date: "1930-03-07", title: "Nasce Luizinho — O Pequeno Polegar", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Luis Trochillo, o Luizinho, nasceu em São Paulo. Apelidado de 'Pequeno Polegar', é o terceiro jogador com mais jogos na história do Corinthians (606 partidas). Formou trio lendário com Cláudio e Baltazar." },
+  { id: 209, date: "1998-01-17", title: "Luizinho — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Luis Trochillo, o Luizinho, 'Pequeno Polegar', terceiro jogador com mais jogos na história do Corinthians, aos 67 anos." },
+
+  // --- Rivellino (Roberto Rivellino) — 1965-1974 ---
+  { id: 210, date: "1946-01-01", title: "Nasce Rivellino — Patada Atômica", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Roberto Rivellino nasceu em São Paulo. Um dos maiores jogadores da história do futebol brasileiro, foi camisa 10 do Corinthians de 1965 a 1974 e campeão mundial com a Seleção em 1970. Sua canhota ficou eternizada como 'Patada Atômica'." },
+
+  // --- Basílio (João Roberto Basílio) — 1975-1981 ---
+  { id: 211, date: "1949-02-04", title: "Nasce Basílio — Pé de Anjo", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "João Roberto Basílio nasceu em São Paulo. Marcou o gol que tirou o Corinthians da 'fila' de 23 anos sem título, na final do Paulista de 1977 contra a Ponte Preta. Ficou conhecido como 'Pé de Anjo'." },
+
+  // --- Zé Maria (José Maria Rodrigues Alves) — 1970-1983 ---
+  { id: 212, date: "1949-05-18", title: "Nasce Zé Maria — Super Zé", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "José Maria Rodrigues Alves, o Zé Maria, nasceu em Botucatu. Considerado o maior lateral-direito da história do Corinthians, é o quinto jogador com mais jogos pelo clube. Conquistou 4 Campeonatos Paulistas." },
+
+  // --- Sócrates (Sócrates Brasileiro Sampaio de Souza Vieira de Oliveira) — 1978-1984 ---
+  { id: 213, date: "1954-02-19", title: "Nasce Sócrates — O Doutor", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Sócrates Brasileiro nasceu em Belém do Pará. Médico e meio-campista genial, é unanimidade no time de todos os tempos do Corinthians. Líder da Democracia Corinthiana e do movimento Diretas Já. Jogou de 1978 a 1984 com 297 jogos e 172 gols." },
+  { id: 246, date: "2011-12-04", title: "Sócrates — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Sócrates Brasileiro, o Doutor, unanimidade no time de todos os tempos do Corinthians, aos 57 anos. Líder da Democracia Corinthiana e ícone da luta pela democracia no Brasil." },
+
+  // --- Wladimir (Wladimir Rodrigues dos Santos) — 1972-1985 ---
+  { id: 214, date: "1954-08-29", title: "Nasce Wladimir — recordista de jogos do Corinthians", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Wladimir Rodrigues dos Santos nasceu em São Paulo. O lateral-esquerdo detém o recorde absoluto de jogos pelo Corinthians com 806 partidas. Pilar da Democracia Corinthiana ao lado de Sócrates e Casagrande." },
+
+  // --- Biro-Biro (Antônio José da Silva Filho) — 1978-1988 ---
+  { id: 215, date: "1959-05-18", title: "Nasce Biro-Biro — coração do meio-campo", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Antônio José da Silva Filho, o Biro-Biro, nasceu em Olinda. Volante raçudo, fez 590 jogos pelo Corinthians (6º maior) e é o volante que mais marcou pelo clube (75 gols). Participou da Democracia Corinthiana e foi campeão paulista em 1979, 1982, 1983 e 1988." },
+
+  // --- Casagrande (Walter Casagrande Júnior) — 1980-1986, 1994-1995 ---
+  { id: 216, date: "1963-04-15", title: "Nasce Casagrande — artilheiro da Democracia Corinthiana", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Walter Casagrande Júnior nasceu em São Paulo. Centroavante de 1,91m, foi revelado pelo Corinthians e formou dupla letal com Sócrates na Democracia Corinthiana. Campeão paulista em 1982 e 1983. Depois jogou no Porto, Ascoli e Torino." },
+
+  // --- Neto (José Ferreira Neto) — 1989-1993, 1996-1997 ---
+  { id: 217, date: "1966-09-09", title: "Nasce Neto — herói do 1º Brasileiro", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "José Ferreira Neto, o Craque Neto, nasceu em Santo Antônio de Posse. Principal jogador do Corinthians na conquista do primeiro título brasileiro em 1990, foi artilheiro e ídolo absoluto. Jogou 199 partidas e marcou 103 gols pelo clube." },
+
+  // --- Freddy Rincón — 1997-2000 ---
+  { id: 218, date: "1966-08-14", title: "Nasce Freddy Rincón — o maestro colombiano", category: "idolo", type: "aniversario", playerStatus: "falecido", description: "Freddy Eusébio Rincón Valencia nasceu em Buenaventura, Colômbia. Meio-campista genial, foi peça fundamental nos títulos brasileiros de 1998 e 1999 e no Mundial de Clubes 2000. Um dos maiores estrangeiros da história do Corinthians." },
+  { id: 219, date: "2022-04-13", title: "Freddy Rincón — In Memoriam", category: "idolo", type: "falecimento", description: "Falecimento de Freddy Rincón, o maestro colombiano do Corinthians, aos 55 anos, vítima de acidente automobilístico em Cáli." },
+
+  // --- Ronaldo Giovanelli — 1987-1997 ---
+  { id: 220, date: "1967-11-20", title: "Nasce Ronaldo Giovanelli — o goleiro raçudo", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Ronaldo Soares Giovanelli nasceu em São Paulo. Goleiro de personalidade forte, atuou por 10 anos consecutivos no Corinthians (1987-1997). É o segundo goleiro com mais jogos pelo clube e o quarto jogador geral." },
+
+  // --- Edilson (Edílson da Silva Ferreira) — 1998-2001 ---
+  { id: 221, date: "1970-09-17", title: "Nasce Edilson — Capetinha", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Edílson da Silva Ferreira, o Capetinha, nasceu em Salvador. Atacante habilidoso e irreverente, foi peça-chave nos títulos do Corinthians em 1998, 1999 e no Mundial 2000. Também foi campeão mundial com a Seleção em 2002." },
+
+  // --- Marcelinho Carioca (Marcelo Pereira Surcin) — 1994-2001, 2006 ---
+  { id: 222, date: "1971-01-01", title: "Nasce Marcelinho Carioca — Pé de Anjo", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Marcelo Pereira Surcin, o Marcelinho Carioca, nasceu no Rio de Janeiro. Maior cobrador de faltas da história do futebol (78 gols), é ídolo absoluto do Corinthians com mais de 200 gols pelo clube. Decisivo nos títulos de 1995, 1997, 1998, 1999 e 2001." },
+
+  // --- Roberto Carlos — 2010-2011 ---
+  { id: 223, date: "1973-04-10", title: "Nasce Roberto Carlos — o lateral mais ofensivo da história", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Roberto Carlos da Silva Rocha nasceu em Garça, SP. Considerado o maior lateral-esquerdo da história, jogou pelo Corinthians em 2010-2011 após longa carreira no Real Madrid. Campeão mundial com a Seleção em 2002." },
+
+  // --- Dida (Nelson de Jesus da Silva) — 1994-1999 ---
+  { id: 224, date: "1973-10-07", title: "Nasce Dida — o Paredão", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Nelson de Jesus da Silva, o Dida, nasceu em Irará, Bahia. Goleiro lendário, foi decisivo no Mundial de Clubes 2000 ao defender o pênalti na final contra o Vasco. Campeão brasileiro em 1998 e 1999. Também foi campeão mundial com a Seleção em 2002." },
+
+  // --- Vampeta (Marcos André Batista Santos) — 1998-2000, 2002-2003, 2007 ---
+  { id: 225, date: "1974-03-13", title: "Nasce Vampeta — o volante campeão", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Marcos André Batista Santos, o Vampeta, nasceu em Nazaré, Bahia. Volante carismático, foi peça fundamental nos títulos brasileiros de 1998 e 1999, no Paulista de 1999 e no Mundial 2000. Também foi campeão mundial com a Seleção em 2002." },
+
+  // --- Luizão (Luiz Carlos Bombonato Goulart) — 1999-2002 ---
+  { id: 226, date: "1975-11-14", title: "Nasce Luizão — o matador", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Luiz Carlos Bombonato Goulart, o Luizão, nasceu em Rubinéia, SP. Artilheiro devastador, foi decisivo no Brasileiro de 1999 e no Mundial 2000. Artilheiro da Libertadores de 2000 com 15 gols e marcou 4 gols em sua estreia no Brasileirão contra o Gama." },
+
+  // --- Ricardinho (Ricardo Luis Pozzi Rodrigues) — 1998-2002, 2006 ---
+  { id: 227, date: "1976-05-23", title: "Nasce Ricardinho — o meia campeão do mundo", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Ricardo Luis Pozzi Rodrigues, o Ricardinho, nasceu em São Paulo. Meio-campista habilidoso, foi destaque nos títulos brasileiros de 1998, 1999 e no Mundial 2000 do Corinthians. Também foi campeão mundial com a Seleção em 2002." },
+
+  // --- Ronaldo (Ronaldo Luís Nazário de Lima) — 2009-2011 ---
+  { id: 228, date: "1976-09-18", title: "Nasce Ronaldo — o Fenômeno", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Ronaldo Luís Nazário de Lima nasceu em Itaguaí, RJ. O Fenômeno, três vezes melhor do mundo pela FIFA, jogou no Corinthians de 2009 a 2011. Marcou na final da Copa do Brasil 2009 e foi decisivo no título paulista de 2009." },
+
+  // --- Emerson Sheik (Marcio Passos de Albuquerque) — 2011-2015, 2015-2016 ---
+  { id: 229, date: "1978-09-06", title: "Nasce Emerson Sheik — herói da Libertadores", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Márcio Passos de Albuquerque, o Emerson Sheik, nasceu em Nova Iguaçu, RJ. Artilheiro e herói das finais da Libertadores 2012, marcando os dois gols na vitória sobre o Boca Juniors na Bombonera. Ídolo incontestável da Fiel." },
+
+  // --- Adriano (Adriano Leite Ribeiro) — 2011-2012 ---
+  { id: 230, date: "1982-02-17", title: "Nasce Adriano — o Imperador", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Adriano Leite Ribeiro, o Imperador, nasceu no Rio de Janeiro. Considerado um dos maiores atacantes de sua geração, jogou no Corinthians em 2011-2012 após brilhar na Inter de Milão." },
+
+  // --- Jadson (Jadson Rodrigues da Silva) — 2014-2015, 2017-2020 ---
+  { id: 231, date: "1983-10-05", title: "Nasce Jadson — o camisa 10 do hepta", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Jadson Rodrigues da Silva nasceu em Londrina, PR. Meia habilidoso, foi destaque nos títulos brasileiros de 2015 e 2017 pelo Corinthians. Líder de assistências do Brasileirão 2017 e eleito melhor meia da competição." },
+
+  // --- Javier Mascherano — 2005-2006 ---
+  { id: 232, date: "1984-06-08", title: "Nasce Mascherano — o futuro capitão da Argentina", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Javier Alejandro Mascherano nasceu em San Lorenzo, Argentina. Volante de classe mundial, jogou no Corinthians em 2005-2006 antes de brilhar no Liverpool e Barcelona. Capitão da Seleção Argentina por muitos anos." },
+
+  // --- Paolo Guerrero — 2012-2015 ---
+  { id: 233, date: "1984-01-01", title: "Nasce Paolo Guerrero — o herói do bi mundial", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "José Paolo Guerrero González nasceu em Lima, Peru. O 'Depredador' marcou o gol da vitória contra o Chelsea na final do Mundial de Clubes 2012, sagrando o Corinthians bicampeão mundial. Ídolo absoluto." },
+
+  // --- Carlos Tevez — 2005-2006 ---
+  { id: 234, date: "1984-02-05", title: "Nasce Carlos Tevez — o Apache", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Carlos Alberto Tevez nasceu em Buenos Aires, Argentina. Atacante explosivo, foi artilheiro do Brasileirão 2005 com 20 gols e peça fundamental no título brasileiro do Corinthians. Ganhou o prêmio de Bola de Ouro do futebol brasileiro." },
+
+  // --- Jô (João Alves de Assis Silva) — 2003-2005, 2017-2021 ---
+  { id: 235, date: "1987-03-20", title: "Nasce Jô — o Rei dos Clássicos", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "João Alves de Assis Silva, o Jô, nasceu em São Paulo. Revelado pelo Corinthians aos 16 anos, retornou em 2017 e ficou conhecido como 'Rei dos Clássicos' por marcar gols decisivos contra todos os rivais. Herói do título brasileiro de 2017." },
+
+  // --- Cássio (Cássio Roberto Ramos) — 2012-2024 ---
+  { id: 236, date: "1987-06-06", title: "Nasce Cássio — o Gigante", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Cássio Roberto Ramos nasceu em Veranópolis, RS. O 'Gigante' é o goleiro mais vitorioso da história do Corinthians, com defesas lendárias na Libertadores 2012. Jogou de 2012 a 2024, sendo ídolo incontestável da Fiel Torcida." },
+
+  // --- Gil (Carlos Gilberto Nascimento Silva) — 2013-2016, 2019-2023 ---
+  { id: 237, date: "1987-06-12", title: "Nasce Gil — a muralha alvinegra", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Carlos Gilberto Nascimento Silva, o Gil, nasceu em Campos dos Goytacazes, RJ. Zagueiro sólido e confiável, jogou pelo Corinthians de 2013 a 2016 e de 2019 a 2023, sendo peça fundamental na defesa em diversas campanhas vitoriosas." },
+
+  // --- Renato Augusto (Renato Soares de Oliveira Augusto) — 2013-2015, 2021-2023 ---
+  { id: 238, date: "1988-02-08", title: "Nasce Renato Augusto — classe e liderança", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Renato Soares de Oliveira Augusto nasceu no Rio de Janeiro. Meia elegante, foi Bola de Ouro do Brasileirão 2015 e liderou o Corinthians ao hexacampeonato. Medalhista de ouro olímpico em 2016 com a Seleção Brasileira." },
+
+  // --- Paulinho (José Paulo Bezerra Maciel Júnior) — 2010-2013, 2022-2024 ---
+  { id: 239, date: "1988-07-25", title: "Nasce Paulinho — o volante da Libertadores", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "José Paulo Bezerra Maciel Júnior, o Paulinho, nasceu em São Paulo. Volante dinâmico, foi fundamental no título brasileiro de 2011 e na conquista da Libertadores 2012, marcando gols decisivos. Depois brilhou no Tottenham e Barcelona." },
+
+  // --- Willian (Willian Borges da Silva) — 2006-2007, 2021-2022 ---
+  { id: 240, date: "1988-08-09", title: "Nasce Willian — talento da base corinthiana", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Willian Borges da Silva nasceu em Ribeirão Pires, SP. Revelado pelo Corinthians, brilhou no Shakhtar Donetsk e Chelsea antes de retornar ao clube em 2021. Campeão da Copa América 2019 com a Seleção Brasileira." },
+
+  // --- Fagner (Fagner Conserva Lemos) — 2006-2007, 2014-2024 ---
+  { id: 241, date: "1989-06-11", title: "Nasce Fagner — fidelidade alvinegra", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Fagner Conserva Lemos nasceu em São Paulo. Lateral-direito raçudo e fiel, é cria da base corinthiana. Jogou pelo Corinthians de 2014 a 2024 em sua segunda passagem, sendo um dos jogadores com mais jogos na história do clube." },
+
+  // --- Memphis Depay — 2024- ---
+  { id: 242, date: "1994-02-13", title: "Nasce Memphis Depay — o holandês do Corinthians", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Memphis Depay nasceu em Moordrecht, Holanda. Maior artilheiro da história da Seleção Holandesa, chegou ao Corinthians em 2024 após passagens por PSV, Manchester United, Lyon, Barcelona e Atlético de Madrid. Camisa 10 do Timão." },
+
+  // --- Róger Guedes — 2021-2023 ---
+  { id: 243, date: "1996-10-02", title: "Nasce Róger Guedes — gols decisivos", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Róger Krug Guedes nasceu em Ibirubá, RS. Atacante decisivo, marcou gols importantes pelo Corinthians entre 2021 e 2023, incluindo gols em clássicos contra o Palmeiras. Usou a camisa 123 em homenagem ao aniversário do filho." },
+
+  // --- Pedrinho (Pedro Victor Delmino da Silva) — 2017-2020 ---
+  { id: 244, date: "1998-04-13", title: "Nasce Pedrinho — joia da base", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Pedro Victor Delmino da Silva, o Pedrinho, nasceu em Maceió, AL. Revelado pela base do Corinthians, foi eleito melhor jogador da Copinha 2017 e se destacou como meia habilidoso antes de se transferir para o Benfica." },
+
+  // --- Yuri Alberto — 2022- ---
+  { id: 245, date: "2001-03-18", title: "Nasce Yuri Alberto — o artilheiro atual", category: "idolo", type: "aniversario", playerStatus: "vivo", description: "Yuri Alberto Monteiro da Silva nasceu em São José dos Campos, SP. Atacante e atual camisa 9 do Corinthians, chegou em 2022 e se tornou referência do ataque corinthiano com gols importantes em clássicos e competições." },
 ];

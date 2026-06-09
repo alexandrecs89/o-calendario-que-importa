@@ -39,12 +39,26 @@
 
   /* ---------- Data ---------- */
   const STORAGE_KEY = "corinthians_community_events";
+  const PARABENS_KEY = "corinthians_parabens";
   function loadCommunity() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
     catch { return []; }
   }
   function saveCommunity(ev) { localStorage.setItem(STORAGE_KEY, JSON.stringify(ev)); }
   function allEvents() { return [...CORINTHIANS_EVENTS, ...loadCommunity()]; }
+
+  function loadParabens() {
+    try { return JSON.parse(localStorage.getItem(PARABENS_KEY)) || {}; }
+    catch { return {}; }
+  }
+  function saveParabens(data) { localStorage.setItem(PARABENS_KEY, JSON.stringify(data)); }
+  function getParabensCount(eventId) { return loadParabens()[eventId] || 0; }
+  function incrementParabens(eventId) {
+    const data = loadParabens();
+    data[eventId] = (data[eventId] || 0) + 1;
+    saveParabens(data);
+    return data[eventId];
+  }
 
   /* ---------- State ---------- */
   let curMonth = new Date().getMonth();
@@ -163,6 +177,17 @@
       .map(e => {
         const year = parseInt(e.date.split("-")[0]);
         const ago = today.getFullYear() - year;
+        const showParabens = e.type === "aniversario" && e.playerStatus === "vivo";
+        const count = showParabens ? getParabensCount(e.id) : 0;
+        const parabensHtml = showParabens
+          ? `<div class="otd-card__parabens">
+               <button class="parabens-btn" data-event-id="${e.id}" title="Envie seus parabéns!">
+                 <span class="parabens-btn__icon">🎂</span>
+                 <span class="parabens-btn__label">Parabéns!</span>
+                 <span class="parabens-btn__count">${count}</span>
+               </button>
+             </div>`
+          : "";
         return `
           <div class="otd-card" data-id="${e.id}">
             <div class="otd-card__year">${year}</div>
@@ -170,8 +195,20 @@
             <div class="otd-card__title">${e.title}</div>
             <span class="otd-card__cat">${catIcon(e.category)}${CAT_LABELS[e.category] || e.category}</span>
             <div class="otd-card__desc">${e.description.slice(0, 140)}${e.description.length > 140 ? "…" : ""}</div>
+            ${parabensHtml}
           </div>`;
       }).join("");
+
+    otdCards.querySelectorAll(".parabens-btn").forEach(btn => {
+      btn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const eventId = btn.dataset.eventId;
+        const newCount = incrementParabens(eventId);
+        btn.querySelector(".parabens-btn__count").textContent = newCount;
+        btn.classList.add("parabens-btn--clicked");
+        setTimeout(() => btn.classList.remove("parabens-btn--clicked"), 600);
+      });
+    });
 
     otdCards.querySelectorAll(".otd-card").forEach(card => {
       card.addEventListener("click", () => {
