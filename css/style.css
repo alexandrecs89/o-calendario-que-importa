@@ -173,8 +173,9 @@ body {
   flex-shrink: 0;
 }
 .header__logo {
-  width: 56px;
-  height: 56px;
+  height: 100%;
+  max-height: 72px;
+  width: auto;
 }
 .header__title {
   font-family: var(--font-heading);
