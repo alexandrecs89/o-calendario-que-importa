@@ -1,32 +1,22 @@
-/* ===== O Calendário Que Importa — v2 ===== */
+/* ===== Club Calendar Platform — Config-driven ===== */
 (function () {
   "use strict";
+
+  const CFG = CLUB_CONFIG;
+  const L = CFG.labels;
 
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => [...document.querySelectorAll(s)];
 
-  const MONTHS = [
-    "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-    "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
-  ];
-
-  const CAT_LABELS = {
-    titulo: "Título", classico: "Clássico", marco: "Marco",
-    idolo: "Ídolo", jogador: "Jogador", ex_jogador: "Ex-Jogador",
-    recorde: "Recorde", comunidade: "Comunidade",
-  };
-
-  /* SVG icons per category — filled/solid style with clear outlines */
-  const CAT_ICONS = {
-    titulo: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M5 1h14v2H5V1zm-2 3h18v2h-1v6c0 1.1-.4 2.1-1 2.8V22h-2v-6H7v6H5v-7.2c-.6-.7-1-1.7-1-2.8V6H3V4zm4 2v6c0 1.7 1.3 3 3 3h4c1.7 0 3-1.3 3-3V6H7z"/></svg>`,
-    classico: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12 6l1.5 3.5L17 10.2l-2.5 2.8.5 3.5L12 15l-3 1.5.5-3.5L7 10.2l3.5-.7z"/></svg>`,
-    marco: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M5 2v20h2v-7c0 0 1.5-1 4.5-1s4 1.5 7 1.5c1 0 1.5-.2 1.5-.2V3.5S19 4.5 17 4.5c-3 0-4-1.5-7-1.5C7.5 3 7 3.5 7 3.5V2H5z"/></svg>`,
-    idolo: `<img class="cat-icon cat-icon--img" src="img/socrates.png" alt="Ídolo"/>`,
-    recorde: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M16 1a7 7 0 0 1 5.75 11H22l-4 4-4-4h2.27A5 5 0 1 0 11 7H9a7 7 0 0 1 7-7zM8 23a7 7 0 0 1-5.75-11H2l4-4 4 4H7.73A5 5 0 1 0 13 17h2a7 7 0 0 1-7 7z"/></svg>`,
-    jogador: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/></svg>`,
-    ex_jogador: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M16.5 3L12 5 7.5 3 2 6.5V11l3.5-1V22h13V10l3.5 1V6.5L16.5 3z"/></svg>`,
-    comunidade: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><circle cx="9" cy="7" r="3.5"/><circle cx="17" cy="7" r="2.5"/><path d="M1 19v-1c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v1H1z"/><path d="M17 19v-1c0-1.5-.5-2.8-1.3-4 .7-.3 1.5-.5 2.3-.5h1c2.8 0 5 2.2 5 5v.5h-7z"/></svg>`,
-  };
+  /* ---------- Build lookups from config ---------- */
+  const CAT_LABELS = {};
+  const CAT_ICONS = {};
+  CFG.categories.forEach(c => {
+    CAT_LABELS[c.id] = c.label;
+    CAT_ICONS[c.id] = c.icon === "img"
+      ? `<img class="cat-icon cat-icon--img" src="${c.img}" alt="${c.label}"/>`
+      : c.svg;
+  });
 
   function catIcon(cat) { return CAT_ICONS[cat] || ""; }
 
@@ -40,20 +30,22 @@
     const [y, m, d] = iso.split("-");
     return `${d}/${m}/${y}`;
   }
-  function fmtDateShort(iso) {
-    const [, m, d] = iso.split("-");
-    return `${d}/${m}`;
-  }
 
   /* ---------- Data ---------- */
-  const STORAGE_KEY = "corinthians_community_events";
-  const PARABENS_KEY = "corinthians_parabens";
+  const STORAGE_KEY = `${CFG.storagePrefix}_community_events`;
+  const PARABENS_KEY = `${CFG.storagePrefix}_parabens`;
+  const ERRORS_KEY = `${CFG.storagePrefix}_error_reports`;
+  const VIDEO_SUGGESTIONS_KEY = `${CFG.storagePrefix}_video_suggestions`;
+  const NEWS_SUGGESTIONS_KEY = `${CFG.storagePrefix}_news_suggestions`;
+
+  let clubEvents = []; // loaded from JSON
+
   function loadCommunity() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
     catch { return []; }
   }
   function saveCommunity(ev) { localStorage.setItem(STORAGE_KEY, JSON.stringify(ev)); }
-  function allEvents() { return [...CORINTHIANS_EVENTS, ...loadCommunity()]; }
+  function allEvents() { return [...clubEvents, ...loadCommunity()]; }
 
   function loadParabens() {
     try { return JSON.parse(localStorage.getItem(PARABENS_KEY)) || {}; }
@@ -69,10 +61,6 @@
   }
 
   /* ---------- Error reports & suggestions (localStorage) ---------- */
-  const ERRORS_KEY = "corinthians_error_reports";
-  const VIDEO_SUGGESTIONS_KEY = "corinthians_video_suggestions";
-  const NEWS_SUGGESTIONS_KEY = "corinthians_news_suggestions";
-
   function loadStore(key) {
     try { return JSON.parse(localStorage.getItem(key)) || {}; }
     catch { return {}; }
@@ -103,7 +91,7 @@
   /* ---------- State ---------- */
   let curMonth = new Date().getMonth();
   let curYear = new Date().getFullYear();
-  let tlYear = 2012; // start at a glorious year
+  let tlYear = CFG.defaultTimelineYear;
   let activeFilter = "all";
 
   /* ---------- DOM refs ---------- */
@@ -135,7 +123,7 @@
 
   /* ---------- Calendar ---------- */
   function renderCalendar() {
-    monthTitle.textContent = `${MONTHS[curMonth]} ${curYear}`;
+    monthTitle.textContent = `${L.months[curMonth]} ${curYear}`;
 
     const firstDow = new Date(curYear, curMonth, 1).getDay();
     const daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
@@ -172,7 +160,7 @@
           show.map(e =>
             `<div class="calendar__day-event calendar__day-event--${e.category}" title="${e.title}"><span class="cat-icon-inline">${catIcon(e.category)}</span>${e.title}</div>`
           ).join("") +
-          (dayEvents.length > 3 ? `<div class="calendar__day-more">+${dayEvents.length - 3} mais</div>` : "") +
+          (dayEvents.length > 3 ? `<div class="calendar__day-more">${L.moreEvents.replace("{n}", dayEvents.length - 3)}</div>` : "") +
           '</div>';
       }
 
@@ -203,12 +191,12 @@
     const today = new Date();
     const d = today.getDate();
     const m = today.getMonth();
-    todayLabel.textContent = `${pad(d)} de ${MONTHS[m]}`;
+    todayLabel.textContent = `${pad(d)} de ${L.months[m]}`;
 
     const events = eventsForMonthDay(m, d);
 
     if (events.length === 0) {
-      otdCards.innerHTML = '<p class="empty-msg">Nenhum evento registrado para esta data.</p>';
+      otdCards.innerHTML = `<p class="empty-msg">${L.onThisDayEmpty}</p>`;
       return;
     }
 
@@ -217,13 +205,14 @@
       .map(e => {
         const year = parseInt(e.date.split("-")[0]);
         const ago = today.getFullYear() - year;
+        const agoText = ago === 1 ? L.yearsAgo.replace("{n}", ago) : L.yearsAgoPlural.replace("{n}", ago);
         const showParabens = e.type === "aniversario" && e.playerStatus === "vivo";
         const count = showParabens ? getParabensCount(e.id) : 0;
         const parabensHtml = showParabens
           ? `<div class="otd-card__parabens">
-               <button class="parabens-btn" data-event-id="${e.id}" title="Envie seus parabéns!">
+               <button class="parabens-btn" data-event-id="${e.id}" title="${L.parabensSend}">
                  <span class="parabens-btn__icon">🎂</span>
-                 <span class="parabens-btn__label">Parabéns!</span>
+                 <span class="parabens-btn__label">${L.parabensBtn}</span>
                  <span class="parabens-btn__count">${count}</span>
                </button>
              </div>`
@@ -231,7 +220,7 @@
         return `
           <div class="otd-card" data-id="${e.id}">
             <div class="otd-card__year">${year}</div>
-            <div class="otd-card__ago">há ${ago} ano${ago !== 1 ? "s" : ""}</div>
+            <div class="otd-card__ago">${agoText}</div>
             <div class="otd-card__title">${e.title}</div>
             <div class="otd-card__cats">${getEventCategories(e).map(cat => `<span class="otd-card__cat">${catIcon(cat)}${CAT_LABELS[cat] || cat}</span>`).join('')}</div>
             <div class="otd-card__desc">${e.description.slice(0, 140)}${e.description.length > 140 ? "…" : ""}</div>
@@ -262,7 +251,7 @@
   function renderTimelineTrack() {
     const currentYear = new Date().getFullYear();
     let html = "";
-    for (let y = 1910; y <= currentYear; y++) {
+    for (let y = CFG.timelineStartYear; y <= currentYear; y++) {
       const hasEvents = filtered().some(e => parseInt(e.date.split("-")[0]) === y);
       const isActive = y === tlYear;
       const isDecade = y % 10 === 0;
@@ -277,7 +266,6 @@
     }
     timelineTrack.innerHTML = html;
 
-    // Scroll active year into view
     const activeEl = timelineTrack.querySelector(".timeline__track-year--active");
     if (activeEl) activeEl.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
 
@@ -297,7 +285,7 @@
       .sort((a, b) => a.date.localeCompare(b.date));
 
     if (events.length === 0) {
-      timelineEvents.innerHTML = '<div class="timeline__empty">Nenhum evento registrado para este ano.</div>';
+      timelineEvents.innerHTML = `<div class="timeline__empty">${L.timelineEmpty}</div>`;
       return;
     }
 
@@ -335,7 +323,7 @@
     if (related.length > 0) {
       relatedHtml = `
         <div style="margin-top:1.5rem">
-          <div class="event-detail__related-title">Também nesta data</div>
+          <div class="event-detail__related-title">${L.alsoOnThisDate}</div>
           ${related.map(e => `
             <div class="event-detail__related-item" data-id="${e.id}">
               <strong>${e.date.split("-")[0]}</strong> — ${e.title}
@@ -346,21 +334,21 @@
     const videoHtml = event.videoUrl
       ? `<a href="${event.videoUrl}" target="_blank" rel="noopener" class="event-action event-action--video">
            <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-           Assistir vídeo
+           ${L.watchVideo}
          </a>`
       : `<button class="event-action event-action--suggest-video" data-event-id="${event.id}">
            <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-           Sugerir vídeo
+           ${L.suggestVideo}
          </button>`;
 
     const newsHtml = event.newsUrl
       ? `<a href="${event.newsUrl}" target="_blank" rel="noopener" class="event-action event-action--news">
            <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h7v2H7zm0 4h10v2H7zm0 4h10v2H7z"/></svg>
-           Ver reportagem
+           ${L.readNews}
          </a>`
       : `<button class="event-action event-action--suggest-news" data-event-id="${event.id}">
            <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h7v2H7zm0 4h10v2H7zm0 4h10v2H7z"/></svg>
-           Sugerir reportagem
+           ${L.suggestNews}
          </button>`;
 
     eventModalContent.innerHTML = `
@@ -374,7 +362,7 @@
         ${newsHtml}
         <button class="event-action event-action--error" data-event-id="${event.id}">
           <svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
-          Reportar erro
+          ${L.reportError}
         </button>
       </div>
       ${relatedHtml}
@@ -395,10 +383,10 @@
     if (errBtn) {
       errBtn.addEventListener("click", (ev) => {
         ev.stopPropagation();
-        const msg = prompt("Descreva o erro encontrado neste evento:");
+        const msg = prompt(L.reportErrorPrompt);
         if (msg && msg.trim()) {
           reportError(errBtn.dataset.eventId, msg.trim());
-          errBtn.textContent = "Erro reportado!";
+          errBtn.textContent = L.reportErrorDone;
           errBtn.disabled = true;
           errBtn.classList.add("event-action--submitted");
         }
@@ -410,10 +398,10 @@
     if (vidBtn) {
       vidBtn.addEventListener("click", (ev) => {
         ev.stopPropagation();
-        const url = prompt("Cole o link do vídeo (YouTube, etc.):");
+        const url = prompt(L.suggestVideoPrompt);
         if (url && url.trim()) {
           suggestVideo(vidBtn.dataset.eventId, url.trim());
-          vidBtn.textContent = "Vídeo sugerido!";
+          vidBtn.textContent = L.suggestVideoDone;
           vidBtn.disabled = true;
           vidBtn.classList.add("event-action--submitted");
         }
@@ -425,10 +413,10 @@
     if (newsBtn) {
       newsBtn.addEventListener("click", (ev) => {
         ev.stopPropagation();
-        const url = prompt("Cole o link da reportagem:");
+        const url = prompt(L.suggestNewsPrompt);
         if (url && url.trim()) {
           suggestNews(newsBtn.dataset.eventId, url.trim());
-          newsBtn.textContent = "Reportagem sugerida!";
+          newsBtn.textContent = L.suggestNewsDone;
           newsBtn.disabled = true;
           newsBtn.classList.add("event-action--submitted");
         }
@@ -439,7 +427,7 @@
   function openDayModal(events, day) {
     eventModalContent.innerHTML = `
       <div class="event-detail__date">${pad(day)}/${pad(curMonth + 1)} — Todos os anos</div>
-      <div class="event-detail__title">${events.length} eventos nesta data</div>
+      <div class="event-detail__title">${L.eventsOnDate.replace("{count}", events.length)}</div>
       <div style="margin-top:1rem">
         ${events.sort((a, b) => a.date.localeCompare(b.date)).map(e => `
           <div class="event-detail__related-item" data-id="${e.id}">
@@ -469,7 +457,7 @@
     ).slice(0, 12);
 
     if (results.length === 0) {
-      searchResults.innerHTML = '<div class="search-results__item"><span class="search-results__item-title">Nenhum resultado</span></div>';
+      searchResults.innerHTML = `<div class="search-results__item"><span class="search-results__item-title">${L.noResults}</span></div>`;
     } else {
       searchResults.innerHTML = results.map(e => `
         <div class="search-results__item" data-id="${e.id}">
@@ -539,54 +527,143 @@
     renderTimeline();
   }
 
+  /* ---------- Dynamic page setup from config ---------- */
+  function setupFromConfig() {
+    // Title & meta
+    document.title = CFG.meta.title;
+
+    // Header
+    $(".header__logo").src = CFG.logo;
+    $(".header__logo").alt = CFG.name;
+    $(".header__title").textContent = CFG.name;
+    $(".header__subtitle").textContent = CFG.slogan;
+    searchInput.placeholder = L.searchPlaceholder;
+    $("#addEventBtn").textContent = L.addEventBtn;
+
+    // Favicon
+    const faviconEl = $('link[rel="icon"]');
+    if (faviconEl) faviconEl.href = CFG.favicon;
+
+    // Footer
+    $(".footer p:first-child").textContent = CFG.footer.line1;
+    $(".footer .footer__small").textContent = CFG.footer.line2;
+
+    // On This Day section
+    const otdTitle = $("#onThisDayTitle");
+    if (otdTitle) otdTitle.textContent = L.onThisDayPrefix;
+    const otdSub = $("#onThisDaySubtitle");
+    if (otdSub) otdSub.textContent = L.onThisDaySubtitle;
+
+    // Timeline title and subtitle
+    const tlTitle = $(".timeline-section .section-title");
+    if (tlTitle) tlTitle.textContent = L.timelineTitle;
+    const tlSub = $(".timeline-section .section-subtitle");
+    if (tlSub) tlSub.textContent = L.timelineSubtitle.replace("{startYear}", CFG.timelineStartYear);
+
+    // Filters — build dynamically
+    const filterContainer = $("#filterButtons");
+    filterContainer.innerHTML = `<button class="filter-btn active" data-category="all">${L.allFilter}</button>` +
+      CFG.categories.map(c =>
+        `<button class="filter-btn" data-category="${c.id}">${c.labelPlural || c.label}</button>`
+      ).join("");
+
+    // Add event modal — category options
+    const catSelect = $("#eventCategory");
+    if (catSelect) {
+      catSelect.innerHTML = CFG.categories.map(c =>
+        `<option value="${c.id}" ${c.id === "comunidade" ? "selected" : ""}>${c.label}</option>`
+      ).join("");
+    }
+
+    // Weekdays
+    const weekdaysEl = $(".calendar__weekdays");
+    if (weekdaysEl) {
+      weekdaysEl.innerHTML = L.weekdays.map(d => `<span>${d}</span>`).join("");
+    }
+
+    // Theme CSS
+    if (CFG.theme) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = CFG.theme;
+      document.head.appendChild(link);
+    }
+  }
+
   /* ---------- Event Listeners ---------- */
-  $("#prevMonth").addEventListener("click", prevMonth);
-  $("#nextMonth").addEventListener("click", nextMonth);
-  $("#prevYear").addEventListener("click", () => { tlYear = Math.max(1910, tlYear - 1); renderTimeline(); });
-  $("#nextYear").addEventListener("click", () => { tlYear = Math.min(new Date().getFullYear(), tlYear + 1); renderTimeline(); });
-  $("#prevDecade").addEventListener("click", () => { tlYear = Math.max(1910, tlYear - 10); renderTimeline(); });
-  $("#nextDecade").addEventListener("click", () => { tlYear = Math.min(new Date().getFullYear(), tlYear + 10); renderTimeline(); });
+  function bindListeners() {
+    $("#prevMonth").addEventListener("click", prevMonth);
+    $("#nextMonth").addEventListener("click", nextMonth);
+    $("#prevYear").addEventListener("click", () => { tlYear = Math.max(CFG.timelineStartYear, tlYear - 1); renderTimeline(); });
+    $("#nextYear").addEventListener("click", () => { tlYear = Math.min(new Date().getFullYear(), tlYear + 1); renderTimeline(); });
+    $("#prevDecade").addEventListener("click", () => { tlYear = Math.max(CFG.timelineStartYear, tlYear - 10); renderTimeline(); });
+    $("#nextDecade").addEventListener("click", () => { tlYear = Math.min(new Date().getFullYear(), tlYear + 10); renderTimeline(); });
 
-  $("#closeEventModal").addEventListener("click", () => eventModal.classList.add("hidden"));
-  eventModal.addEventListener("click", (e) => { if (e.target === eventModal) eventModal.classList.add("hidden"); });
+    $("#closeEventModal").addEventListener("click", () => eventModal.classList.add("hidden"));
+    eventModal.addEventListener("click", (e) => { if (e.target === eventModal) eventModal.classList.add("hidden"); });
 
-  $("#addEventBtn").addEventListener("click", () => addModal.classList.remove("hidden"));
-  $("#closeAddModal").addEventListener("click", () => addModal.classList.add("hidden"));
-  $("#cancelAdd").addEventListener("click", () => addModal.classList.add("hidden"));
-  addModal.addEventListener("click", (e) => { if (e.target === addModal) addModal.classList.add("hidden"); });
-  $("#addEventForm").addEventListener("submit", handleAdd);
+    $("#addEventBtn").addEventListener("click", () => addModal.classList.remove("hidden"));
+    $("#closeAddModal").addEventListener("click", () => addModal.classList.add("hidden"));
+    $("#cancelAdd").addEventListener("click", () => addModal.classList.add("hidden"));
+    addModal.addEventListener("click", (e) => { if (e.target === addModal) addModal.classList.add("hidden"); });
+    $("#addEventForm").addEventListener("submit", handleAdd);
 
-  searchInput.addEventListener("input", handleSearch);
-  document.addEventListener("click", (e) => {
-    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-      searchResults.classList.add("hidden");
-    }
-  });
+    searchInput.addEventListener("input", handleSearch);
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+        searchResults.classList.add("hidden");
+      }
+    });
 
-  $$("#filterButtons .filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => setFilter(btn.dataset.category));
-  });
+    // Filter clicks (delegated since buttons are rebuilt dynamically)
+    $("#filterButtons").addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (btn) setFilter(btn.dataset.category);
+    });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      eventModal.classList.add("hidden");
-      addModal.classList.add("hidden");
-      searchResults.classList.add("hidden");
-    }
-    if (e.key === "/" && document.activeElement !== searchInput) {
-      e.preventDefault();
-      searchInput.focus();
-    }
-  });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        eventModal.classList.add("hidden");
+        addModal.classList.add("hidden");
+        searchResults.classList.add("hidden");
+      }
+      if (e.key === "/" && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+  }
 
   /* ---------- Inject icons into filter buttons ---------- */
-  $$("#filterButtons .filter-btn").forEach(btn => {
-    const cat = btn.dataset.category;
-    if (cat !== "all" && CAT_ICONS[cat]) {
-      btn.innerHTML = `<span class="filter-btn__icon">${CAT_ICONS[cat]}</span>${CAT_LABELS[cat] || btn.textContent}`;
-    }
-  });
+  function injectFilterIcons() {
+    $$("#filterButtons .filter-btn").forEach(btn => {
+      const cat = btn.dataset.category;
+      if (cat !== "all" && CAT_ICONS[cat]) {
+        btn.innerHTML = `<span class="filter-btn__icon">${CAT_ICONS[cat]}</span>${btn.textContent}`;
+      }
+    });
+  }
 
   /* ---------- Init ---------- */
-  renderAll();
+  async function init() {
+    setupFromConfig();
+    bindListeners();
+
+    // Load events from JSON
+    try {
+      const resp = await fetch(CFG.eventsUrl);
+      clubEvents = await resp.json();
+    } catch (err) {
+      console.warn("Failed to load events from JSON, falling back to global", err);
+      // Fallback: if CORINTHIANS_EVENTS global still exists (legacy)
+      if (typeof CORINTHIANS_EVENTS !== "undefined") {
+        clubEvents = CORINTHIANS_EVENTS;
+      }
+    }
+
+    injectFilterIcons();
+    renderAll();
+  }
+
+  init();
 })();

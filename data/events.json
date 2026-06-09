@@ -1,9 +1,4 @@
-/**
- * Events database — auto-generated from data/events.json.
- * This file provides a fallback for file:// protocol (no server needed).
- * The canonical data source is data/events.json.
- */
-const CORINTHIANS_EVENTS = [
+[
   {
     "id": 1,
     "date": "1910-09-01",
@@ -1645,4 +1640,4 @@ const CORINTHIANS_EVENTS = [
     "playerStatus": "vivo",
     "description": "Carlos de Menezes Júnior, o Cacá, nasceu em Visconde do Rio Branco, MG. Zagueiro que se destacou no Corinthians em 2024 com gols importantes, incluindo contra o Fluminense."
   }
-];
+]
