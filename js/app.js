@@ -428,6 +428,14 @@
     }
   });
 
+  /* ---------- Inject icons into filter buttons ---------- */
+  $$("#filterButtons .filter-btn").forEach(btn => {
+    const cat = btn.dataset.category;
+    if (cat !== "all" && CAT_ICONS[cat]) {
+      btn.innerHTML = `<span class="filter-btn__icon">${CAT_ICONS[cat]}</span>${CAT_LABELS[cat] || btn.textContent}`;
+    }
+  });
+
   /* ---------- Init ---------- */
   renderAll();
 })();

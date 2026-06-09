@@ -254,6 +254,9 @@ body {
   cursor: pointer;
   transition: all var(--transition);
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 .filter-btn:hover { border-color: var(--gray-400); color: var(--white); }
 .filter-btn.active {
@@ -261,6 +264,19 @@ body {
   color: var(--black);
   border-color: var(--white);
   font-weight: 600;
+}
+.filter-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.filter-btn__icon .cat-icon {
+  width: 14px;
+  height: 14px;
+}
+.filter-btn__icon .cat-icon--img {
+  width: 16px;
+  height: 16px;
 }
 
 /* ===== Shared Navigation Buttons ===== */
@@ -301,6 +317,7 @@ body {
 .calendar__weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
   text-align: center;
   font-size: 0.7rem;
   font-weight: 600;
@@ -326,6 +343,8 @@ body {
   position: relative;
   cursor: default;
   transition: all var(--transition);
+  overflow: hidden;
+  min-width: 0;
 }
 .calendar__day:hover { background: var(--gray-900); }
 .calendar__day--other { opacity: 0.25; }
