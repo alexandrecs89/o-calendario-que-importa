@@ -15,14 +15,14 @@
     idolo: "Ídolo", recorde: "Recorde", comunidade: "Comunidade",
   };
 
-  /* SVG icons per category (monochrome) */
+  /* SVG icons per category — filled/solid style with clear outlines */
   const CAT_ICONS = {
-    titulo: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 22V2h4v20"/><path d="M6 9v4a6 6 0 0 0 12 0V9"/></svg>`,
-    classico: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
-    marco: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>`,
+    titulo: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M5 1h14v2H5V1zm-2 3h18v2h-1v6c0 1.1-.4 2.1-1 2.8V22h-2v-6H7v6H5v-7.2c-.6-.7-1-1.7-1-2.8V6H3V4zm4 2v6c0 1.7 1.3 3 3 3h4c1.7 0 3-1.3 3-3V6H7z"/></svg>`,
+    classico: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12 6l1.5 3.5L17 10.2l-2.5 2.8.5 3.5L12 15l-3 1.5.5-3.5L7 10.2l3.5-.7z"/></svg>`,
+    marco: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M5 2v20h2v-7c0 0 1.5-1 4.5-1s4 1.5 7 1.5c1 0 1.5-.2 1.5-.2V3.5S19 4.5 17 4.5c-3 0-4-1.5-7-1.5C7.5 3 7 3.5 7 3.5V2H5z"/></svg>`,
     idolo: `<img class="cat-icon cat-icon--img" src="img/socrates.png" alt="Ídolo"/>`,
-    recorde: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
-    comunidade: `<svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    recorde: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><path d="M16 1a7 7 0 0 1 5.75 11H22l-4 4-4-4h2.27A5 5 0 1 0 11 7H9a7 7 0 0 1 7-7zM8 23a7 7 0 0 1-5.75-11H2l4-4 4 4H7.73A5 5 0 1 0 13 17h2a7 7 0 0 1-7 7z"/></svg>`,
+    comunidade: `<svg class="cat-icon" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0.5"><circle cx="9" cy="7" r="3.5"/><circle cx="17" cy="7" r="2.5"/><path d="M1 19v-1c0-3.3 2.7-6 6-6h4c3.3 0 6 2.7 6 6v1H1z"/><path d="M17 19v-1c0-1.5-.5-2.8-1.3-4 .7-.3 1.5-.5 2.3-.5h1c2.8 0 5 2.2 5 5v.5h-7z"/></svg>`,
   };
 
   function catIcon(cat) { return CAT_ICONS[cat] || ""; }
