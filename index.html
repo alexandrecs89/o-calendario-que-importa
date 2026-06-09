@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Calendário Que Importa — Memória Corinthiana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖤</text></svg>" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__brand">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Sport_Club_Corinthians_Paulista.svg" alt="Escudo do Corinthians" class="header__logo" />
+        <div>
+          <h1 class="header__title">O Calendário Que Importa</h1>
+          <p class="header__subtitle">Memória Corinthiana desde 1910</p>
+        </div>
+      </div>
+      <div class="header__search">
+        <input type="text" id="searchInput" placeholder="Buscar evento, título, jogador…" autocomplete="off" />
+        <div id="searchResults" class="search-results hidden"></div>
+      </div>
+      <button class="header__add-btn" id="addEventBtn" title="Adicionar evento da comunidade">+ Evento</button>
+    </div>
+  </header>
+
+  <!-- On This Day Card -->
+  <section class="on-this-day" id="onThisDay">
+    <div class="on-this-day__inner">
+      <h2 class="on-this-day__title">📅 Aconteceu Hoje na História Corinthiana</h2>
+      <div class="on-this-day__cards" id="onThisDayCards">
+        <p class="on-this-day__empty">Nenhum evento registrado para hoje.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="filters">
+    <div class="filters__inner">
+      <div class="filters__categories" id="filterButtons">
+        <button class="filter-btn active" data-category="all">Todos</button>
+        <button class="filter-btn" data-category="titulo">🏆 Títulos</button>
+        <button class="filter-btn" data-category="classico">⚔️ Clássicos</button>
+        <button class="filter-btn" data-category="marco">📌 Marcos</button>
+        <button class="filter-btn" data-category="idolo">⭐ Ídolos</button>
+        <button class="filter-btn" data-category="recorde">📊 Recordes</button>
+        <button class="filter-btn" data-category="comunidade">👥 Comunidade</button>
+      </div>
+      <div class="filters__view-toggle">
+        <button class="view-btn active" data-view="calendar" id="calendarViewBtn">📆 Calendário</button>
+        <button class="view-btn" data-view="timeline" id="timelineViewBtn">📜 Linha do Tempo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main">
+    <!-- Calendar View -->
+    <div class="calendar-view" id="calendarView">
+      <div class="calendar__nav">
+        <button class="calendar__nav-btn" id="prevMonth">◀</button>
+        <h2 class="calendar__month-title" id="monthTitle"></h2>
+        <button class="calendar__nav-btn" id="nextMonth">▶</button>
+      </div>
+      <div class="calendar__grid">
+        <div class="calendar__weekdays">
+          <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+        </div>
+        <div class="calendar__days" id="calendarDays"></div>
+      </div>
+    </div>
+
+    <!-- Timeline View -->
+    <div class="timeline-view hidden" id="timelineView">
+      <div class="timeline__nav">
+        <button class="timeline__nav-btn" id="prevYear">◀</button>
+        <h2 class="timeline__year-title" id="yearTitle"></h2>
+        <button class="timeline__nav-btn" id="nextYear">▶</button>
+      </div>
+      <div class="timeline__content" id="timelineContent"></div>
+    </div>
+
+    <!-- Event Details Sidebar -->
+    <aside class="event-sidebar hidden" id="eventSidebar">
+      <button class="event-sidebar__close" id="closeSidebar">✕</button>
+      <div class="event-sidebar__content" id="sidebarContent"></div>
+    </aside>
+  </main>
+
+  <!-- Add Event Modal -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal">
+      <h2 class="modal__title">Adicionar Evento da Comunidade</h2>
+      <form id="addEventForm">
+        <label>
+          Título do Evento
+          <input type="text" id="eventTitle" required placeholder="Ex: Gol do Neto no Derby" />
+        </label>
+        <label>
+          Data
+          <input type="date" id="eventDate" required />
+        </label>
+        <label>
+          Categoria
+          <select id="eventCategory">
+            <option value="titulo">🏆 Título</option>
+            <option value="classico">⚔️ Clássico</option>
+            <option value="marco">📌 Marco Histórico</option>
+            <option value="idolo">⭐ Ídolo</option>
+            <option value="recorde">📊 Recorde</option>
+            <option value="comunidade" selected>👥 Comunidade</option>
+          </select>
+        </label>
+        <label>
+          Descrição
+          <textarea id="eventDescription" rows="4" placeholder="Conte a história desse momento…"></textarea>
+        </label>
+        <div class="modal__actions">
+          <button type="button" class="modal__cancel" id="cancelModal">Cancelar</button>
+          <button type="submit" class="modal__submit">Salvar Evento</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Vai, Corinthians! 🖤🤍 — Feito com amor pela Fiel Torcida</p>
+    <p class="footer__small">Dados históricos compilados com carinho. Ajude a completar adicionando eventos!</p>
+  </footer>
+
+  <script src="js/events.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
