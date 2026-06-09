@@ -1,233 +1,241 @@
-/* ===== O Calendário Que Importa — Main App ===== */
+/* ===== O Calendário Que Importa — v2 ===== */
 (function () {
   "use strict";
 
-  /* ---------- Helpers ---------- */
-  const $ = (sel) => document.querySelector(sel);
-  const $$ = (sel) => [...document.querySelectorAll(sel)];
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => [...document.querySelectorAll(s)];
 
-  const MONTHS_PT = [
+  const MONTHS = [
     "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
     "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
   ];
 
   const CAT_LABELS = {
-    titulo: "🏆 Título",
-    classico: "⚔️ Clássico",
-    marco: "📌 Marco",
-    idolo: "⭐ Ídolo",
-    recorde: "📊 Recorde",
-    comunidade: "👥 Comunidade",
+    titulo: "Título", classico: "Clássico", marco: "Marco",
+    idolo: "Ídolo", recorde: "Recorde", comunidade: "Comunidade",
   };
 
   function pad(n) { return String(n).padStart(2, "0"); }
-  function dateKey(d) { return `${pad(d.getMonth()+1)}-${pad(d.getDate())}`; }
   function fmtDate(iso) {
-    const [y,m,d] = iso.split("-");
+    const [y, m, d] = iso.split("-");
     return `${d}/${m}/${y}`;
   }
+  function fmtDateShort(iso) {
+    const [, m, d] = iso.split("-");
+    return `${d}/${m}`;
+  }
 
-  /* ---------- Data Layer ---------- */
+  /* ---------- Data ---------- */
   const STORAGE_KEY = "corinthians_community_events";
-
-  function loadCommunityEvents() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    } catch { return []; }
+  function loadCommunity() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; }
   }
-
-  function saveCommunityEvents(events) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-  }
-
-  function getAllEvents() {
-    return [...CORINTHIANS_EVENTS, ...loadCommunityEvents()];
-  }
+  function saveCommunity(ev) { localStorage.setItem(STORAGE_KEY, JSON.stringify(ev)); }
+  function allEvents() { return [...CORINTHIANS_EVENTS, ...loadCommunity()]; }
 
   /* ---------- State ---------- */
-  let currentMonth = new Date().getMonth();
-  let currentYear = new Date().getFullYear();
-  let timelineYear = new Date().getFullYear();
-  let activeCategory = "all";
-  let activeView = "calendar"; // "calendar" | "timeline"
+  let curMonth = new Date().getMonth();
+  let curYear = new Date().getFullYear();
+  let tlYear = 2012; // start at a glorious year
+  let activeFilter = "all";
 
-  /* ---------- DOM references ---------- */
+  /* ---------- DOM refs ---------- */
   const calendarDays = $("#calendarDays");
   const monthTitle = $("#monthTitle");
-  const onThisDayCards = $("#onThisDayCards");
+  const todayLabel = $("#todayDateLabel");
+  const otdCards = $("#onThisDayCards");
+  const yearLabel = $("#yearLabel");
+  const timelineTrack = $("#timelineTrack");
+  const timelineEvents = $("#timelineEvents");
   const searchInput = $("#searchInput");
   const searchResults = $("#searchResults");
-  const calendarView = $("#calendarView");
-  const timelineView = $("#timelineView");
-  const timelineContent = $("#timelineContent");
-  const yearTitle = $("#yearTitle");
-  const eventSidebar = $("#eventSidebar");
-  const sidebarContent = $("#sidebarContent");
-  const modalOverlay = $("#modalOverlay");
+  const eventModal = $("#eventModal");
+  const eventModalContent = $("#eventModalContent");
+  const addModal = $("#addModal");
 
-  /* ---------- On This Day ---------- */
-  function renderOnThisDay() {
-    const today = new Date();
-    const key = dateKey(today);
-    const events = getAllEvents().filter(e => {
-      const [,m,d] = e.date.split("-");
-      return `${m}-${d}` === key;
-    });
+  /* ---------- Helpers ---------- */
+  function filtered() {
+    return allEvents().filter(e => activeFilter === "all" || e.category === activeFilter);
+  }
 
-    if (events.length === 0) {
-      onThisDayCards.innerHTML = '<p class="on-this-day__empty">Nenhum evento registrado para hoje.</p>';
-      return;
-    }
-
-    onThisDayCards.innerHTML = events.map(e => {
-      const year = parseInt(e.date.split("-")[0]);
-      const ago = today.getFullYear() - year;
-      return `
-        <div class="on-this-day__card" data-id="${e.id}">
-          <div class="on-this-day__card-year">${year}</div>
-          <div class="on-this-day__card-ago">há ${ago} ano${ago !== 1 ? "s" : ""}</div>
-          <div class="on-this-day__card-title">${e.title}</div>
-          <div class="on-this-day__card-desc">${e.description.slice(0, 120)}${e.description.length > 120 ? "…" : ""}</div>
-        </div>
-      `;
-    }).join("");
-
-    onThisDayCards.querySelectorAll(".on-this-day__card").forEach(card => {
-      card.addEventListener("click", () => {
-        const ev = getAllEvents().find(e => e.id == card.dataset.id);
-        if (ev) openSidebar(ev);
-      });
+  function eventsForMonthDay(m, d) {
+    const key = `${pad(m + 1)}-${pad(d)}`;
+    return filtered().filter(e => {
+      const [, em, ed] = e.date.split("-");
+      return `${em}-${ed}` === key;
     });
   }
 
-  /* ---------- Calendar Rendering ---------- */
+  /* ---------- Calendar ---------- */
   function renderCalendar() {
-    monthTitle.textContent = `${MONTHS_PT[currentMonth]} ${currentYear}`;
+    monthTitle.textContent = `${MONTHS[curMonth]} ${curYear}`;
 
-    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    const daysInPrev = new Date(currentYear, currentMonth, 0).getDate();
+    const firstDow = new Date(curYear, curMonth, 1).getDay();
+    const daysInMonth = new Date(curYear, curMonth + 1, 0).getDate();
+    const daysInPrev = new Date(curYear, curMonth, 0).getDate();
 
-    const events = getAllEvents().filter(e =>
-      activeCategory === "all" || e.category === activeCategory
-    );
-
-    const eventsByDate = {};
-    events.forEach(e => {
-      const [ey, em, ed] = e.date.split("-").map(Number);
-      const k = `${ey}-${pad(em)}-${pad(ed)}`;
-      if (!eventsByDate[k]) eventsByDate[k] = [];
-      eventsByDate[k].push(e);
-    });
+    const today = new Date();
+    const todayKey = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
 
     let html = "";
-    const today = new Date();
-    const todayStr = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
 
-    // Previous month days
-    for (let i = firstDay - 1; i >= 0; i--) {
+    // Previous month padding
+    for (let i = firstDow - 1; i >= 0; i--) {
       const d = daysInPrev - i;
-      html += `<div class="calendar__day calendar__day--other-month"><span class="calendar__day-number">${d}</span></div>`;
+      html += `<div class="calendar__day calendar__day--other"><span class="calendar__day-number">${d}</span></div>`;
     }
 
-    // Current month days
+    // Current month
     for (let d = 1; d <= daysInMonth; d++) {
-      const dateStr = `${currentYear}-${pad(currentMonth+1)}-${pad(d)}`;
-      const dayEvents = eventsByDate[dateStr] || [];
+      const dateStr = `${curYear}-${pad(curMonth + 1)}-${pad(d)}`;
+      const dayEvents = eventsForMonthDay(curMonth, d);
+      const isToday = dateStr === todayKey;
+      const has = dayEvents.length > 0;
 
-      // Also find events from OTHER years that happened on this day/month
-      const monthDayKey = `${pad(currentMonth+1)}-${pad(d)}`;
-      const historicalEvents = events.filter(e => {
-        const [ey, em, ed] = e.date.split("-");
-        return `${em}-${ed}` === monthDayKey && parseInt(ey) !== currentYear;
-      });
-
-      const allDayEvents = [...dayEvents, ...historicalEvents];
-      const uniqueEvents = [...new Map(allDayEvents.map(e => [e.id, e])).values()];
-
-      const isToday = dateStr === todayStr;
-      const hasEvent = uniqueEvents.length > 0;
-
-      const classes = [
+      const cls = [
         "calendar__day",
         isToday ? "calendar__day--today" : "",
-        hasEvent ? "calendar__day--has-event" : "",
+        has ? "calendar__day--has-events" : "",
       ].filter(Boolean).join(" ");
 
-      const dots = uniqueEvents.slice(0, 5).map(e =>
-        `<span class="calendar__day-dot calendar__day-dot--${e.category}"></span>`
-      ).join("");
+      let eventsHtml = "";
+      if (has) {
+        const show = dayEvents.slice(0, 3);
+        eventsHtml = '<div class="calendar__day-events">' +
+          show.map(e =>
+            `<div class="calendar__day-event calendar__day-event--${e.category}" title="${e.title}">${e.title}</div>`
+          ).join("") +
+          (dayEvents.length > 3 ? `<div class="calendar__day-more">+${dayEvents.length - 3} mais</div>` : "") +
+          '</div>';
+      }
 
-      html += `
-        <div class="${classes}" data-date="${dateStr}" data-md="${monthDayKey}">
-          <span class="calendar__day-number">${d}</span>
-          <div class="calendar__day-dots">${dots}</div>
-        </div>
-      `;
+      html += `<div class="${cls}" data-day="${d}"><span class="calendar__day-number">${d}</span>${eventsHtml}</div>`;
     }
 
-    // Fill remaining cells
-    const totalCells = firstDay + daysInMonth;
-    const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
-    for (let d = 1; d <= remaining; d++) {
-      html += `<div class="calendar__day calendar__day--other-month"><span class="calendar__day-number">${d}</span></div>`;
+    // Next month padding
+    const total = firstDow + daysInMonth;
+    const rem = total % 7 === 0 ? 0 : 7 - (total % 7);
+    for (let d = 1; d <= rem; d++) {
+      html += `<div class="calendar__day calendar__day--other"><span class="calendar__day-number">${d}</span></div>`;
     }
 
     calendarDays.innerHTML = html;
 
-    // Click events on calendar days
-    calendarDays.querySelectorAll(".calendar__day--has-event").forEach(el => {
+    calendarDays.querySelectorAll(".calendar__day--has-events").forEach(el => {
       el.addEventListener("click", () => {
-        const md = el.dataset.md;
-        const events = getAllEvents().filter(e => {
-          if (activeCategory !== "all" && e.category !== activeCategory) return false;
-          const [, em, ed] = e.date.split("-");
-          return `${em}-${ed}` === md;
-        });
-        if (events.length === 1) {
-          openSidebar(events[0]);
-        } else if (events.length > 1) {
-          openSidebarMultiple(events, md);
-        }
+        const d = parseInt(el.dataset.day);
+        const events = eventsForMonthDay(curMonth, d);
+        if (events.length === 1) openEventModal(events[0]);
+        else if (events.length > 1) openDayModal(events, d);
       });
     });
   }
 
-  /* ---------- Timeline Rendering ---------- */
-  function renderTimeline() {
-    yearTitle.textContent = timelineYear;
+  /* ---------- On This Day ---------- */
+  function renderOnThisDay() {
+    const today = new Date();
+    const d = today.getDate();
+    const m = today.getMonth();
+    todayLabel.textContent = `${pad(d)} de ${MONTHS[m]}`;
 
-    const events = getAllEvents()
-      .filter(e => {
-        const ey = parseInt(e.date.split("-")[0]);
-        return ey === timelineYear && (activeCategory === "all" || e.category === activeCategory);
-      })
-      .sort((a, b) => a.date.localeCompare(b.date));
+    const events = eventsForMonthDay(m, d);
 
     if (events.length === 0) {
-      timelineContent.innerHTML = '<div class="timeline__empty">Nenhum evento encontrado para este ano.</div>';
+      otdCards.innerHTML = '<p class="empty-msg">Nenhum evento registrado para esta data.</p>';
       return;
     }
 
-    timelineContent.innerHTML = events.map(e => `
-      <div class="timeline__item" data-id="${e.id}">
-        <div class="timeline__item-date">${fmtDate(e.date)}</div>
-        <div class="timeline__item-title">${e.title}</div>
-        <span class="timeline__item-cat cat--${e.category}">${CAT_LABELS[e.category] || e.category}</span>
-      </div>
-    `).join("");
+    otdCards.innerHTML = events
+      .sort((a, b) => a.date.localeCompare(b.date))
+      .map(e => {
+        const year = parseInt(e.date.split("-")[0]);
+        const ago = today.getFullYear() - year;
+        return `
+          <div class="otd-card" data-id="${e.id}">
+            <div class="otd-card__year">${year}</div>
+            <div class="otd-card__ago">há ${ago} ano${ago !== 1 ? "s" : ""}</div>
+            <div class="otd-card__title">${e.title}</div>
+            <span class="otd-card__cat">${CAT_LABELS[e.category] || e.category}</span>
+            <div class="otd-card__desc">${e.description.slice(0, 140)}${e.description.length > 140 ? "…" : ""}</div>
+          </div>`;
+      }).join("");
 
-    timelineContent.querySelectorAll(".timeline__item").forEach(item => {
-      item.addEventListener("click", () => {
-        const ev = getAllEvents().find(e => e.id == item.dataset.id);
-        if (ev) openSidebar(ev);
+    otdCards.querySelectorAll(".otd-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const ev = allEvents().find(e => e.id == card.dataset.id);
+        if (ev) openEventModal(ev);
       });
     });
   }
 
-  /* ---------- Sidebar ---------- */
-  function openSidebar(event) {
-    const relatedEvents = getAllEvents().filter(e => {
+  /* ---------- Timeline ---------- */
+  function renderTimelineTrack() {
+    const currentYear = new Date().getFullYear();
+    let html = "";
+    for (let y = 1910; y <= currentYear; y++) {
+      const hasEvents = filtered().some(e => parseInt(e.date.split("-")[0]) === y);
+      const isActive = y === tlYear;
+      const isDecade = y % 10 === 0;
+      const cls = [
+        "timeline__track-year",
+        hasEvents ? "timeline__track-year--has-events" : "",
+        isActive ? "timeline__track-year--active" : "",
+        isDecade ? "timeline__track-year--decade" : "",
+      ].filter(Boolean).join(" ");
+      const label = isDecade ? String(y).slice(-2) : "";
+      html += `<div class="${cls}" data-year="${y}" title="${y}">${label}</div>`;
+    }
+    timelineTrack.innerHTML = html;
+
+    // Scroll active year into view
+    const activeEl = timelineTrack.querySelector(".timeline__track-year--active");
+    if (activeEl) activeEl.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+
+    timelineTrack.querySelectorAll(".timeline__track-year").forEach(el => {
+      el.addEventListener("click", () => {
+        tlYear = parseInt(el.dataset.year);
+        renderTimeline();
+      });
+    });
+  }
+
+  function renderTimelineEvents() {
+    yearLabel.textContent = tlYear;
+
+    const events = filtered()
+      .filter(e => parseInt(e.date.split("-")[0]) === tlYear)
+      .sort((a, b) => a.date.localeCompare(b.date));
+
+    if (events.length === 0) {
+      timelineEvents.innerHTML = '<div class="timeline__empty">Nenhum evento registrado para este ano.</div>';
+      return;
+    }
+
+    timelineEvents.innerHTML = events.map(e => `
+      <div class="tl-item" data-id="${e.id}">
+        <div class="tl-item__date">${fmtDate(e.date)}</div>
+        <div class="tl-item__title">${e.title}</div>
+        <span class="tl-item__cat">${CAT_LABELS[e.category] || e.category}</span>
+      </div>
+    `).join("");
+
+    timelineEvents.querySelectorAll(".tl-item").forEach(item => {
+      item.addEventListener("click", () => {
+        const ev = allEvents().find(e => e.id == item.dataset.id);
+        if (ev) openEventModal(ev);
+      });
+    });
+  }
+
+  function renderTimeline() {
+    renderTimelineTrack();
+    renderTimelineEvents();
+  }
+
+  /* ---------- Event Modal ---------- */
+  function openEventModal(event) {
+    const related = allEvents().filter(e => {
       if (e.id === event.id) return false;
       const [, em, ed] = e.date.split("-");
       const [, em2, ed2] = event.date.split("-");
@@ -235,60 +243,52 @@
     });
 
     let relatedHtml = "";
-    if (relatedEvents.length > 0) {
+    if (related.length > 0) {
       relatedHtml = `
-        <div class="event-sidebar__section">
-          <h4>Também nesta data</h4>
-          ${relatedEvents.map(e => `
-            <div class="event-sidebar__related-item" data-id="${e.id}">
+        <div style="margin-top:1.5rem">
+          <div class="event-detail__related-title">Também nesta data</div>
+          ${related.map(e => `
+            <div class="event-detail__related-item" data-id="${e.id}">
               <strong>${e.date.split("-")[0]}</strong> — ${e.title}
-            </div>
-          `).join("")}
-        </div>
-      `;
+            </div>`).join("")}
+        </div>`;
     }
 
-    sidebarContent.innerHTML = `
-      <div class="event-sidebar__date">${fmtDate(event.date)}</div>
-      <div class="event-sidebar__title">${event.title}</div>
-      <span class="event-sidebar__cat cat--${event.category}">${CAT_LABELS[event.category] || event.category}</span>
-      <div class="event-sidebar__desc">${event.description}</div>
+    eventModalContent.innerHTML = `
+      <div class="event-detail__date">${fmtDate(event.date)}</div>
+      <div class="event-detail__title">${event.title}</div>
+      <span class="event-detail__cat">${CAT_LABELS[event.category] || event.category}</span>
+      <div class="event-detail__desc">${event.description}</div>
       ${relatedHtml}
     `;
 
-    eventSidebar.classList.remove("hidden");
+    eventModal.classList.remove("hidden");
 
-    // Related item click
-    sidebarContent.querySelectorAll(".event-sidebar__related-item").forEach(item => {
+    eventModalContent.querySelectorAll(".event-detail__related-item").forEach(item => {
       item.addEventListener("click", () => {
-        const ev = getAllEvents().find(e => e.id == item.dataset.id);
-        if (ev) openSidebar(ev);
+        const ev = allEvents().find(e => e.id == item.dataset.id);
+        if (ev) openEventModal(ev);
       });
     });
   }
 
-  function openSidebarMultiple(events, md) {
-    const [m, d] = md.split("-");
-    sidebarContent.innerHTML = `
-      <div class="event-sidebar__date">${d}/${m} — Todos os anos</div>
-      <div class="event-sidebar__title">${events.length} eventos nesta data</div>
-      <div class="event-sidebar__section">
-        ${events
-          .sort((a, b) => a.date.localeCompare(b.date))
-          .map(e => `
-            <div class="event-sidebar__related-item" data-id="${e.id}">
-              <strong>${e.date.split("-")[0]}</strong> — ${e.title}
-              <br><span style="font-size:0.75rem;color:var(--gray-light)">${e.description.slice(0,80)}…</span>
-            </div>
-          `).join("")}
+  function openDayModal(events, day) {
+    eventModalContent.innerHTML = `
+      <div class="event-detail__date">${pad(day)}/${pad(curMonth + 1)} — Todos os anos</div>
+      <div class="event-detail__title">${events.length} eventos nesta data</div>
+      <div style="margin-top:1rem">
+        ${events.sort((a, b) => a.date.localeCompare(b.date)).map(e => `
+          <div class="event-detail__related-item" data-id="${e.id}">
+            <strong>${e.date.split("-")[0]}</strong> — ${e.title}
+          </div>`).join("")}
       </div>
     `;
-    eventSidebar.classList.remove("hidden");
+    eventModal.classList.remove("hidden");
 
-    sidebarContent.querySelectorAll(".event-sidebar__related-item").forEach(item => {
+    eventModalContent.querySelectorAll(".event-detail__related-item").forEach(item => {
       item.addEventListener("click", () => {
-        const ev = getAllEvents().find(e => e.id == item.dataset.id);
-        if (ev) openSidebar(ev);
+        const ev = allEvents().find(e => e.id == item.dataset.id);
+        if (ev) openEventModal(ev);
       });
     });
   }
@@ -296,130 +296,101 @@
   /* ---------- Search ---------- */
   function handleSearch() {
     const q = searchInput.value.trim().toLowerCase();
-    if (q.length < 2) {
-      searchResults.classList.add("hidden");
-      return;
-    }
+    if (q.length < 2) { searchResults.classList.add("hidden"); return; }
 
-    const results = getAllEvents().filter(e =>
+    const results = allEvents().filter(e =>
       e.title.toLowerCase().includes(q) ||
       e.description.toLowerCase().includes(q) ||
       e.date.includes(q)
-    ).slice(0, 15);
+    ).slice(0, 12);
 
     if (results.length === 0) {
-      searchResults.innerHTML = '<div class="search-results__item"><span class="search-results__item-title">Nenhum resultado encontrado</span></div>';
+      searchResults.innerHTML = '<div class="search-results__item"><span class="search-results__item-title">Nenhum resultado</span></div>';
     } else {
       searchResults.innerHTML = results.map(e => `
         <div class="search-results__item" data-id="${e.id}">
           <div class="search-results__item-title">${e.title}</div>
-          <div class="search-results__item-date">${fmtDate(e.date)}</div>
-          <span class="search-results__item-cat cat--${e.category}">${CAT_LABELS[e.category] || e.category}</span>
-        </div>
-      `).join("");
+          <div class="search-results__item-meta">${fmtDate(e.date)} · ${CAT_LABELS[e.category] || e.category}</div>
+        </div>`).join("");
     }
-
     searchResults.classList.remove("hidden");
 
     searchResults.querySelectorAll(".search-results__item[data-id]").forEach(item => {
       item.addEventListener("click", () => {
-        const ev = getAllEvents().find(e => e.id == item.dataset.id);
+        const ev = allEvents().find(e => e.id == item.dataset.id);
         if (ev) {
-          openSidebar(ev);
+          openEventModal(ev);
           searchResults.classList.add("hidden");
           searchInput.value = "";
-
-          // Navigate to the event's date
-          const [ey, em] = ev.date.split("-").map(Number);
-          if (activeView === "calendar") {
-            currentYear = ey;
-            currentMonth = em - 1;
-            renderCalendar();
-          } else {
-            timelineYear = ey;
-            renderTimeline();
-          }
         }
       });
     });
   }
 
-  /* ---------- Add Event Modal ---------- */
-  function openModal() { modalOverlay.classList.remove("hidden"); }
-  function closeModal() { modalOverlay.classList.add("hidden"); }
-
-  function handleAddEvent(e) {
+  /* ---------- Add Event ---------- */
+  function handleAdd(e) {
     e.preventDefault();
     const title = $("#eventTitle").value.trim();
     const date = $("#eventDate").value;
     const category = $("#eventCategory").value;
     const description = $("#eventDescription").value.trim();
-
     if (!title || !date) return;
 
-    const communityEvents = loadCommunityEvents();
-    const newEvent = {
+    const community = loadCommunity();
+    community.push({
       id: Date.now(),
-      date,
-      title,
-      category,
+      date, title, category,
       description: description || "Evento adicionado pela comunidade.",
       community: true,
-    };
-    communityEvents.push(newEvent);
-    saveCommunityEvents(communityEvents);
-
-    closeModal();
+    });
+    saveCommunity(community);
+    addModal.classList.add("hidden");
     $("#addEventForm").reset();
     renderAll();
   }
 
-  /* ---------- Filter & View Toggle ---------- */
-  function setActiveFilter(cat) {
-    activeCategory = cat;
+  /* ---------- Filters ---------- */
+  function setFilter(cat) {
+    activeFilter = cat;
     $$(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.category === cat));
-    renderCalendar();
-    renderTimeline();
-  }
-
-  function setActiveView(view) {
-    activeView = view;
-    $$(".view-btn").forEach(b => b.classList.toggle("active", b.dataset.view === view));
-    calendarView.classList.toggle("hidden", view !== "calendar");
-    timelineView.classList.toggle("hidden", view !== "timeline");
+    renderAll();
   }
 
   /* ---------- Navigation ---------- */
   function prevMonth() {
-    currentMonth--;
-    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+    curMonth--;
+    if (curMonth < 0) { curMonth = 11; curYear--; }
     renderCalendar();
   }
   function nextMonth() {
-    currentMonth++;
-    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    curMonth++;
+    if (curMonth > 11) { curMonth = 0; curYear++; }
     renderCalendar();
   }
-  function prevYear() { timelineYear--; renderTimeline(); }
-  function nextYear() { timelineYear++; renderTimeline(); }
 
   /* ---------- Render All ---------- */
   function renderAll() {
-    renderOnThisDay();
     renderCalendar();
+    renderOnThisDay();
     renderTimeline();
   }
 
   /* ---------- Event Listeners ---------- */
   $("#prevMonth").addEventListener("click", prevMonth);
   $("#nextMonth").addEventListener("click", nextMonth);
-  $("#prevYear").addEventListener("click", prevYear);
-  $("#nextYear").addEventListener("click", nextYear);
-  $("#closeSidebar").addEventListener("click", () => eventSidebar.classList.add("hidden"));
-  $("#addEventBtn").addEventListener("click", openModal);
-  $("#cancelModal").addEventListener("click", closeModal);
-  modalOverlay.addEventListener("click", (e) => { if (e.target === modalOverlay) closeModal(); });
-  $("#addEventForm").addEventListener("submit", handleAddEvent);
+  $("#prevYear").addEventListener("click", () => { tlYear = Math.max(1910, tlYear - 1); renderTimeline(); });
+  $("#nextYear").addEventListener("click", () => { tlYear = Math.min(new Date().getFullYear(), tlYear + 1); renderTimeline(); });
+  $("#prevDecade").addEventListener("click", () => { tlYear = Math.max(1910, tlYear - 10); renderTimeline(); });
+  $("#nextDecade").addEventListener("click", () => { tlYear = Math.min(new Date().getFullYear(), tlYear + 10); renderTimeline(); });
+
+  $("#closeEventModal").addEventListener("click", () => eventModal.classList.add("hidden"));
+  eventModal.addEventListener("click", (e) => { if (e.target === eventModal) eventModal.classList.add("hidden"); });
+
+  $("#addEventBtn").addEventListener("click", () => addModal.classList.remove("hidden"));
+  $("#closeAddModal").addEventListener("click", () => addModal.classList.add("hidden"));
+  $("#cancelAdd").addEventListener("click", () => addModal.classList.add("hidden"));
+  addModal.addEventListener("click", (e) => { if (e.target === addModal) addModal.classList.add("hidden"); });
+  $("#addEventForm").addEventListener("submit", handleAdd);
 
   searchInput.addEventListener("input", handleSearch);
   document.addEventListener("click", (e) => {
@@ -429,20 +400,13 @@
   });
 
   $$("#filterButtons .filter-btn").forEach(btn => {
-    btn.addEventListener("click", () => setActiveFilter(btn.dataset.category));
+    btn.addEventListener("click", () => setFilter(btn.dataset.category));
   });
 
-  $$("#calendarViewBtn").forEach(btn => btn.addEventListener("click", () => setActiveView("calendar")));
-  $$("#timelineViewBtn").forEach(btn => btn.addEventListener("click", () => setActiveView("timeline")));
-  // Also handle click from the direct selectors
-  if ($("#calendarViewBtn")) $("#calendarViewBtn").addEventListener("click", () => setActiveView("calendar"));
-  if ($("#timelineViewBtn")) $("#timelineViewBtn").addEventListener("click", () => setActiveView("timeline"));
-
-  /* ---------- Keyboard shortcuts ---------- */
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      eventSidebar.classList.add("hidden");
-      closeModal();
+      eventModal.classList.add("hidden");
+      addModal.classList.add("hidden");
       searchResults.classList.add("hidden");
     }
     if (e.key === "/" && document.activeElement !== searchInput) {
