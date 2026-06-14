@@ -1,9 +1,4 @@
-/**
- * Events database — auto-generated from data/events.json.
- * This file provides a fallback for file:// protocol (no server needed).
- * The canonical data source is data/events.json.
- */
-const CORINTHIANS_EVENTS = [
+[
   {
     "id": 200,
     "date": "1895-03-07",
@@ -2937,4 +2932,4 @@ const CORINTHIANS_EVENTS = [
     "type": "birthday",
     "id": 387
   }
-];
+]
