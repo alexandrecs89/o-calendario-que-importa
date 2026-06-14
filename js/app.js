@@ -426,6 +426,32 @@
         }
       });
     }
+
+    /* Bind share button */
+    const shareBtn = eventModalContent.querySelector(".event-action--share");
+    if (shareBtn) {
+      shareBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        ev.preventDefault();
+        const title = shareBtn.dataset.eventTitle;
+        const date = shareBtn.dataset.eventDate;
+        const text = `${title} (${fmtDate(date)}) — ${CFG.name}`;
+        const url = window.location.href;
+
+        if (navigator.share) {
+          navigator.share({ title: CFG.name, text, url }).catch(() => {});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
+            shareBtn.textContent = "Copiado!";
+            setTimeout(() => { shareBtn.innerHTML = `<svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg> Compartilhar`; }, 2000);
+          }).catch(() => {
+            copyFallback(`${text}\n${url}`, shareBtn);
+          });
+        } else {
+          copyFallback(`${text}\n${url}`, shareBtn);
+        }
+      });
+    }
   }
 
   function openDayModal(events, day) {
@@ -693,26 +719,17 @@
     }
   }
 
-  /* ---------- Share ---------- */
-  function bindShareButtons() {
-    document.addEventListener("click", (e) => {
-      const shareBtn = e.target.closest(".event-action--share");
-      if (!shareBtn) return;
-      e.stopPropagation();
-      const title = shareBtn.dataset.eventTitle;
-      const date = shareBtn.dataset.eventDate;
-      const text = `${title} (${fmtDate(date)}) — ${CFG.name}`;
-      const url = window.location.href;
-
-      if (navigator.share) {
-        navigator.share({ title: CFG.name, text, url }).catch(() => {});
-      } else {
-        navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
-          shareBtn.textContent = "Copiado!";
-          setTimeout(() => { shareBtn.innerHTML = `<svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg> Compartilhar`; }, 2000);
-        });
-      }
-    });
+  /* ---------- Share (clipboard fallback for HTTP) ---------- */
+  function copyFallback(text, btn) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.cssText = "position:fixed;left:-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (_) { /* best-effort */ }
+    document.body.removeChild(ta);
+    btn.textContent = "Copiado!";
+    setTimeout(() => { btn.innerHTML = `<svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg> Compartilhar`; }, 2000);
   }
 
   /* ---------- PWA Install ---------- */
@@ -762,7 +779,6 @@
     }
 
     injectFilterIcons();
-    bindShareButtons();
     bindPWAInstall();
     setupDonations();
     renderAll();
