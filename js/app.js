@@ -2,6 +2,8 @@
 (function () {
   "use strict";
 
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
   const CFG = CLUB_CONFIG;
   const L = CFG.labels;
 
@@ -267,7 +269,11 @@
     timelineTrack.innerHTML = html;
 
     const activeEl = timelineTrack.querySelector(".timeline__track-year--active");
-    if (activeEl) activeEl.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    if (activeEl) {
+      const trackRect = timelineTrack.getBoundingClientRect();
+      const elRect = activeEl.getBoundingClientRect();
+      timelineTrack.scrollLeft += (elRect.left + elRect.width / 2) - (trackRect.left + trackRect.width / 2);
+    }
 
     timelineTrack.querySelectorAll(".timeline__track-year").forEach(el => {
       el.addEventListener("click", () => {
@@ -535,7 +541,9 @@
   function setFilter(cat) {
     activeFilter = cat;
     $$(".filter-btn").forEach(b => b.classList.toggle("active", b.dataset.category === cat));
+    const scrollY = window.scrollY;
     renderAll();
+    window.scrollTo(0, scrollY);
   }
 
   /* ---------- Navigation ---------- */
@@ -782,6 +790,7 @@
     bindPWAInstall();
     setupDonations();
     renderAll();
+    window.scrollTo(0, 0);
   }
 
   init();
