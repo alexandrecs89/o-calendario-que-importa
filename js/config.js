@@ -92,7 +92,7 @@ const CLUB_CONFIG = {
     title: "Apoie este projeto",
     subtitle: "Este é um projeto de fãs sem fins lucrativos. Sua doação ajuda a manter e expandir a memória corinthiana.",
     methods: [
-      { type: "pix", label: "Pix", key: "", qrCode: "" },
+      { type: "pix", label: "Pix", key: "79f0b1bf-2ad4-4dc5-a262-c44d250ad183", qrCode: "" },
     ],
     cta: "Fazer uma doação",
     thanks: "Obrigado pelo apoio, Fiel! ❤🖤",
