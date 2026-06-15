@@ -19,13 +19,7 @@
     "category": "marco",
     "description": "O Corinthians foi fundado no bairro do Bom Retiro, por um grupo de operários liderados por Joaquim Ambrósio. O nome veio do Corinthian FC da Inglaterra, que excursionava pelo Brasil na época."
   },
-  {
-    "id": 70,
-    "date": "1910-09-01",
-    "title": "Fundação do Corinthians",
-    "category": "marco",
-    "description": "O Sport Club Corinthians Paulista foi fundado no Bom Retiro por operários e trabalhadores."
-  },
+
   {
     "date": "1910-09-14",
     "title": "Primeiro jogo da história do Corinthians",
@@ -39,7 +33,7 @@
   {
     "date": "1910-09-14",
     "title": "Luigi Fabbi: primeiro gol da história do Corinthians",
-    "description": "O italiano Luigi Fabbi marcou o primeiro gol oficial da história do clube, no segundo jogo do Corinthians, contra o Estrela Polar (2x0).",
+    "description": "O italiano Luigi Fabbi marcou o primeiro gol oficial da história do clube, no primeiro jogo do Corinthians, contra o Estrela Polar (2x0).",
     "id": 374,
     "categories": [
       "recorde"
@@ -383,13 +377,7 @@
     "category": "titulo",
     "description": "Corinthians campeão paulista com grande campanha."
   },
-  {
-    "id": 112,
-    "date": "1952-03-09",
-    "title": "Corinthians 11 x 0 Santo André",
-    "category": "recorde",
-    "description": "Uma das maiores goleadas da história do clube em competições oficiais."
-  },
+
   {
     "date": "1952-03-09",
     "title": "Corinthians 11 x 0 Santo André — maior goleada",
@@ -1606,19 +1594,12 @@
     "description": "José Andrés Martínez Torres nasceu em Maracaibo, Venezuela. Volante internacional pela Venezuela, chegou ao Corinthians em 2024 vindo do Philadelphia Union da MLS."
   },
   {
-    "id": 54,
     "date": "1995-06-11",
-    "title": "Final do Paulista 1995: Corinthians 1 x 0 Palmeiras",
-    "category": "classico",
-    "description": "Marcelinho Carioca marca de falta e dá o título paulista ao Corinthians em cima do rival."
-  },
-  {
-    "date": "1995-06-11",
-    "title": "Final do Paulista 1995: ida Palmeiras 1 x 1 Corinthians",
-    "description": "Primeiro jogo da final do Paulista 95 em Campinas. Empate em 1x1 com gol de Marcelinho Carioca para o Timão.",
+    "title": "Marcelinho Carioca: gol de empate na final do Paulista 1995",
+    "description": "Primeiro jogo da final do Paulista 95 em Campinas. Palmeiras abriu o placar, mas Marcelinho Carioca empatou com um golaço de falta para o Timão.",
     "id": 390,
     "categories": [
-      "titulo"
+      "classico"
     ],
     "type": "event"
   },
@@ -2209,17 +2190,7 @@
     "date": "2007-10-26",
     "title": "Rebaixamento para a Série B",
     "category": "marco",
-    "description": "Um dos dias mais tristes da história corinthiana. O Corinthians é rebaixado para a Série B do Brasileirão em 2007. Mas a Fiel não abandonou."
-  },
-  {
-    "date": "2007-10-26",
-    "title": "A noite mais triste: rebaixamento à Série B",
-    "description": "Derrota para o Lusa (1x0) rebaixou o Corinthians à segunda divisão pela primeira vez na história. Mais de 70 mil no Pacaembu viram a tragédia.",
-    "id": 366,
-    "categories": [
-      "marco"
-    ],
-    "type": "event"
+    "description": "Um dos dias mais tristes da história corinthiana. Derrota para o Grêmio rebaixou o Corinthians à segunda divisão pela primeira vez. Mais de 70 mil no Pacaembu viram a tragédia, mas a Fiel não abandonou."
   },
   {
     "date": "2008-10-04",
