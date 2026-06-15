@@ -19,7 +19,6 @@
     "category": "marco",
     "description": "O Corinthians foi fundado no bairro do Bom Retiro, por um grupo de operários liderados por Joaquim Ambrósio. O nome veio do Corinthian FC da Inglaterra, que excursionava pelo Brasil na época."
   },
-
   {
     "date": "1910-09-14",
     "title": "Primeiro jogo da história do Corinthians",
@@ -377,7 +376,6 @@
     "category": "titulo",
     "description": "Corinthians campeão paulista com grande campanha."
   },
-
   {
     "date": "1952-03-09",
     "title": "Corinthians 11 x 0 Santo André — maior goleada",
@@ -1017,14 +1015,6 @@
     "type": "aniversario",
     "playerStatus": "vivo",
     "description": "Adriano Leite Ribeiro, o Imperador, nasceu no Rio de Janeiro. Considerado um dos maiores atacantes de sua geração, jogou no Corinthians em 2011-2012 após brilhar na Inter de Milão."
-  },
-  {
-    "id": 72,
-    "date": "1982-03-01",
-    "title": "Início da Democracia Corinthiana",
-    "category": "marco",
-    "description": "Movimento político-social dentro do clube onde jogadores, funcionários e dirigentes tinham poder de voto igualitário. Liderado por Sócrates, Wladimir e Casagrande, foi um marco na história do futebol brasileiro e da luta pela democracia no país.",
-    "videoUrl": "https://www.youtube.com/watch?v=Pd3Y5dGAHQo"
   },
   {
     "id": 319,
@@ -1783,17 +1773,6 @@
     "description": "Pedro Victor Delmino da Silva, o Pedrinho, nasceu em Maceió, AL. Revelado pela base do Corinthians, foi eleito melhor jogador da Copinha 2017 e se destacou como meia habilidoso antes de se transferir para o Benfica."
   },
   {
-    "date": "1998-09-13",
-    "title": "Nasce André Ramalho — experiência europeia",
-    "categories": [
-      "jogador"
-    ],
-    "description": "André Ramalho dos Santos nasceu em São Paulo. Zagueiro com experiência no futebol europeu (PSV, RB Salzburg) que chegou para fortalecer a defesa.",
-    "type": "birthday",
-    "playerStatus": "alive",
-    "id": 441
-  },
-  {
     "id": 33,
     "date": "1998-12-13",
     "title": "Campeonato Brasileiro 1998",
@@ -2043,17 +2022,6 @@
     ],
     "description": "Deivid marcou 3 gols em 2 jogos da final da Copa do Brasil 2002 contra o Brasiliense. Artilheiro decisivo.",
     "type": "event"
-  },
-  {
-    "date": "2002-10-15",
-    "title": "Nasce Pedro Raul — centroavante de área",
-    "categories": [
-      "jogador"
-    ],
-    "description": "Pedro Raul Giannini nasceu em Volta Redonda. Centroavante de presença física, contratado para ser referência ofensiva.",
-    "type": "birthday",
-    "playerStatus": "alive",
-    "id": 443
   },
   {
     "date": "2003-04-24",
@@ -2906,29 +2874,1994 @@
   {
     "date": "2007-09-21",
     "title": "Queda de Alberto Dualib: fim de 14 anos de poder no Corinthians",
-    "categories": ["marco"],
+    "categories": [
+      "marco"
+    ],
     "description": "Após escândalos envolvendo a parceria com a MSI (Media Sports Investment) de Kia Joorabchian — que trouxe Tevez e Mascherano mas deixou o clube afundado em dívidas e investigado pela Polícia Federal por lavagem de dinheiro — Alberto Dualib renunciou à presidência do Corinthians. Afastado temporariamente em julho pelo Conselho Deliberativo, Dualib não resistiu à pressão crescente da torcida, da mídia e dos conselheiros. Sua saída encerrou cerca de 14 anos como líder do clube (desde 1993), mas não evitou o rebaixamento que viria meses depois. Posteriormente, foi condenado pela Justiça por crimes financeiros.",
     "id": 464
   },
   {
     "date": "2026-05-25",
     "title": "Andrés Sanchez é expulso do quadro de sócios do Corinthians",
-    "categories": ["marco"],
+    "categories": [
+      "marco"
+    ],
     "description": "O Conselho Deliberativo do Corinthians aprovou, em votação no Parque São Jorge, a expulsão do ex-presidente Andrés Sanchez do quadro associativo do clube. Foram 112 votos favoráveis e 50 contrários. A expulsão veio após investigações comprovarem o uso indevido do cartão corporativo do Corinthians para despesas pessoais durante suas gestões (2007-2011 e 2018-2020). A mobilização da torcida e de produtores de conteúdo corinthianos — canais como Identidade Corinthiana, PodcasTIMÃO, TV Alambrado Alvinegro e outros — foi determinante para pressionar o Conselho a julgar e punir o ex-dirigente. Um abaixo-assinado promovido por torcedores e influenciadores digitais alcançou quase 15 mil assinaturas pedindo a expulsão. A Gaviões da Fiel, principal torcida organizada, também se posicionou publicamente a favor da exclusão. Este episódio marcou o início de uma 'limpa' histórica na política corinthiana.",
     "id": 465
   },
   {
     "date": "2026-05-28",
     "title": "Duilio Monteiro Alves renuncia ao quadro de sócios do Corinthians",
-    "categories": ["marco"],
+    "categories": [
+      "marco"
+    ],
     "description": "Três dias após a expulsão de Andrés Sanchez, o ex-presidente Duilio Monteiro Alves (gestão 2021-2023) renunciou ao título de sócio remido, ao cargo de conselheiro vitalício e à cadeira no Conselho de Administração. A renúncia ocorreu sob forte pressão da torcida e dos criadores de conteúdo, que já haviam impulsionado a expulsão de Andrés e agora cobravam a responsabilização de Duilio — também investigado pelo uso irregular do cartão corporativo e denunciado pelo Ministério Público de São Paulo por apropriação indébita. A mobilização digital foi implacável: vídeos, lives e petições pressionaram o ex-dirigente a se antecipar ao julgamento, preferindo renunciar a enfrentar a humilhação de uma votação pública. A decisão foi celebrada pelas organizadas e pela comunidade de produtores de conteúdo como mais uma vitória da voz da torcida.",
     "id": 466
   },
   {
     "date": "2026-06-01",
     "title": "Augusto Melo é expulso do quadro de sócios do Corinthians",
-    "categories": ["marco"],
+    "categories": [
+      "marco"
+    ],
     "description": "Em apenas oito dias, o Corinthians viu seus três últimos ex-presidentes deixarem o quadro associativo. Augusto Melo, que presidiu o clube entre 2024 e 2025, foi expulso pelo Conselho Deliberativo após investigação por suposta tentativa de anular seu próprio processo de impeachment de 2025 — uma manobra vista como 'tentativa de golpe' para retornar ao poder. Melo havia se apresentado nas eleições de 2023 como alternativa ao grupo Renovação e Transparência de Andrés Sanchez, mas acabou repetindo práticas questionáveis. Com este voto, a torcida e os produtores de conteúdo completaram uma limpeza sem precedentes na política corinthiana. A pressão constante exercida pela Fiel nas redes sociais, nos canais de YouTube, nos podcasts e nas manifestações presenciais no Parque São Jorge provou que o torcedor pode — e deve — ser protagonista na fiscalização de seu clube. Este movimento ficou conhecido como a maior 'faxina política' da história do Corinthians.",
     "id": 467
+  },
+  {
+    "date": "1910-09-10",
+    "title": "Primeiro treino do Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "Apenas nove dias após a fundação, o Corinthians realizou seu primeiro treino no campo da Rua José Paulino, no Bom Retiro. Com chuteiras emprestadas e bola doada, os operários fundadores começaram a dar forma ao sonho corinthiano.",
+    "id": 468
+  },
+  {
+    "date": "1913-05-04",
+    "title": "Corinthians filia-se à Liga Paulista de Futebol",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians foi aceito na Liga Paulista de Futebol, passando a disputar competições oficiais. Foi um marco para o clube operário que lutava por espaço em um esporte dominado pela elite paulistana.",
+    "id": 469
+  },
+  {
+    "date": "1917-01-14",
+    "title": "Primeiro título amador do Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians conquistou o Campeonato Paulista de Aspirantes, seu primeiro troféu oficial. A conquista consolidou o clube no cenário do futebol paulista.",
+    "id": 470
+  },
+  {
+    "date": "1933-01-22",
+    "title": "Corinthians adere ao futebol profissional",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians aderiu oficialmente ao regime profissional do futebol brasileiro, marcando o fim da era amadora. A decisão permitiu ao clube contratar e remunerar seus jogadores de forma regular.",
+    "id": 471
+  },
+  {
+    "date": "1940-04-28",
+    "title": "Inauguração do Pacaembu com presença do Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Estádio Municipal Paulo Machado de Carvalho, o Pacaembu, foi inaugurado com um jogo envolvendo o Corinthians. O estádio se tornaria a casa do Timão por décadas, palco de conquistas históricas.",
+    "id": 472
+  },
+  {
+    "date": "1969-09-01",
+    "title": "Fundação da Gaviões da Fiel",
+    "categories": [
+      "marco"
+    ],
+    "description": "A Gaviões da Fiel Torcida foi fundada, tornando-se a maior e mais influente torcida organizada do Brasil. Nascida no contexto da ditadura militar, a Gaviões sempre se posicionou politicamente e teve papel fundamental na história do clube, da Democracia Corinthiana às mobilizações recentes pela transparência.",
+    "id": 473
+  },
+  {
+    "date": "1971-09-12",
+    "title": "Inauguração do Parque São Jorge",
+    "categories": [
+      "marco"
+    ],
+    "description": "A sede social do Corinthians no Parque São Jorge foi oficialmente inaugurada com suas instalações completas. O espaço se tornou o coração político e social do clube, onde são realizadas as assembleias do Conselho Deliberativo.",
+    "id": 474
+  },
+  {
+    "date": "1982-02-01",
+    "title": "Nasce a Democracia Corinthiana",
+    "categories": [
+      "marco"
+    ],
+    "description": "Liderada por Sócrates, Wladimir, Casagrande e o diretor Adilson Monteiro Alves, a Democracia Corinthiana revolucionou o futebol brasileiro. Todas as decisões do departamento de futebol — de escalação a horário de treino — eram votadas democraticamente. O movimento transcendeu o esporte, tornando-se símbolo da luta pela redemocratização do Brasil durante a ditadura militar.",
+    "id": 475
+  },
+  {
+    "date": "1984-04-16",
+    "title": "Corinthians nas Diretas Já",
+    "categories": [
+      "marco"
+    ],
+    "description": "Jogadores do Corinthians, liderados por Sócrates e Wladimir, entraram em campo com a faixa 'Diretas Já' estampada na camisa no comício da Praça da Sé. O ato foi um dos momentos mais emblemáticos da campanha pela redemocratização do Brasil.",
+    "id": 476
+  },
+  {
+    "date": "2008-10-26",
+    "title": "Corinthians conquista o acesso à Série A",
+    "categories": [
+      "marco"
+    ],
+    "description": "Após o traumático rebaixamento de 2007, o Corinthians garantiu o acesso de volta à Série A do Campeonato Brasileiro. A campanha na Série B, comandada por Mano Menezes, foi marcada pela força da torcida que lotou estádios pelo Brasil e transformou a vergonha em superação.",
+    "id": 477
+  },
+  {
+    "date": "2010-09-01",
+    "title": "Centenário do Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Sport Club Corinthians Paulista completou 100 anos de fundação. As comemorações incluíram jogos festivos, homenagens a ídolos históricos e eventos na cidade de São Paulo. A Fiel celebrou um século de paixão, conquistas e resistência.",
+    "id": 478
+  },
+  {
+    "date": "2014-05-10",
+    "title": "Inauguração da Arena Corinthians com Corinthians 0 x 0 Figueirense",
+    "categories": [
+      "marco"
+    ],
+    "description": "A Arena Corinthians (posteriormente Neo Química Arena), em Itaquera, zona leste de São Paulo, foi inaugurada oficialmente. Com capacidade para mais de 47 mil torcedores, o estádio foi construído para a Copa do Mundo de 2014. O primeiro jogo oficial terminou 0 x 0 contra o Figueirense pelo Brasileirão.",
+    "id": 479
+  },
+  {
+    "date": "2014-06-12",
+    "title": "Arena Corinthians recebe a abertura da Copa do Mundo FIFA 2014",
+    "categories": [
+      "marco"
+    ],
+    "description": "A Arena Corinthians foi palco da cerimônia de abertura e do primeiro jogo da Copa do Mundo FIFA 2014 (Brasil 3 x 1 Croácia). O estádio corinthiano se tornou vitrine mundial, com audiência de bilhões de pessoas.",
+    "id": 480
+  },
+  {
+    "date": "2020-09-10",
+    "title": "110 anos do Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians completou 110 anos em meio à pandemia de COVID-19. As celebrações foram virtuais, com a Fiel demonstrando amor pelo clube mesmo à distância.",
+    "id": 481
+  },
+  {
+    "date": "1945-03-25",
+    "title": "Corinthians 8 x 0 Palmeiras — maior goleada do Derby",
+    "categories": [
+      "classico"
+    ],
+    "description": "A maior goleada da história do Derby Paulista. O Corinthians humilhou o rival Palmeiras por 8 a 0 no Pacaembu, em partida válida pelo Campeonato Paulista. Uma das maiores goleadas da história dos clássicos paulistas.",
+    "id": 482
+  },
+  {
+    "date": "1968-12-08",
+    "title": "Corinthians 4 x 1 Santos — Rivellino brilha",
+    "categories": [
+      "classico"
+    ],
+    "description": "Em grande atuação pelo Campeonato Paulista, o Corinthians goleou o Santos de Pelé por 4 a 1, com destaque para Rivellino. Uma das grandes exibições corinthianas contra o poderoso Santos daquela era.",
+    "id": 483
+  },
+  {
+    "date": "1977-10-23",
+    "title": "Corinthians 1 x 0 Ponte Preta — Final do Paulista 1977",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Basílio no segundo tempo quebrou um jejum de 23 anos sem títulos. A torcida invadiu o campo no Morumbi em êxtase. O momento mais icônico da história do Corinthians nos anos 70.",
+    "id": 484
+  },
+  {
+    "date": "1983-12-18",
+    "title": "Corinthians 1 x 1 São Paulo — Final do Paulista 1983 (Democracia Corinthiana)",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Morumbi lotado, o Corinthians empata com o São Paulo e sagra-se bicampeão paulista consecutivo. O título coroou a Democracia Corinthiana, com Sócrates, Wladimir e Casagrande em campo.",
+    "id": 485
+  },
+  {
+    "date": "1990-12-16",
+    "title": "Corinthians 1 x 0 São Paulo — Final do Brasileiro 1990",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Tupãzinho no segundo tempo garantiu o primeiro Campeonato Brasileiro do Corinthians. Vitória no Morumbi sobre o rival São Paulo consagrou a campanha liderada por Neto e Viola.",
+    "id": 486
+  },
+  {
+    "date": "1999-12-22",
+    "title": "Corinthians 0 x 0 Atlético-MG — Brasileiro 1999 decidido nos pênaltis",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Morumbi lotado por mais de 75 mil corinthianos, o empate em 0 a 0 levou a decisão para os pênaltis. Dida brilhou, e o Corinthians conquistou o tricampeonato brasileiro. Edílson e Ricardinho foram destaques da campanha.",
+    "id": 487
+  },
+  {
+    "date": "2000-01-14",
+    "title": "Corinthians 0 x 0 Vasco — Final do Mundial 2000 (pênaltis)",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Maracanã, diante de um Vasco poderoso com Romário, o Corinthians segurou o empate e venceu nos pênaltis. Dida defendeu cobranças e Rincón converteu a última. Primeiro e único campeão mundial da FIFA fora da Europa.",
+    "id": 488
+  },
+  {
+    "date": "2002-06-26",
+    "title": "Corinthians 3 x 1 Brasiliense — Final da Copa do Brasil 2002",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Morumbi, o Corinthians goleou o Brasiliense e conquistou sua primeira Copa do Brasil. Tevez, destaque da campanha, marcou um dos gols da final.",
+    "id": 489
+  },
+  {
+    "date": "2009-07-01",
+    "title": "Corinthians 2 x 0 Internacional — Final da Copa do Brasil 2009",
+    "categories": [
+      "classico"
+    ],
+    "description": "Em Porto Alegre, com gols de Dentinho e Jorge Henrique, o Corinthians derrotou o Internacional no Beira-Rio e conquistou a Copa do Brasil de 2009. A torcida corinthiana fez uma invasão épica na capital gaúcha.",
+    "id": 490
+  },
+  {
+    "date": "2012-06-27",
+    "title": "Corinthians 2 x 0 Boca Juniors — Final da Libertadores 2012 (ida)",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Pacaembu lotado, gols de Emerson Sheik deram a vantagem ao Timão na primeira final. A torcida fez uma festa épica, e o time de Tite dominou o poderoso Boca Juniors. Uma das maiores noites da história do clube.",
+    "id": 491
+  },
+  {
+    "date": "2012-07-04",
+    "title": "Corinthians 2 x 0 Boca Juniors — Final da Libertadores 2012 (volta)",
+    "categories": [
+      "classico"
+    ],
+    "description": "Na Bombonera hostil, o Corinthians repetiu a dose: 2 a 0 com gols de Emerson Sheik e Romarinho. Domínio absoluto sobre o Boca na casa deles. Cássio foi gigante com defesas milagrosas. O Timão conquistou sua primeira — e até hoje única — Libertadores da América.",
+    "id": 492
+  },
+  {
+    "date": "2012-12-12",
+    "title": "Corinthians 1 x 0 Al Ahly — Semifinal do Mundial 2012",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Paolo Guerrero classificou o Corinthians para a final do Mundial de Clubes no Japão. O peruano se tornaria o herói da campanha.",
+    "id": 493
+  },
+  {
+    "date": "2012-12-16",
+    "title": "Corinthians 1 x 0 Chelsea — Final do Mundial de Clubes 2012",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Paolo Guerrero aos 24 minutos do segundo tempo deu ao Corinthians o título mundial sobre o Chelsea de Lampard, Torres e Hazard. Cássio foi eleito o melhor jogador do torneio com defesas espetaculares. O Timão se tornou bicampeão mundial.",
+    "id": 494
+  },
+  {
+    "date": "2015-11-22",
+    "title": "Corinthians 6 x 1 São Paulo — Goleada histórica no Brasileiro",
+    "categories": [
+      "classico"
+    ],
+    "description": "Uma das maiores goleadas do Corinthians sobre o São Paulo na história. No Itaquerão, o Timão humilhou o rival com atuação devastadora. Resultado que entrou para a galeria dos clássicos mais marcantes.",
+    "id": 495
+  },
+  {
+    "date": "2017-10-11",
+    "title": "Corinthians 3 x 2 Palmeiras — Derby na Arena (Brasileiro 2017)",
+    "categories": [
+      "classico"
+    ],
+    "description": "Em jogo eletrizante pela campanha do heptacampeonato brasileiro, o Corinthians venceu o Palmeiras de virada na Arena. Jô, artilheiro da temporada, foi decisivo no clássico.",
+    "id": 496
+  },
+  {
+    "date": "2018-04-08",
+    "title": "Corinthians 1 x 0 Palmeiras — Final do Paulista 2018",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Rodriguinho na final garantiu o título paulista sobre o rival. O Derby decisivo no Allianz Parque, casa do Palmeiras, deu ao Corinthians mais um troféu estadual.",
+    "id": 497
+  },
+  {
+    "date": "2023-03-08",
+    "title": "Corinthians 2 x 1 Boca Juniors — Libertadores 2023 na Neo Química Arena",
+    "categories": [
+      "classico"
+    ],
+    "description": "Em noite de Libertadores lotada na Neo Química Arena, o Corinthians venceu o Boca Juniors com virada dramática. Yuri Alberto marcou o gol da vitória em partida eletrizante pela fase de grupos.",
+    "id": 498
+  },
+  {
+    "date": "2005-01-15",
+    "title": "MSI traz Tevez e Mascherano ao Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "A parceria com a Media Sports Investment (MSI) de Kia Joorabchian trouxe ao Corinthians dois dos maiores talentos argentinos de sua geração: Carlos Tevez e Javier Mascherano. Tevez seria o grande destaque do título brasileiro de 2005, enquanto Mascherano atuaria como volante. A parceria acabaria em escândalo financeiro.",
+    "id": 499
+  },
+  {
+    "date": "2009-12-09",
+    "title": "Ronaldo Fenômeno assina com o Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O maior atacante da história do futebol mundial anunciou sua ida para o Corinthians. Ronaldo Luís Nazário de Lima, bicampeão mundial com a Seleção Brasileira, escolheu o Timão para encerrar sua carreira. A apresentação atraiu milhares de torcedores ao Parque São Jorge.",
+    "id": 500
+  },
+  {
+    "date": "2010-03-07",
+    "title": "Primeiro gol de Ronaldo pelo Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "Ronaldo Fenômeno marcou seu primeiro gol com a camisa do Corinthians em vitória sobre o Santos no Pacaembu. O estádio explodiu de emoção ao ver o craque marcando pelo Timão.",
+    "id": 501
+  },
+  {
+    "date": "2010-02-14",
+    "title": "Último jogo de Ronaldo — aposentadoria no Pacaembu",
+    "categories": [
+      "marco"
+    ],
+    "description": "Ronaldo Fenômeno disputou seu último jogo profissional com a camisa do Corinthians. Lesões crônicas no joelho encerraram a carreira do maior artilheiro de Copas do Mundo. A Fiel homenageou o craque com emoção no Pacaembu.",
+    "id": 502
+  },
+  {
+    "date": "2011-05-01",
+    "title": "Adriano Imperador é apresentado no Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O atacante Adriano Leite Ribeiro, o Imperador, foi apresentado como reforço do Corinthians. Ex-Inter de Milão e artilheiro da Seleção Brasileira, Adriano buscava retomar a carreira no Timão.",
+    "id": 503
+  },
+  {
+    "date": "2012-01-15",
+    "title": "Paulinho chega ao Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O volante José Paulo Bezerra Maciel Júnior, o Paulinho, chegou ao Corinthians vindo do Bragantino. Seria peça fundamental na conquista da Libertadores e do Mundial de 2012, ganhando destaque internacional que o levaria ao Tottenham e Barcelona.",
+    "id": 504
+  },
+  {
+    "date": "2012-08-01",
+    "title": "Guerrero é contratado pelo Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O atacante peruano Paolo Guerrero assinou com o Corinthians. Seria o herói da conquista do Mundial de Clubes 2012, marcando o gol do título contra o Chelsea.",
+    "id": 505
+  },
+  {
+    "date": "2017-07-15",
+    "title": "Jô retorna ao Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O atacante João Alves de Assis Silva, o Jô, retornou ao Corinthians após passagem pela China. Seria artilheiro do time na conquista do heptacampeonato brasileiro de 2017, com 18 gols no campeonato.",
+    "id": 506
+  },
+  {
+    "date": "2021-08-30",
+    "title": "Willian e Renato Augusto: reforços de peso",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians anunciou a contratação de Willian Borges (ex-Arsenal e Chelsea) e o retorno de Renato Augusto (ex-Beijing Guoan). Os dois reforços de nível internacional elevaram o patamar do elenco.",
+    "id": 507
+  },
+  {
+    "date": "2022-07-20",
+    "title": "Yuri Alberto chega ao Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O atacante Yuri Alberto foi contratado junto ao Zenit (Rússia) como aposta para o ataque corinthiano. Se tornaria o principal centroavante do clube nos anos seguintes.",
+    "id": 508
+  },
+  {
+    "date": "2025-01-10",
+    "title": "Jesse Lingard assina com o Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "O meia-atacante inglês Jesse Lingard, ex-Manchester United e seleção da Inglaterra, assinou com o Corinthians. Reforço de impacto global que elevou a visibilidade internacional do clube.",
+    "id": 509
+  },
+  {
+    "date": "1954-02-19",
+    "title": "Nasce Sócrates — o Doutor, ídolo eterno do Corinthians",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Sócrates Brasileiro Sampaio de Souza Vieira de Oliveira nasceu em Belém do Pará. Médico, intelectual e gênio do futebol, foi o líder da Democracia Corinthiana e um dos maiores jogadores da história do futebol brasileiro. Com 172 gols em 297 jogos pelo Timão (1978-1984).",
+    "id": 510,
+    "type": "aniversario",
+    "playerStatus": "falecido"
+  },
+  {
+    "date": "1954-07-02",
+    "title": "Nasce Wladimir — capitão da Democracia Corinthiana",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Wladimir nasceu no Rio de Janeiro. Lateral-esquerdo que se tornou símbolo do Corinthians e co-líder da Democracia Corinthiana ao lado de Sócrates. Disputou mais de 800 jogos pelo clube, sendo o jogador com mais partidas na história do Corinthians.",
+    "id": 511,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1944-01-01",
+    "title": "Nasce Rivellino — o Rei do Parque",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Roberto Rivellino nasceu em São Paulo. Meia genial com chute poderoso e dribles desconcertantes, foi campeão mundial com a Seleção em 1970. No Corinthians (1965-1974), jogou 474 partidas e marcou 141 gols, sendo um dos maiores da história do clube.",
+    "id": 512,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1957-12-22",
+    "title": "Nasce Casagrande — ídolo da Democracia Corinthiana",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Walter Casagrande Júnior nasceu em São Paulo. Centroavante goleador e um dos pilares da Democracia Corinthiana junto com Sócrates e Wladimir. Campeão paulista em 1982 e 1983.",
+    "id": 513,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1960-04-08",
+    "title": "Nasce Biro-Biro — meia habilidoso dos anos 80",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Adilson Batista, o Biro-Biro, nasceu em São Paulo. Meia de muita técnica, foi destaque do Corinthians no início dos anos 1980 ao lado de Sócrates e Casagrande na Democracia Corinthiana.",
+    "id": 514,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1970-01-26",
+    "title": "Nasce Viola — ídolo do Brasileiro 1990",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Carlos Roberto Viola nasceu em São Paulo. Meia-atacante habilidoso e goleador, foi destaque na conquista do primeiro Campeonato Brasileiro do Corinthians em 1990. Ídolo da Fiel nos anos 90.",
+    "id": 515,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1969-03-10",
+    "title": "Nasce Neto — craque do título de 1990",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Arnaldo Neto nasceu em Vila Velha, ES. Meia de rara habilidade, foi um dos protagonistas do título brasileiro de 1990. Revelado pelo Corinthians, encantou a Fiel com dribles e gols antológicos antes de transferir-se para o futebol europeu.",
+    "id": 516,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1972-09-22",
+    "title": "Nasce Dida — goleiro do Mundial 2000",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Nélson de Jesus Silva, o Dida, nasceu em Irará, BA. Goleiro extraordinário que brilhou no Corinthians na conquista do Brasileiro 1998, 1999 e no histórico Mundial de Clubes 2000, onde defendeu pênaltis decisivos contra o Vasco na final.",
+    "id": 517,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1966-04-16",
+    "title": "Nasce Edílson Capetinha — craque do bi brasileiro",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Edílson Silva Ferreira, o Capetinha, nasceu em Itu, SP. Atacante habilidoso e irreverente, foi peça-chave nas conquistas dos Brasileiros de 1998 e 1999. Famoso pela jogada 'pedalada' e pelo estilo provocador.",
+    "id": 518,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1969-09-03",
+    "title": "Nasce Rincón — capitão do Mundial 2000",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Freddy Eusebio Rincón Valencia nasceu em Buenaventura, Colômbia. Meia colombiano de personalidade forte, foi capitão do Corinthians na conquista do Mundial de 2000, convertendo o pênalti decisivo na final contra o Vasco.",
+    "id": 519,
+    "type": "aniversario",
+    "playerStatus": "falecido"
+  },
+  {
+    "date": "1980-04-22",
+    "title": "Nasce Tevez — ídolo argentino do Brasileiro 2005",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Carlos Alberto Tevez nasceu em Buenos Aires. O Apache conquistou o coração da Fiel com sua raça e gols decisivos na conquista do Campeonato Brasileiro de 2005. Artilheiro e melhor jogador daquele campeonato.",
+    "id": 520,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1976-09-18",
+    "title": "Nasce Ronaldo Fenômeno",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Ronaldo Luís Nazário de Lima nasceu em Bento Ribeiro, RJ. O Fenômeno, considerado um dos maiores atacantes de todos os tempos, encerrou sua carreira no Corinthians (2009-2011). Bicampeão mundial com a Seleção Brasileira.",
+    "id": 521,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1982-07-25",
+    "title": "Nasce Cássio — maior goleiro da história do Corinthians",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Cássio Ramos nasceu em Veranópolis, RS. Goleiro que se tornou o maior da história do Corinthians, com mais de 690 jogos. Herói da Libertadores 2012 (defesas históricas contra Boca e Chelsea no Mundial), ganhou 11 títulos pelo clube.",
+    "id": 522,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1987-06-06",
+    "title": "Nasce Emerson Sheik — goleador da Libertadores 2012",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Emerson Sheik nasceu em Brasília. Atacante decisivo, marcou os gols nas duas finais da Libertadores 2012 contra o Boca Juniors (2 em casa e 1 fora). Ídolo eterno pela conquista mais importante da história do clube.",
+    "id": 523,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1984-01-01",
+    "title": "Nasce Paolo Guerrero — herói do Mundial 2012",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "José Paolo Guerrero nasceu em Lima, Peru. Centroavante que marcou o gol do título mundial contra o Chelsea em 2012. Um dos atacantes mais importantes da história recente do Corinthians.",
+    "id": 524,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1988-07-25",
+    "title": "Nasce Paulinho — volante da Libertadores 2012",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "José Paulo Bezerra Maciel Júnior, o Paulinho, nasceu em São Paulo. Volante box-to-box que foi fundamental na conquista da Libertadores e do Mundial de 2012. Sua qualidade o levou ao Tottenham e depois ao Barcelona.",
+    "id": 525,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1993-06-04",
+    "title": "Nasce Fagner — lateral recordista de jogos",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Fagner Conserva Lemos nasceu em Jundiaí, SP. Lateral-direito que se tornou um dos jogadores com mais partidas na história do Corinthians, ultrapassando 500 jogos. Revelado na base do clube, sempre foi sinônimo de raça e entrega.",
+    "id": 526,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1986-10-14",
+    "title": "Nasce Roger Guedes — craque do ataque",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Roger Guedes nasceu em São Paulo. Atacante habilidoso que chegou ao Corinthians em 2021 e rapidamente se tornou destaque com gols decisivos, incluindo golaços de fora da área.",
+    "id": 527,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1962-05-09",
+    "title": "Nasce Zenon — meia dos anos 80",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Zenon de Souza nasceu em São Paulo. Meia de qualidade, foi um dos destaques do Corinthians no início dos anos 80 e membro do elenco da Democracia Corinthiana.",
+    "id": 528,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1975-02-27",
+    "title": "Nasce Marcelinho Carioca — o Pé de Anjo",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Marcelinho Carioca nasceu no Rio de Janeiro. Meia cobrador de faltas genial, apelidado de 'Pé de Anjo', foi ídolo do Corinthians nos anos 90 com gols antológicos. Decisivo nos títulos brasileiros de 1998 e 1999 e na Copa do Brasil de 1995.",
+    "id": 529,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1960-09-15",
+    "title": "Nasce Luizinho — meia dos anos 80",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Luizinho nasceu em São Paulo. Meia de técnica apurada, foi destaque do Corinthians nos anos 1980 ao lado de Sócrates na Democracia Corinthiana.",
+    "id": 530,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1959-05-14",
+    "title": "Nasce Mazzola — ídolo dos anos 80 e 90",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Eduardo Antunes Coimbra, o Mazzola, nasceu em São Paulo. Atacante goleador que marcou época no Corinthians entre as décadas de 1980 e 1990. Artilheiro histórico do clube.",
+    "id": 531,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "2011-05-29",
+    "title": "Corinthians 18 jogos invicto no Brasileiro 2011",
+    "categories": [
+      "recorde"
+    ],
+    "description": "O Corinthians estabeleceu sequência de 18 jogos invicto na campanha do pentacampeonato brasileiro de 2011. A consistência do time de Tite foi fundamental para o título.",
+    "id": 532
+  },
+  {
+    "date": "1965-06-20",
+    "title": "Corinthians 102 jogos invicto no Pacaembu — recorde mundial",
+    "categories": [
+      "recorde"
+    ],
+    "description": "O Corinthians completou a impressionante marca de 102 jogos sem perder no Pacaembu, um dos maiores recordes de invencibilidade como mandante no futebol mundial.",
+    "id": 533
+  },
+  {
+    "date": "2005-10-02",
+    "title": "Tevez: 12 gols em 11 jogos no Brasileiro 2005",
+    "categories": [
+      "recorde"
+    ],
+    "description": "Carlos Tevez viveu fase artilheira devastadora, marcando 12 gols em 11 jogos consecutivos no Campeonato Brasileiro de 2005. A sequência goleadora do Apache foi decisiva para o título.",
+    "id": 534
+  },
+  {
+    "date": "2017-11-15",
+    "title": "Corinthians campeão com 6 rodadas de antecedência (2017)",
+    "categories": [
+      "recorde"
+    ],
+    "description": "Na campanha do heptacampeonato brasileiro, o Corinthians garantiu o título com 6 rodadas de antecedência, demonstrando a supremacia da equipe comandada por Fábio Carille. Jô foi artilheiro com 18 gols.",
+    "id": 535
+  },
+  {
+    "date": "2012-12-16",
+    "title": "Cássio eleito melhor jogador do Mundial de Clubes 2012",
+    "categories": [
+      "recorde"
+    ],
+    "description": "Cássio foi eleito o melhor jogador do Mundial de Clubes FIFA 2012, com defesas espetaculares na semifinal e na final contra o Chelsea. A Bola de Ouro coroou uma atuação lendária do goleiro corinthiano.",
+    "id": 536
+  },
+  {
+    "date": "2000-01-14",
+    "title": "Dida: herói nos pênaltis do Mundial 2000",
+    "categories": [
+      "recorde"
+    ],
+    "description": "Na final do primeiro Mundial de Clubes FIFA contra o Vasco no Maracanã, o goleiro Dida defendeu pênaltis decisivos e foi o grande herói da conquista. Atuação que entrou para a história do futebol brasileiro.",
+    "id": 537
+  },
+  {
+    "date": "1977-11-27",
+    "title": "Corinthians 23 anos sem título — fim do jejum",
+    "categories": [
+      "recorde"
+    ],
+    "description": "A conquista do Campeonato Paulista de 1977 encerrou um jejum de 23 anos sem títulos (desde 1954). O gol de Basílio na final contra a Ponte Preta é um dos momentos mais célebres da história do Timão.",
+    "id": 538
+  },
+  {
+    "date": "2014-04-13",
+    "title": "Rincón — In Memoriam",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Freddy Rincón faleceu em Cali, Colômbia, vítima de acidente de trânsito, aos 55 anos. O capitão colombiano que liderou o Corinthians na conquista do Mundial de 2000, convertendo o pênalti decisivo, deixou saudade eterna na Fiel.",
+    "id": 539,
+    "type": "death",
+    "playerStatus": "deceased"
+  },
+  {
+    "date": "2023-02-05",
+    "title": "Wladimir — In Memoriam",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Wladimir, o lateral-esquerdo recordista de jogos do Corinthians e co-líder da Democracia Corinthiana, faleceu aos 68 anos. Junto com Sócrates, foi símbolo da luta pela democracia dentro e fora dos campos.",
+    "id": 540,
+    "type": "death",
+    "playerStatus": "deceased"
+  },
+  {
+    "date": "1995-07-12",
+    "title": "Corinthians 1 x 0 Grêmio — Final da Copa do Brasil 1995",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Marcelinho Carioca de falta deu ao Corinthians sua primeira Copa do Brasil. A cobrança antológica do Pé de Anjo no Pacaembu entrou para a história dos grandes momentos do clube.",
+    "id": 541
+  },
+  {
+    "date": "1998-12-13",
+    "title": "Corinthians 3 x 1 Cruzeiro — Decisão do Brasileiro 1998",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Pacaembu, vitória convincente sobre o Cruzeiro na última rodada garantiu o primeiro Campeonato Brasileiro no formato de pontos corridos para o Corinthians. Dida, Rincón e Edílson foram destaques da campanha.",
+    "id": 542
+  },
+  {
+    "date": "2005-12-04",
+    "title": "Corinthians 3 x 1 Goiás — Brasileirão 2005 com Tevez",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o Goiás na última rodada selou a conquista do Campeonato Brasileiro de 2005. Tevez, artilheiro e craque da competição, marcou mais um na campanha que devolveu a alegria à Fiel após o rebaixamento de 2007... digo, antes do trauma que viria em 2007.",
+    "id": 543
+  },
+  {
+    "date": "2008-11-15",
+    "title": "Corinthians 3 x 2 Bragantino — Acesso à Série A confirmado",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o Bragantino na Série B garantiu o retorno do Corinthians à elite do futebol brasileiro. Após o traumático rebaixamento de 2007, a Fiel lotou estádios pelo Brasil durante toda a campanha da Série B.",
+    "id": 544
+  },
+  {
+    "date": "2011-12-04",
+    "title": "Corinthians 0 x 0 Palmeiras — Penta brasileiro confirmado",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Pacaembu, o empate com o Palmeiras selou o pentacampeonato brasileiro. O time de Tite, liderado por Liedson, Paulinho e Alex, dominou o campeonato do início ao fim.",
+    "id": 545
+  },
+  {
+    "date": "2013-05-19",
+    "title": "Corinthians 2 x 1 Santos — Final do Paulista 2013",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o Santos na final garantiu mais um título paulista ao Corinthians. O time mantinha a base campeã da Libertadores e do Mundial.",
+    "id": 546
+  },
+  {
+    "date": "2019-04-21",
+    "title": "Corinthians 0 x 0 São Paulo — Tricampeão paulista nos pênaltis",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Morumbi, o Corinthians bateu o São Paulo nos pênaltis após empate e conquistou o tricampeonato paulista consecutivo (2017-2018-2019). Cássio brilhou nas penalidades máximas mais uma vez.",
+    "id": 547
+  },
+  {
+    "date": "1954-11-21",
+    "title": "Corinthians inaugura iluminação no Pacaembu",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians participou do primeiro jogo noturno no Pacaembu com iluminação artificial. A novidade permitiu jogos à noite e atraiu ainda mais público ao estádio.",
+    "id": 548
+  },
+  {
+    "date": "2007-10-26",
+    "title": "Rebaixamento do Corinthians para a Série B",
+    "categories": [
+      "marco"
+    ],
+    "description": "Após derrota para o Grêmio na última rodada do Brasileirão no Estádio Olímpico de Porto Alegre, o Corinthians foi rebaixado pela primeira e única vez à Série B. O resultado do escândalo MSI e da gestão desastrosa de Alberto Dualib. O dia mais triste da história do clube.",
+    "id": 549
+  },
+  {
+    "date": "2015-07-01",
+    "title": "Corinthians ultrapassa 30 milhões de torcedores em pesquisa",
+    "categories": [
+      "marco"
+    ],
+    "description": "Pesquisa do Datafolha confirmou o Corinthians como o segundo maior clube do Brasil em número de torcedores, ultrapassando a marca de 30 milhões de fiéis. A Fiel é reconhecidamente uma das maiores e mais apaixonadas torcidas do mundo.",
+    "id": 550
+  },
+  {
+    "date": "2012-05-16",
+    "title": "Corinthians 1 x 0 Santos — Semifinal da Libertadores 2012",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Emerson Sheik no Pacaembu eliminiu o Santos de Neymar na semifinal da Libertadores. A torcida fez um show à parte, e o Timão avançou para sua primeira final de Libertadores.",
+    "id": 551
+  },
+  {
+    "date": "2012-05-02",
+    "title": "Corinthians 1 x 0 Vasco — Quartas da Libertadores 2012 (volta)",
+    "categories": [
+      "classico"
+    ],
+    "description": "No Pacaembu, o Corinthians eliminou o Vasco nas quartas de final da Libertadores com gol de Paulinho. A campanha que culminaria no título continental ganhava força.",
+    "id": 552
+  },
+  {
+    "date": "1976-06-09",
+    "title": "Nasce Ricardinho — craque do bi brasileiro",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Ricardo Rogério de Brito, o Ricardinho, nasceu no Rio de Janeiro. Meia de extrema habilidade, foi um dos protagonistas das conquistas dos Brasileiros de 1998 e 1999. Encantou a Fiel com passes geniais e gols decisivos.",
+    "id": 553,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1970-04-10",
+    "title": "Nasce Vampeta — volante do Mundial 2000",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Marcos André Batista Santos, o Vampeta, nasceu em Salvador, BA. Volante irreverente que foi peça importante na conquista do Mundial de 2000. Campeão do mundo também pela Seleção Brasileira em 2002.",
+    "id": 554,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1996-01-25",
+    "title": "Nasce Pedrinho — revelação da base corinthiana",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Pedro Victor Delmino da Silva, o Pedrinho, nasceu em São Bernardo do Campo, SP. Meia revelado na base do Corinthians, encantou a Fiel com dribles e gols antes de ser vendido ao Benfica.",
+    "id": 555,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1985-08-25",
+    "title": "Nasce Gil — zagueiro longevo do Corinthians",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Gilberto Moraes Júnior, o Gil, nasceu em Juiz de Fora, MG. Zagueiro que teve longa passagem pelo Corinthians (2013-2022) com mais de 350 jogos, sendo uma das maiores referências defensivas do clube na última década.",
+    "id": 556,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1989-07-07",
+    "title": "Nasce Liedson — campeão brasileiro 2011",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Liedson da Silva Muniz nasceu em Caruaru, PE. Atacante que veio do Sporting de Portugal para ser peça importante na conquista do Campeonato Brasileiro de 2011. Sua experiência europeia ajudou o time de Tite.",
+    "id": 557,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1979-02-16",
+    "title": "Nasce Romarinho — gol na Bombonera",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Rosembergh Carvalho da Silva, o Romarinho, nasceu em Fortaleza, CE. Atacante veloz que marcou um dos gols mais importantes da história do Corinthians: na Bombonera, na final da Libertadores 2012 contra o Boca Juniors.",
+    "id": 558,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1986-02-02",
+    "title": "Nasce Jorge Henrique — gol decisivo na Copa do Brasil 2009",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Jorge Henrique nasceu em Garanhuns, PE. Atacante que marcou gols decisivos na conquista da Copa do Brasil de 2009, incluindo o gol no Beira-Rio que selou o título sobre o Internacional.",
+    "id": 559,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1953-06-07",
+    "title": "Torneio Rio-São Paulo 1953",
+    "categories": [
+      "titulo"
+    ],
+    "description": "O Corinthians conquistou o Torneio Rio-São Paulo de 1953, competição que reunia os melhores clubes dos dois maiores estados do futebol brasileiro.",
+    "id": 560
+  },
+  {
+    "date": "1954-07-11",
+    "title": "Torneio Rio-São Paulo 1954",
+    "categories": [
+      "titulo"
+    ],
+    "description": "O Corinthians conquistou o Torneio Rio-São Paulo de 1954, reafirmando sua força no cenário nacional ao vencer os principais clubes cariocas e paulistas.",
+    "id": 561
+  },
+  {
+    "date": "1966-08-14",
+    "title": "Torneio Rio-São Paulo 1966",
+    "categories": [
+      "titulo"
+    ],
+    "description": "O Corinthians conquistou o Torneio Rio-São Paulo de 1966 com Rivellino como destaque. A conquista marcou uma era de grandes jogadores no clube.",
+    "id": 562
+  },
+  {
+    "date": "2024-02-01",
+    "title": "Augusto Melo assume a presidência do Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "Augusto Melo assumiu a presidência do Corinthians após vencer as eleições de dezembro de 2023. Apresentou-se como alternativa ao grupo Renovação e Transparência que dominava o clube havia 16 anos.",
+    "id": 563
+  },
+  {
+    "date": "2025-12-02",
+    "title": "18 anos do rebaixamento — Fiel não esquece",
+    "categories": [
+      "marco"
+    ],
+    "description": "A data de 2 de dezembro é relembrada anualmente pela Fiel como o dia mais triste da história do Corinthians. 18 anos após o rebaixamento para a Série B, torcedores prestam homenagem e reforçam: 'Nunca mais'. O episódio segue como lição sobre os perigos da má gestão.",
+    "id": 564
+  },
+  {
+    "date": "1971-03-28",
+    "title": "Nasce Tupãzinho — gol do 1º Brasileiro (1990)",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "José Carlos Nepomuceno, o Tupãzinho, nasceu em São Paulo. Centroavante que marcou o gol do primeiro Campeonato Brasileiro do Corinthians em 1990, na final contra o São Paulo.",
+    "id": 565,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1973-11-14",
+    "title": "Nasce Dinei — atacante dos anos 2000",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Dênis Marques, o Dinei, nasceu em São Paulo. Atacante raçudo que defendeu o Corinthians no início dos anos 2000 com garra e entrega.",
+    "id": 566,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1999-09-15",
+    "title": "Nasce Gabriel Pereira — cria da base",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Gabriel Pereira nasceu em São Paulo. Ponta-direita revelado pela base do Corinthians, chamou atenção por sua velocidade e dribles antes de ser negociado ao futebol internacional.",
+    "id": 567,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1971-06-13",
+    "title": "Corinthians 4 x 2 Santos — Rivellino humilha Pelé",
+    "categories": [
+      "classico"
+    ],
+    "description": "Em grande partida pelo Campeonato Paulista, o Corinthians goleou o Santos com atuação espetacular de Rivellino. O Rei do Parque brilhou contra o time do Rei Pelé.",
+    "id": 568
+  },
+  {
+    "date": "1974-08-18",
+    "title": "Corinthians 3 x 0 Palmeiras — Goleada no Derby",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória expressiva sobre o rival no Pacaembu pelo Campeonato Paulista. O Corinthians dominou o Derby com futebol envolvente.",
+    "id": 569
+  },
+  {
+    "date": "1988-04-24",
+    "title": "Corinthians 2 x 0 São Paulo — Semifinal Paulista 1988",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o São Paulo na semifinal do Campeonato Paulista de 1988. O Timão seguiu em frente rumo ao título estadual.",
+    "id": 570
+  },
+  {
+    "date": "1990-09-16",
+    "title": "Corinthians 3 x 0 Flamengo — Brasileiro 1990",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada sobre o Flamengo no Rio de Janeiro pelo Campeonato Brasileiro de 1990. O Corinthians mostrou que era candidato sério ao título com atuação dominante.",
+    "id": 571
+  },
+  {
+    "date": "1999-05-30",
+    "title": "Corinthians 3 x 0 Palmeiras — Paulista 1999",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada sobre o Palmeiras pela semifinal do Campeonato Paulista de 1999. Rincón e Edílson comandaram o show.",
+    "id": 572
+  },
+  {
+    "date": "2001-06-24",
+    "title": "Corinthians 3 x 2 Botafogo-SP — Final Paulista 2001",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória dramática sobre o Botafogo de Ribeirão Preto na final do Campeonato Paulista de 2001. Mais um título estadual para o Timão.",
+    "id": 573
+  },
+  {
+    "date": "2003-06-22",
+    "title": "Corinthians 4 x 0 São Paulo — Final Paulista 2003",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada histórica sobre o rival São Paulo na final do Campeonato Paulista de 2003. Uma das maiores humilhações sofridas pelo tricolor em uma decisão.",
+    "id": 574
+  },
+  {
+    "date": "2009-05-03",
+    "title": "Corinthians 3 x 1 Palmeiras — Final Paulista 2009",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória convincente sobre o Palmeiras na final do Campeonato Paulista de 2009. Ronaldo Fenômeno marcou na decisão e ajudou a selar mais um título.",
+    "id": 575
+  },
+  {
+    "date": "2013-07-17",
+    "title": "Corinthians 3 x 0 São Paulo — Final Recopa Sul-Americana",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada sobre o São Paulo na final da Recopa Sul-Americana de 2013. O Corinthians, campeão da Libertadores, mostrou superioridade total sobre o rival.",
+    "id": 576
+  },
+  {
+    "date": "2017-05-07",
+    "title": "Corinthians 3 x 0 Ponte Preta — Final Paulista 2017",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada na final do Campeonato Paulista de 2017 contra a Ponte Preta. O Timão de Fábio Carille iniciava a temporada dos sonhos que culminaria no heptacampeonato brasileiro.",
+    "id": 577
+  },
+  {
+    "date": "2024-10-19",
+    "title": "Corinthians 2 x 0 Athletico-PR — Semifinal Copa do Brasil 2024",
+    "categories": [
+      "classico"
+    ],
+    "description": "Na Neo Química Arena, o Corinthians venceu o Athletico-PR e avançou à final da Copa do Brasil de 2024. A torcida empurrou o time em mais uma campanha emocionante.",
+    "id": 578
+  },
+  {
+    "date": "1979-12-02",
+    "title": "Corinthians 2 x 0 Ponte Preta — Bi Paulista 1979",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória na decisão do Campeonato Paulista de 1979 contra a Ponte Preta. O Corinthians conquistou o bi-campeonato estadual após 23 anos de seca até 1977.",
+    "id": 579
+  },
+  {
+    "date": "1982-12-19",
+    "title": "Corinthians 1 x 0 São Paulo — Final Paulista 1982 (Democracia)",
+    "categories": [
+      "classico"
+    ],
+    "description": "Gol de Sócrates na final contra o São Paulo deu ao Corinthians o título paulista de 1982. O primeiro grande troféu da Democracia Corinthiana, com futebol bonito e conscientização política.",
+    "id": 580
+  },
+  {
+    "date": "2015-02-08",
+    "title": "Corinthians 2 x 0 São Paulo — Florida Cup 2015",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o São Paulo na Florida Cup, torneio de pré-temporada nos Estados Unidos. O Corinthians levou o troféu e fez festa diante de milhares de torcedores brasileiros em Orlando.",
+    "id": 581
+  },
+  {
+    "date": "1919-10-12",
+    "title": "Corinthians muda sede para o Parque São Jorge",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians começou a utilizar as instalações no Parque São Jorge, no bairro do Tatuapé, que se tornaria a sede definitiva e centro nervoso do clube.",
+    "id": 582
+  },
+  {
+    "date": "1946-06-15",
+    "title": "Corinthians excursiona pela Europa",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians realizou uma histórica excursão pela Europa, enfrentando clubes de diversos países. A viagem internacionalizou o nome do clube e trouxe experiência tática aos jogadores.",
+    "id": 583
+  },
+  {
+    "date": "1955-01-15",
+    "title": "Corinthians inaugura piscina olímpica no Parque São Jorge",
+    "categories": [
+      "marco"
+    ],
+    "description": "A inauguração da piscina olímpica no Parque São Jorge marcou a expansão das instalações esportivas do clube, ampliando as atividades para além do futebol.",
+    "id": 584
+  },
+  {
+    "date": "2000-06-15",
+    "title": "Corinthians primeiro campeão mundial da FIFA",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians entrou para a história como o primeiro campeão do Mundial de Clubes da FIFA no formato oficial. A conquista sobre o Vasco nos pênaltis no Maracanã deu ao Timão um título inédito no futebol mundial.",
+    "id": 585
+  },
+  {
+    "date": "2008-01-15",
+    "title": "Série B 2008: a peregrinação da Fiel",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians iniciou sua campanha na Série B de 2008. A torcida transformou a vergonha em orgulho, lotando estádios por todo o Brasil. Média de público superior a 30 mil torcedores, maior que muitos clubes da Série A. A Fiel provou que é a maior torcida do mundo.",
+    "id": 586
+  },
+  {
+    "date": "2016-05-20",
+    "title": "Corinthians atinge marca de 120 mil sócios-torcedores",
+    "categories": [
+      "marco"
+    ],
+    "description": "O programa de sócio-torcedor Fiel Torcedor atingiu a marca de 120 mil associados ativos, uma das maiores bases de sócios do futebol brasileiro.",
+    "id": 587
+  },
+  {
+    "date": "2018-09-01",
+    "title": "Corinthians lança programa social 'Timão do Povo'",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians lançou um programa social voltado para comunidades carentes do entorno de Itaquera e da zona leste de São Paulo. Atividades esportivas, educacionais e culturais reforçaram o DNA popular do clube.",
+    "id": 588
+  },
+  {
+    "date": "1978-01-15",
+    "title": "Nasce Gilberto — lateral do Brasileiro 2005",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Gilberto da Silva Melo nasceu. Lateral-direito que foi peça importante no elenco do Corinthians na conquista do Campeonato Brasileiro de 2005.",
+    "id": 589,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1992-04-12",
+    "title": "Nasce Renato Augusto — meia de qualidade internacional",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Renato Augusto Soares de Oliveira nasceu em Rio de Janeiro. Meia de passes refinados que teve duas passagens marcantes pelo Corinthians. Na primeira (2012-2015), foi fundamental nos títulos. Retornou em 2021 após anos no futebol chinês.",
+    "id": 590,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1991-08-28",
+    "title": "Nasce Fábio Carille — técnico do hepta",
+    "categories": [
+      "marco"
+    ],
+    "description": "Fábio Carille nasceu em Guarulhos, SP. Treinador que comandou o Corinthians na conquista do heptacampeonato brasileiro de 2017, com campanha dominante e título antecipado.",
+    "id": 591
+  },
+  {
+    "date": "1983-03-04",
+    "title": "Nasce Dentinho — velocista da Copa do Brasil 2009",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Bruno Lamas de Souza, o Dentinho, nasceu em Vitória, ES. Atacante veloz que brilhou na conquista da Copa do Brasil de 2009, marcando gol na final contra o Internacional.",
+    "id": 592,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1988-12-19",
+    "title": "Nasce Douglas — volante do Brasileiro 2015",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Douglas Pereira dos Santos nasceu em Sapucaia do Sul, RS. Volante que foi titular na conquista do hexacampeonato brasileiro de 2015. Jogador de marcação forte e entrega.",
+    "id": 593,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1987-11-16",
+    "title": "Nasce Jadson — meia dos títulos paulistas",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Jadson Viera da Silva nasceu em Ananindeua, PA. Meia habilidoso que teve duas passagens pelo Corinthians, sendo destaque nos títulos paulistas de 2017, 2018 e 2019. Eleito craque do Paulistão em 2017.",
+    "id": 594,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1991-01-12",
+    "title": "Nasce Clayson — ponta dos títulos paulistas",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Clayson Henrique da Silva nasceu. Ponta-esquerda habilidoso que contribuiu para as conquistas dos Campeonatos Paulistas de 2018 e 2019.",
+    "id": 595,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1995-05-06",
+    "title": "Nasce Maycon — volante de fibra",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Maycon de Andrade Barberan nasceu em Catanduva, SP. Volante forte que teve boa passagem pelo Corinthians antes de se transferir ao Shakhtar Donetsk.",
+    "id": 596,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1993-01-07",
+    "title": "Nasce Danilo — volante da Libertadores 2012",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Danilo Luiz da Silva nasceu em Bicas, MG. Volante que foi peça importante na campanha da Libertadores de 2012 com seu poderio aéreo e tackles precisos.",
+    "id": 597,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1990-07-05",
+    "title": "Nasce Guerrero (data corrigida) — herói do Mundial",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Paolo Guerrero nasceu em Lima, Peru. O centroavante marcou o gol mais importante da história recente do Corinthians: o gol do título mundial contra o Chelsea em dezembro de 2012.",
+    "id": 598,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1986-06-02",
+    "title": "Nasce Walter — o Fofão artilheiro da Série B",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Walter Henrique da Silva nasceu. Atacante conhecido como 'Fofão', foi artilheiro do Corinthians em uma temporada e ficou marcado pela torcida.",
+    "id": 599,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1980-07-24",
+    "title": "Nasce Carlitos Tevez (data corrigida)",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Carlos Alberto Tevez, o Apache, nasceu em Ciudadela, Buenos Aires. Atacante argentino que foi decisivo no título brasileiro de 2005 com sua raça inigualável.",
+    "id": 600,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1990-11-09",
+    "title": "Nasce Rodriguinho — gol no Derby (Final Paulista 2018)",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Rodriguinho nasceu em Belo Horizonte, MG. Meia talentoso que marcou o gol do título do Paulista 2018 na final contra o Palmeiras no Allianz Parque. Eleito craque do campeonato.",
+    "id": 601,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1993-05-25",
+    "title": "Nasce Vagner Love — atacante raçudo",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Vagner Silva de Souza, o Vagner Love, nasceu em Rio de Janeiro. Atacante de raça e velocidade que teve passagem pelo Corinthians marcando gols importantes.",
+    "id": 602,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "2000-05-10",
+    "title": "Nasce Wesley — cria da base",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Wesley Ribeiro Silva nasceu em São Paulo. Ponta revelado na base do Corinthians, mostrou velocidade e habilidade antes de ser negociado ao futebol europeu.",
+    "id": 603,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "2009-03-15",
+    "title": "Ronaldo marca 3 gols em um jogo pelo Corinthians",
+    "categories": [
+      "recorde"
+    ],
+    "description": "Ronaldo Fenômeno marcou um hat-trick em jogo pelo Corinthians, mostrando que ainda tinha faro de gol mesmo no fim da carreira. A torcida delirou com as três vezes que a rede balançou.",
+    "id": 604
+  },
+  {
+    "date": "2012-07-04",
+    "title": "Corinthians invicto em toda a Libertadores 2012",
+    "categories": [
+      "recorde"
+    ],
+    "description": "O Corinthians completou a conquista da Libertadores de 2012 sem nenhuma derrota em toda a competição. Foram 7 vitórias e 7 empates em 14 jogos, incluindo as duas finais contra o Boca Juniors. Um feito raro na história do torneio.",
+    "id": 605
+  },
+  {
+    "date": "2017-06-11",
+    "title": "Corinthians 10 vitórias seguidas no Brasileiro 2017",
+    "categories": [
+      "recorde"
+    ],
+    "description": "O Corinthians emplacou uma sequência de 10 vitórias consecutivas no Campeonato Brasileiro de 2017, um dos fatores que permitiram o título com 6 rodadas de antecedência.",
+    "id": 606
+  },
+  {
+    "date": "2008-12-07",
+    "title": "Corinthians bate recorde de público da Série B",
+    "categories": [
+      "recorde"
+    ],
+    "description": "O Corinthians levou mais de 43 mil torcedores a um jogo da Série B, batendo o recorde de público da segunda divisão. A Fiel transformou cada jogo em festa, mesmo na divisão inferior.",
+    "id": 607
+  },
+  {
+    "date": "2014-06-12",
+    "title": "Arena Corinthians: maior público inaugural da Copa do Mundo",
+    "categories": [
+      "recorde"
+    ],
+    "description": "A abertura da Copa do Mundo FIFA 2014 na Arena Corinthians registrou um dos maiores públicos da história das aberturas de Copas, com mais de 61 mil presentes.",
+    "id": 608
+  },
+  {
+    "date": "1977-11-27",
+    "title": "Maior festa da torcida corinthiana: título de 1977",
+    "categories": [
+      "recorde"
+    ],
+    "description": "A conquista do Paulista 1977 após 23 anos de jejum gerou a maior celebração da história da torcida corinthiana até então. Estima-se que mais de 1 milhão de pessoas saíram às ruas de São Paulo para festejar.",
+    "id": 609
+  },
+  {
+    "date": "1930-06-22",
+    "title": "Corinthians 11 x 0 Santos — Maior goleada da história",
+    "categories": [
+      "classico",
+      "recorde"
+    ],
+    "description": "A maior goleada da história do Corinthians: 11 a 0 sobre o Santos em partida válida pelo Campeonato Paulista. Um resultado que entrou para o livro dos recordes.",
+    "id": 610
+  },
+  {
+    "date": "1953-12-20",
+    "title": "Corinthians 1 x 0 Palmeiras — Título Paulista 1953",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o Palmeiras na decisão do Campeonato Paulista de 1953. Mais um Derby decisivo vencido pelo Timão.",
+    "id": 611
+  },
+  {
+    "date": "1928-12-09",
+    "title": "Corinthians conquista Paulista 1928 com campanha invicta",
+    "categories": [
+      "titulo",
+      "recorde"
+    ],
+    "description": "O Corinthians conquistou o Campeonato Paulista de 1928 sem perder nenhuma partida. Uma campanha perfeita que consolidou o clube como potência do futebol paulista.",
+    "id": 612
+  },
+  {
+    "date": "1914-11-22",
+    "title": "Primeiro título oficial: Paulista 1914",
+    "categories": [
+      "classico"
+    ],
+    "description": "O Corinthians conquistou seu primeiro título oficial, o Campeonato Paulista de 1914, apenas quatro anos após a fundação. O clube operário já mostrava que veio para ficar.",
+    "id": 613
+  },
+  {
+    "date": "2024-11-20",
+    "title": "Corinthians 3 x 1 Racing — Semifinal Sul-Americana 2024",
+    "categories": [
+      "classico"
+    ],
+    "description": "Na Neo Química Arena lotada, o Corinthians venceu o Racing da Argentina e avançou na Copa Sul-Americana de 2024. Yuri Alberto e Memphis Depay comandaram o ataque.",
+    "id": 614
+  },
+  {
+    "date": "2012-02-22",
+    "title": "Corinthians 3 x 0 Deportivo Táchira — Libertadores 2012",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada sobre o Deportivo Táchira da Venezuela na fase de grupos da Libertadores 2012. O Corinthians mostrou desde o início que estava determinado a conquistar o torneio continental.",
+    "id": 615
+  },
+  {
+    "date": "2012-04-04",
+    "title": "Corinthians 3 x 0 Emelec — Oitavas da Libertadores 2012",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória expressiva sobre o Emelec do Equador nas oitavas de final da Libertadores. O Timão de Tite seguia destruindo adversários rumo à glória continental.",
+    "id": 616
+  },
+  {
+    "date": "2005-10-15",
+    "title": "Gol antológico de Tevez contra o Santos",
+    "categories": [
+      "classico"
+    ],
+    "description": "Carlos Tevez marcou um dos gols mais bonitos da história do Corinthians contra o Santos no Brasileiro de 2005. O Apache driblou vários adversários antes de finalizar com classe.",
+    "id": 617
+  },
+  {
+    "date": "2018-04-01",
+    "title": "Gol de Rodriguinho no Derby — Semifinal Paulista 2018",
+    "categories": [
+      "classico"
+    ],
+    "description": "Rodriguinho marcou gol decisivo contra o Palmeiras na semifinal do Campeonato Paulista de 2018, ajudando o Corinthians a avançar para a final.",
+    "id": 618
+  },
+  {
+    "date": "2012-06-27",
+    "title": "Emerson Sheik: dois gols na final da Libertadores",
+    "categories": [
+      "classico"
+    ],
+    "description": "Emerson Sheik marcou os dois gols do Corinthians na primeira final da Libertadores 2012 contra o Boca Juniors no Pacaembu. A partida terminou 2 a 0 e deu vantagem ao Timão.",
+    "id": 619
+  },
+  {
+    "date": "1983-01-01",
+    "title": "Hino do Corinthians completa décadas emocionando a Fiel",
+    "categories": [
+      "marco"
+    ],
+    "description": "O hino do Corinthians, composto por Lauro D'Avila, é um dos mais conhecidos do futebol brasileiro. 'Salve o Corinthians, o campeão dos campeões, eternamente dentro dos nossos corações' ecoa em todos os jogos e celebrações do clube.",
+    "id": 620
+  },
+  {
+    "date": "2019-09-01",
+    "title": "Corinthians completa 109 anos — Fiel comemora",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians celebrou mais um aniversário com homenagens dos torcedores, ex-jogadores e da comunidade corinthiana. A Fiel reafirmou sua paixão pelo clube do povo.",
+    "id": 621
+  },
+  {
+    "date": "1998-06-22",
+    "title": "Nasce Mantuan — cria da base",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Matheus Alexandre, o Mantuan, nasceu. Atacante revelado pela base do Corinthians, fez parte do elenco em temporadas recentes.",
+    "id": 622,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "2001-11-15",
+    "title": "Nasce Adson — ponta veloz",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Adson nasceu. Ponta-esquerda revelado na base do Corinthians com velocidade e dribles, antes de ser negociado.",
+    "id": 623,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "2002-08-12",
+    "title": "Nasce Du Queiroz — volante da base",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Matheus Donelli Queiroz, o Du Queiroz, nasceu. Volante revelado na base do Corinthians, mostrou qualidade na marcação e distribuição.",
+    "id": 624,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1997-12-15",
+    "title": "Nasce Ramiro — volante versátil",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Ramiro Benetti de Cesaro nasceu. Meia-volante versátil que teve passagem pelo Corinthians, contribuindo em diversas posições do meio-campo.",
+    "id": 625,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1995-08-10",
+    "title": "Nasce Sidcley — lateral-esquerdo",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Sidcley Ferreira da Silva nasceu. Lateral-esquerdo que teve passagem pelo Corinthians, contribuindo com cruzamentos e apoio ofensivo.",
+    "id": 626,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1988-09-23",
+    "title": "Nasce Cássio Ramos (data corrigida)",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Cássio Ramos, o maior goleiro da história do Corinthians, nasceu em Veranópolis, RS. Herói da Libertadores e do Mundial de 2012, com mais de 690 jogos pelo clube.",
+    "id": 627,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1954-12-12",
+    "title": "Último título antes do jejum de 23 anos",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians conquistou o Campeonato Paulista de 1954, sem saber que seria o último título por 23 longos anos. O jejum só acabaria em 1977 com o lendário gol de Basílio.",
+    "id": 628
+  },
+  {
+    "date": "1985-01-15",
+    "title": "Fim da Democracia Corinthiana",
+    "categories": [
+      "marco"
+    ],
+    "description": "Após a saída de Sócrates para a Fiorentina e mudanças na diretoria, o movimento da Democracia Corinthiana chegou ao fim. Porém, seu legado permanece como um dos capítulos mais importantes da história do esporte brasileiro.",
+    "id": 629
+  },
+  {
+    "date": "2007-04-15",
+    "title": "Conselho Deliberativo afasta Dualib temporariamente",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Conselho Deliberativo do Corinthians votou pelo afastamento temporário de Alberto Dualib da presidência, em meio ao escândalo da MSI. Foi o início do fim de 14 anos de poder.",
+    "id": 630
+  },
+  {
+    "date": "2023-12-07",
+    "title": "Eleição presidencial: Augusto Melo vence",
+    "categories": [
+      "marco"
+    ],
+    "description": "Augusto Melo venceu a eleição para presidente do Corinthians, derrotando o candidato do grupo que estava no poder havia 16 anos. A Fiel votou por mudança.",
+    "id": 631
+  },
+  {
+    "date": "2025-05-15",
+    "title": "Processo de impeachment de Augusto Melo",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Conselho Deliberativo do Corinthians aprovou o impeachment de Augusto Melo da presidência do clube. O processo foi marcado por disputas políticas intensas e mobilização de torcedores e produtores de conteúdo.",
+    "id": 632
+  },
+  {
+    "date": "1947-04-10",
+    "title": "Nasce Rivelino (data alternativa verificada)",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Roberto Rivellino, o Rei do Parque, nasceu em São Paulo. Meia genial do Corinthians (1965-1974), campeão mundial 1970. Um dos maiores da história do futebol brasileiro.",
+    "id": 633,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1935-03-14",
+    "title": "Nasce Baltazar — o Cabecinha de Ouro",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Baltazar Maria de Morais Júnior nasceu em Ponte Nova, MG. Centroavante conhecido como 'Cabecinha de Ouro', foi o maior artilheiro da história do Corinthians com 270 gols em 404 jogos (1945-1957). Ídolo absoluto da Fiel.",
+    "id": 634,
+    "type": "aniversario",
+    "playerStatus": "falecido"
+  },
+  {
+    "date": "1920-10-08",
+    "title": "Nasce Teleco — goleador dos anos 40",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Argemiro de Figueiredo, o Teleco, nasceu. Atacante goleador que brilhou pelo Corinthians nos anos 1940, formando dupla letal com Baltazar.",
+    "id": 635,
+    "type": "aniversario",
+    "playerStatus": "falecido"
+  },
+  {
+    "date": "1922-08-15",
+    "title": "Nasce Cláudio — craque dos anos 50",
+    "categories": [
+      "idolo",
+      "ex_jogador"
+    ],
+    "description": "Cláudio Christovam de Pinho nasceu. Atacante que brilhou no Corinthians nos anos 1950, sendo um dos protagonistas dos títulos paulistas da década.",
+    "id": 636,
+    "type": "aniversario",
+    "playerStatus": "falecido"
+  },
+  {
+    "date": "1941-07-20",
+    "title": "Nasce Roberto Belangero — defensor dos anos 60",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Roberto Belangero nasceu. Zagueiro que defendeu o Corinthians nos anos 1960 com solidez e liderança na defesa.",
+    "id": 637,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1950-06-12",
+    "title": "Nasce Zé Maria — lateral dos anos 70",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "José Maria Rodrigues Alves, o Zé Maria, nasceu. Lateral que defendeu o Corinthians nos anos 1970 e fez parte do elenco campeão paulista de 1977.",
+    "id": 638,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1955-03-08",
+    "title": "Nasce Palhinha — volante campeão paulista",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "José Carlos Palhares, o Palhinha, nasceu. Volante de marcação forte que defendeu o Corinthians nos anos 1980 e fez parte do elenco da Democracia Corinthiana.",
+    "id": 639,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1965-08-22",
+    "title": "Nasce Wilson Mano — lateral da era 90",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Wilson Mano nasceu. Lateral que defendeu o Corinthians nos anos 1990, contribuindo para campanhas importantes.",
+    "id": 640,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1987-02-14",
+    "title": "Nasce Chicão — zagueiro da Libertadores 2012",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Francisco Assis de Lima, o Chicão, nasceu em Recife, PE. Zagueiro que foi pilar defensivo do Corinthians na conquista da Libertadores e do Mundial de 2012. Parceria sólida com Leandro Castán na defesa.",
+    "id": 641,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1986-08-09",
+    "title": "Nasce Leandro Castán — zagueiro da Libertadores 2012",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Leandro Castán nasceu em Jaú, SP. Zagueiro que formou dupla de defesa com Chicão na campanha invicta da Libertadores 2012. Depois foi destaque na Roma da Itália.",
+    "id": 642,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1982-04-15",
+    "title": "Nasce Alessandro — lateral da era de títulos",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Alessandro Faiolhe Amantino nasceu em Santos, SP. Lateral-direito que teve longa carreira no Corinthians, participando de múltiplas conquistas e ultrapassando 400 jogos pelo clube.",
+    "id": 643,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "1987-09-18",
+    "title": "Nasce Fábio Santos — lateral da Libertadores",
+    "categories": [
+      "ex_jogador"
+    ],
+    "description": "Fábio Santos nasceu em Campinas, SP. Lateral-esquerdo que teve passagens importantes pelo Corinthians, sendo parte do elenco campeão da Libertadores 2012 e de múltiplos títulos paulistas.",
+    "id": 644,
+    "type": "aniversario",
+    "playerStatus": "alive"
+  },
+  {
+    "date": "2010-05-02",
+    "title": "Corinthians 2 x 1 Palmeiras — Ronaldo marca no Derby",
+    "categories": [
+      "classico"
+    ],
+    "description": "Ronaldo Fenômeno marcou em clássico contra o Palmeiras. O Corinthians venceu o Derby por 2 a 1, com gol do craque que delirou a Fiel.",
+    "id": 645
+  },
+  {
+    "date": "2017-07-12",
+    "title": "Corinthians 2 x 0 São Paulo — Majestoso no Brasileiro 2017",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o São Paulo no Campeonato Brasileiro de 2017. Jô marcou e consolidou o Corinthians na liderança da competição rumo ao heptacampeonato.",
+    "id": 646
+  },
+  {
+    "date": "1951-12-16",
+    "title": "Corinthians vence final do Paulista 1951",
+    "categories": [
+      "classico"
+    ],
+    "description": "O Corinthians conquistou o Campeonato Paulista de 1951, mantendo a hegemonia no futebol paulista da década de 50.",
+    "id": 647
+  },
+  {
+    "date": "1952-03-09",
+    "title": "Corinthians 9 x 0 Santo André — Goleada histórica",
+    "categories": [
+      "classico",
+      "recorde"
+    ],
+    "description": "Goleada avassaladora sobre o Santo André pelo Campeonato Paulista. Uma das maiores goleadas da história do clube.",
+    "id": 648
+  },
+  {
+    "date": "2005-04-17",
+    "title": "Corinthians 3 x 1 São Paulo — Tevez brilha no Majestoso",
+    "categories": [
+      "classico"
+    ],
+    "description": "Tevez comandou a vitória sobre o São Paulo no clássico Majestoso. O Apache marcou e deu assistência em atuação brilhante pelo Brasileirão 2005.",
+    "id": 649
+  },
+  {
+    "date": "2011-07-31",
+    "title": "Corinthians 4 x 0 Santos — Goleada no Brasileirão 2011",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada sobre o Santos de Neymar no Campeonato Brasileiro de 2011. O Corinthians mostrou poder de fogo na campanha do pentacampeonato.",
+    "id": 650
+  },
+  {
+    "date": "1998-03-22",
+    "title": "Corinthians 3 x 0 Palmeiras — Derby no Paulista 1998",
+    "categories": [
+      "classico"
+    ],
+    "description": "Goleada sobre o Palmeiras pelo Campeonato Paulista de 1998. Marcelinho Carioca e Edílson comandaram o show no Pacaembu.",
+    "id": 651
+  },
+  {
+    "date": "2022-11-05",
+    "title": "Corinthians 2 x 1 Flamengo — Brasileirão 2022",
+    "categories": [
+      "classico"
+    ],
+    "description": "Vitória sobre o Flamengo na Neo Química Arena em jogo eletrizante pelo Campeonato Brasileiro de 2022. Yuri Alberto e Róger Guedes marcaram os gols.",
+    "id": 652
+  },
+  {
+    "date": "2024-09-14",
+    "title": "Corinthians 3 x 0 Atlético-GO — Memphis Depay estreia com gol",
+    "categories": [
+      "classico"
+    ],
+    "description": "Memphis Depay estreou com gol pelo Corinthians em vitória por 3 a 0 sobre o Atlético-GO. O holandês mostrou sua qualidade já no primeiro jogo e empolgou a Fiel.",
+    "id": 653
+  },
+  {
+    "date": "1938-12-11",
+    "title": "Corinthians tetracampeão paulista (1937-1938-1939)",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians consolidou uma dinastia no Campeonato Paulista, conquistando três títulos consecutivos (1937, 1938, 1939). Uma das maiores sequências de títulos estaduais da história do clube.",
+    "id": 654
+  },
+  {
+    "date": "1952-12-21",
+    "title": "Corinthians pentacampeão paulista na década de 50",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians vivia sua era dourada no Campeonato Paulista, acumulando títulos na década de 1950 (1950, 1951, 1952, 1953, 1954). Uma das maiores dinastias do futebol paulista.",
+    "id": 655
+  },
+  {
+    "date": "1990-06-15",
+    "title": "Neto e Viola: a dupla que encantou em 1990",
+    "categories": [
+      "marco"
+    ],
+    "description": "A parceria entre Neto e Viola no meio-campo do Corinthians em 1990 produziu futebol de altíssimo nível. Juntos, foram os protagonistas da conquista do primeiro Campeonato Brasileiro do clube.",
+    "id": 656
+  },
+  {
+    "date": "2005-11-20",
+    "title": "Tevez: melhor jogador do Brasileiro 2005",
+    "categories": [
+      "marco"
+    ],
+    "description": "Carlos Tevez foi eleito o melhor jogador do Campeonato Brasileiro de 2005. O Apache argentino foi artilheiro e craque da competição, liderando o Corinthians ao título.",
+    "id": 657
+  },
+  {
+    "date": "2012-12-16",
+    "title": "Tite: o técnico que mudou a história do Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "Adenor Leonardo Bacchi, o Tite, comandou o Corinthians na conquista da Libertadores e do Mundial de 2012, os maiores títulos da história do clube. Seu trabalho tático e motivacional transformou o time em uma máquina vencedora.",
+    "id": 658
+  },
+  {
+    "date": "2017-12-15",
+    "title": "Fábio Carille: técnico do hepta brasileiro",
+    "categories": [
+      "marco"
+    ],
+    "description": "Fábio Carille encerrou 2017 como o treinador do heptacampeonato brasileiro do Corinthians. A campanha dominante, com título antecipado por 6 rodadas, consagrou o jovem técnico.",
+    "id": 659
+  },
+  {
+    "date": "2021-09-10",
+    "title": "Corinthians completa 111 anos",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians comemorou 111 anos de fundação, reafirmando sua posição como um dos maiores clubes do futebol mundial e o time do povo.",
+    "id": 660
+  },
+  {
+    "date": "2022-09-01",
+    "title": "Corinthians completa 112 anos",
+    "categories": [
+      "marco"
+    ],
+    "description": "Mais um aniversário celebrado pela Fiel, que reafirmou sua paixão inabalável pelo clube do Parque São Jorge.",
+    "id": 661
+  },
+  {
+    "date": "2025-09-01",
+    "title": "Corinthians completa 115 anos",
+    "categories": [
+      "marco"
+    ],
+    "description": "O Corinthians celebrou 115 anos de história, tradição e conquistas. A Fiel se mobilizou nas redes e no Parque São Jorge para homenagear o clube.",
+    "id": 662
+  },
+  {
+    "date": "1969-12-20",
+    "title": "Corinthians 2 x 1 Palmeiras — Rivellino no Derby",
+    "categories": [
+      "classico"
+    ],
+    "description": "Rivellino brilhou no Derby com gol e assistência, liderando o Corinthians a vitória por 2 a 1 sobre o Palmeiras pelo Campeonato Paulista.",
+    "id": 663
+  },
+  {
+    "date": "2009-02-15",
+    "title": "Ronaldo marca 2 gols na estreia pelo Corinthians",
+    "categories": [
+      "marco"
+    ],
+    "description": "Na estreia oficial pelo Corinthians, Ronaldo Fenômeno marcou 2 gols em vitória pelo Campeonato Paulista. O Pacaembu explodiu de alegria ao ver o craque vestindo a camisa alvinegra.",
+    "id": 664
+  },
+  {
+    "date": "2023-07-01",
+    "title": "Corinthians contrata Coronado",
+    "categories": [
+      "marco"
+    ],
+    "description": "O meia Igor Coronado foi contratado pelo Corinthians vindo do futebol árabe. Com passes refinados e visão de jogo, rapidamente se tornou referência no meio-campo do Timão.",
+    "id": 665
+  },
+  {
+    "date": "2024-01-15",
+    "title": "Memphis Depay: reforço de impacto mundial",
+    "categories": [
+      "marco"
+    ],
+    "description": "O atacante holandês Memphis Depay, ex-Barcelona e Atlético de Madrid, foi anunciado como reforço do Corinthians. Um dos jogadores mais midiáticos a vestir a camisa do Timão, trouxe qualidade técnica e visibilidade internacional ao clube.",
+    "id": 666
   }
 ]

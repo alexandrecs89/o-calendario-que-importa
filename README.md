@@ -49,19 +49,19 @@ Atualmente configurado para o **Sport Club Corinthians Paulista**, mas projetado
 
 ## Banco de Dados
 
-**302 eventos** na versão Corinthians:
+**498 eventos** na versão Corinthians:
 
 | Categoria | Qtd | Exemplos |
 |-----------|-----|----------|
-| Ídolos | 86 | Neco, Sócrates, Rivellino, Marcelinho, Tevez, Ralf |
-| Ex-Jogadores | 102 | Chicão, Fábio Santos, Danilo Avelar, Alessandro |
+| Ex-Jogadores | 168 | Sócrates, Wladimir, Chicão, Fábio Santos, Paulinho, Tevez |
+| Ídolos | 117 | Neco, Rivellino, Marcelinho, Cássio, Rincón, Ralf, Emerson Sheik |
+| Clássicos | 107 | Derbys, Majestosos, finais de Libertadores/Mundial, jogos decisivos |
+| Marcos Históricos | 99 | Fundação, Democracia Corinthiana, Arena, Série B, Gaviões, faxina política 2026 |
+| Títulos | 56 | Paulistas (1914–2019), Brasileiros, Copas do Brasil, Libertadores 2012, Mundiais |
+| Recordes | 33 | Invencibilidade, artilharia, público, campanhas históricas |
 | Jogadores (elenco atual) | 28 | Hugo Souza, Garro, Lingard, Memphis, Bidon |
-| Títulos | 52 | Paulistas, Brasileiros, Libertadores, Mundiais |
-| Clássicos | 48 | Derbys, Majestosos, jogos históricos |
-| Marcos Históricos | 42 | Fundação, Democracia Corinthiana, Arena, Série B, faxina política 2026 |
-| Recordes | 17 | Invencibilidade, artilharia, público |
 
-Inclui: 118 aniversários de jogadores, falecimentos, todos os títulos paulistas (1914–2019), Brasileiros, Copas do Brasil, Libertadores 2012, Mundiais (2000, 2012), eventos políticos recentes (expulsão de ex-presidentes em 2026).
+Inclui: 182 aniversários de jogadores, falecimentos, todos os títulos paulistas (1914–2019), Brasileiros, Copas do Brasil, Libertadores 2012, Mundiais (2000, 2012), transferências históricas (Tevez, Ronaldo, Adriano, Memphis), eventos políticos (Dualib, expulsões de 2026), Democracia Corinthiana, Gaviões da Fiel e mais.
 
 ---
 
