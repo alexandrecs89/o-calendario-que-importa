@@ -2902,5 +2902,33 @@
     "playerStatus": "alive",
     "type": "birthday",
     "id": 387
+  },
+  {
+    "date": "2007-09-21",
+    "title": "Queda de Alberto Dualib: fim de 14 anos de poder no Corinthians",
+    "categories": ["marco"],
+    "description": "Após escândalos envolvendo a parceria com a MSI (Media Sports Investment) de Kia Joorabchian — que trouxe Tevez e Mascherano mas deixou o clube afundado em dívidas e investigado pela Polícia Federal por lavagem de dinheiro — Alberto Dualib renunciou à presidência do Corinthians. Afastado temporariamente em julho pelo Conselho Deliberativo, Dualib não resistiu à pressão crescente da torcida, da mídia e dos conselheiros. Sua saída encerrou cerca de 14 anos como líder do clube (desde 1993), mas não evitou o rebaixamento que viria meses depois. Posteriormente, foi condenado pela Justiça por crimes financeiros.",
+    "id": 464
+  },
+  {
+    "date": "2026-05-25",
+    "title": "Andrés Sanchez é expulso do quadro de sócios do Corinthians",
+    "categories": ["marco"],
+    "description": "O Conselho Deliberativo do Corinthians aprovou, em votação no Parque São Jorge, a expulsão do ex-presidente Andrés Sanchez do quadro associativo do clube. Foram 112 votos favoráveis e 50 contrários. A expulsão veio após investigações comprovarem o uso indevido do cartão corporativo do Corinthians para despesas pessoais durante suas gestões (2007-2011 e 2018-2020). A mobilização da torcida e de produtores de conteúdo corinthianos — canais como Identidade Corinthiana, PodcasTIMÃO, TV Alambrado Alvinegro e outros — foi determinante para pressionar o Conselho a julgar e punir o ex-dirigente. Um abaixo-assinado promovido por torcedores e influenciadores digitais alcançou quase 15 mil assinaturas pedindo a expulsão. A Gaviões da Fiel, principal torcida organizada, também se posicionou publicamente a favor da exclusão. Este episódio marcou o início de uma 'limpa' histórica na política corinthiana.",
+    "id": 465
+  },
+  {
+    "date": "2026-05-28",
+    "title": "Duilio Monteiro Alves renuncia ao quadro de sócios do Corinthians",
+    "categories": ["marco"],
+    "description": "Três dias após a expulsão de Andrés Sanchez, o ex-presidente Duilio Monteiro Alves (gestão 2021-2023) renunciou ao título de sócio remido, ao cargo de conselheiro vitalício e à cadeira no Conselho de Administração. A renúncia ocorreu sob forte pressão da torcida e dos criadores de conteúdo, que já haviam impulsionado a expulsão de Andrés e agora cobravam a responsabilização de Duilio — também investigado pelo uso irregular do cartão corporativo e denunciado pelo Ministério Público de São Paulo por apropriação indébita. A mobilização digital foi implacável: vídeos, lives e petições pressionaram o ex-dirigente a se antecipar ao julgamento, preferindo renunciar a enfrentar a humilhação de uma votação pública. A decisão foi celebrada pelas organizadas e pela comunidade de produtores de conteúdo como mais uma vitória da voz da torcida.",
+    "id": 466
+  },
+  {
+    "date": "2026-06-01",
+    "title": "Augusto Melo é expulso do quadro de sócios do Corinthians",
+    "categories": ["marco"],
+    "description": "Em apenas oito dias, o Corinthians viu seus três últimos ex-presidentes deixarem o quadro associativo. Augusto Melo, que presidiu o clube entre 2024 e 2025, foi expulso pelo Conselho Deliberativo após investigação por suposta tentativa de anular seu próprio processo de impeachment de 2025 — uma manobra vista como 'tentativa de golpe' para retornar ao poder. Melo havia se apresentado nas eleições de 2023 como alternativa ao grupo Renovação e Transparência de Andrés Sanchez, mas acabou repetindo práticas questionáveis. Com este voto, a torcida e os produtores de conteúdo completaram uma limpeza sem precedentes na política corinthiana. A pressão constante exercida pela Fiel nas redes sociais, nos canais de YouTube, nos podcasts e nas manifestações presenciais no Parque São Jorge provou que o torcedor pode — e deve — ser protagonista na fiscalização de seu clube. Este movimento ficou conhecido como a maior 'faxina política' da história do Corinthians.",
+    "id": 467
   }
 ]
