@@ -240,6 +240,30 @@ body {
 .search-results__item-title { font-weight: 600; font-size: 1rem; color: var(--white); }
 .search-results__item-meta { font-size: 0.85rem; color: var(--gray-500); margin-top: 0.15rem; }
 
+.header__cta-btn {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent, #e5c76b);
+  background: var(--accent, #e5c76b);
+  color: var(--black);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.header__cta-btn:hover {
+  background: transparent;
+  color: var(--accent, #e5c76b);
+}
+
 .header__add-btn {
   font-family: var(--font-heading);
   font-size: 0.95rem;
