@@ -1012,7 +1012,7 @@
     setTimeout(() => {
       quizIndex++;
       renderQuizQuestion();
-    }, 1500);
+    }, 2500);
   }
 
   function renderQuizResult() {
@@ -1035,6 +1035,7 @@
           <button class="btn btn--primary" id="quizPlayAgain">${L.quizPlayAgain}</button>
           <button class="btn btn--ghost" id="quizShareResult">${L.quizShare}</button>
         </div>
+        <div class="quiz__engagement" id="engagementWidget"></div>
       </div>
     `;
     content.querySelector("#quizPlayAgain").addEventListener("click", startQuiz);
