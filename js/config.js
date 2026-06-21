@@ -63,6 +63,40 @@ const CLUB_CONFIG = {
     yearsAgoPlural: "há {n} anos",
     parabensBtn: "Parabéns!",
     parabensSend: "Envie seus parabéns!",
+    /* Reactions */
+    reactionsTitle: "Reações",
+    reactions: [
+      { id: "fire", emoji: "🔥", label: "Arrepio" },
+      { id: "heart", emoji: "❤️", label: "Amor" },
+      { id: "cry", emoji: "😢", label: "Saudade" },
+      { id: "muscle", emoji: "💪", label: "Orgulho" },
+      { id: "trophy", emoji: "🏆", label: "Lendário" },
+    ],
+    /* Comments */
+    commentsTitle: "Memórias da Fiel",
+    commentsPlaceholder: "Compartilhe sua memória… (ex: Eu estava lá!)",
+    commentsSend: "Enviar",
+    commentsEmpty: "Seja o primeiro a compartilhar uma memória!",
+    /* Quiz */
+    quizTitle: "Quiz Corinthiano",
+    quizSubtitle: "Teste seus conhecimentos sobre a história do Timão",
+    quizStart: "Começar Quiz",
+    quizNext: "Próxima",
+    quizFinish: "Ver Resultado",
+    quizCorrect: "Correto!",
+    quizWrong: "Errado!",
+    quizScore: "Você acertou {score} de {total}",
+    quizPlayAgain: "Jogar Novamente",
+    quizShare: "Compartilhar Resultado",
+    /* Engagement */
+    engagementTitle: "Nível de Fiel",
+    engagementLevels: [
+      { min: 0, title: "Torcedor Iniciante", icon: "⚽" },
+      { min: 10, title: "Fiel de Carteirinha", icon: "🎫" },
+      { min: 30, title: "Mosqueteiro", icon: "⚔️" },
+      { min: 60, title: "Bando de Loucos", icon: "🔥" },
+      { min: 100, title: "Lenda da Fiel", icon: "👑" },
+    ],
     reportError: "Reportar erro",
     reportErrorPrompt: "Descreva o erro encontrado neste evento:",
     reportErrorDone: "Erro reportado!",
@@ -96,6 +130,12 @@ const CLUB_CONFIG = {
     ],
     cta: "Fazer uma doação",
     thanks: "Obrigado pelo apoio, Fiel! ❤🖤",
+  },
+
+  /* ---------- Quiz ---------- */
+  quiz: {
+    enabled: true,
+    questionsPerRound: 10,
   },
 
   /* ---------- Storage key prefix (avoids collision across clubs) ---------- */

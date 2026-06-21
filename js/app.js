@@ -39,6 +39,10 @@
   const ERRORS_KEY = `${CFG.storagePrefix}_error_reports`;
   const VIDEO_SUGGESTIONS_KEY = `${CFG.storagePrefix}_video_suggestions`;
   const NEWS_SUGGESTIONS_KEY = `${CFG.storagePrefix}_news_suggestions`;
+  const REACTIONS_KEY = `${CFG.storagePrefix}_reactions`;
+  const COMMENTS_KEY = `${CFG.storagePrefix}_comments`;
+  const ENGAGEMENT_KEY = `${CFG.storagePrefix}_engagement`;
+  const QUIZ_KEY = `${CFG.storagePrefix}_quiz_scores`;
 
   let clubEvents = []; // loaded from JSON
 
@@ -88,6 +92,108 @@
     if (!data[eventId]) data[eventId] = [];
     data[eventId].push({ url, date: new Date().toISOString() });
     saveStore(NEWS_SUGGESTIONS_KEY, data);
+  }
+
+  /* ---------- Reactions ---------- */
+  function loadReactions() { return loadStore(REACTIONS_KEY); }
+  function getReactions(eventId) { return loadReactions()[eventId] || {}; }
+  function toggleReaction(eventId, reactionId) {
+    const data = loadReactions();
+    if (!data[eventId]) data[eventId] = {};
+    data[eventId][reactionId] = (data[eventId][reactionId] || 0) + 1;
+    saveStore(REACTIONS_KEY, data);
+    addEngagementPoints(1);
+    return data[eventId][reactionId];
+  }
+
+  /* ---------- Comments ---------- */
+  function loadComments() { return loadStore(COMMENTS_KEY); }
+  function getComments(eventId) { return loadComments()[eventId] || []; }
+  function addComment(eventId, text) {
+    const data = loadComments();
+    if (!data[eventId]) data[eventId] = [];
+    data[eventId].push({ text, date: new Date().toISOString() });
+    saveStore(COMMENTS_KEY, data);
+    addEngagementPoints(3);
+    return data[eventId];
+  }
+
+  /* ---------- Engagement ---------- */
+  function loadEngagement() {
+    try { return JSON.parse(localStorage.getItem(ENGAGEMENT_KEY)) || { points: 0 }; }
+    catch { return { points: 0 }; }
+  }
+  function saveEngagement(data) { localStorage.setItem(ENGAGEMENT_KEY, JSON.stringify(data)); }
+  function addEngagementPoints(pts) {
+    const data = loadEngagement();
+    data.points = (data.points || 0) + pts;
+    saveEngagement(data);
+    renderEngagement();
+    return data.points;
+  }
+  function getEngagementLevel() {
+    const pts = loadEngagement().points || 0;
+    const levels = L.engagementLevels;
+    let lvl = levels[0];
+    for (const l of levels) {
+      if (pts >= l.min) lvl = l;
+    }
+    const nextLvl = levels.find(l => l.min > pts);
+    return { ...lvl, points: pts, next: nextLvl };
+  }
+
+  /* ---------- Quiz ---------- */
+  function loadQuizScores() {
+    try { return JSON.parse(localStorage.getItem(QUIZ_KEY)) || []; }
+    catch { return []; }
+  }
+  function saveQuizScore(score, total) {
+    const scores = loadQuizScores();
+    scores.push({ score, total, date: new Date().toISOString() });
+    localStorage.setItem(QUIZ_KEY, JSON.stringify(scores));
+    addEngagementPoints(score * 2);
+  }
+  function generateQuizQuestions(count) {
+    const events = clubEvents.filter(e => e.description && e.description.length > 20);
+    const shuffled = events.sort(() => Math.random() - 0.5).slice(0, count * 3);
+    const questions = [];
+    for (let i = 0; i < Math.min(count, shuffled.length); i++) {
+      const correct = shuffled[i];
+      const wrongPool = events.filter(e => e.id !== correct.id);
+      const wrongs = wrongPool.sort(() => Math.random() - 0.5).slice(0, 3);
+      const type = Math.random() > 0.5 ? "year" : "title";
+      if (type === "year") {
+        const correctYear = correct.date.split("-")[0];
+        const options = [correctYear];
+        for (const w of wrongs) {
+          const y = w.date.split("-")[0];
+          if (!options.includes(y)) options.push(y);
+          if (options.length >= 4) break;
+        }
+        while (options.length < 4) {
+          const y = String(1910 + Math.floor(Math.random() * 116));
+          if (!options.includes(y)) options.push(y);
+        }
+        questions.push({
+          question: `Em que ano aconteceu: "${correct.title}"?`,
+          options: options.sort(() => Math.random() - 0.5),
+          correct: correctYear,
+        });
+      } else {
+        const options = [correct.title];
+        for (const w of wrongs) {
+          if (!options.includes(w.title)) options.push(w.title);
+          if (options.length >= 4) break;
+        }
+        const year = correct.date.split("-")[0];
+        questions.push({
+          question: `O que aconteceu em ${fmtDate(correct.date)}?`,
+          options: options.sort(() => Math.random() - 0.5),
+          correct: correct.title,
+        });
+      }
+    }
+    return questions;
   }
 
   /* ---------- State ---------- */
@@ -375,6 +481,8 @@
           Compartilhar
         </button>
       </div>
+      ${buildReactionsHtml(event.id)}
+      ${buildCommentsHtml(event.id)}
       ${relatedHtml}
     `;
 
@@ -433,6 +541,10 @@
       });
     }
 
+    /* Bind reactions & comments */
+    bindReactions(eventModalContent);
+    bindComments(eventModalContent);
+
     /* Bind share button */
     const shareBtn = eventModalContent.querySelector(".event-action--share");
     if (shareBtn) {
@@ -458,6 +570,100 @@
         }
       });
     }
+  }
+
+  /* ---------- Reactions & Comments HTML builders ---------- */
+  function buildReactionsHtml(eventId) {
+    const reactions = getReactions(eventId);
+    const reactionsConfig = L.reactions || [];
+    if (reactionsConfig.length === 0) return "";
+    return `
+      <div class="reactions" data-event-id="${eventId}">
+        <div class="reactions__title">${L.reactionsTitle}</div>
+        <div class="reactions__buttons">
+          ${reactionsConfig.map(r => {
+            const count = reactions[r.id] || 0;
+            return `<button class="reactions__btn" data-reaction="${r.id}" title="${r.label}">
+              <span class="reactions__emoji">${r.emoji}</span>
+              <span class="reactions__count">${count || ""}</span>
+            </button>`;
+          }).join("")}
+        </div>
+      </div>`;
+  }
+
+  function buildCommentsHtml(eventId) {
+    const comments = getComments(eventId);
+    const commentsList = comments.length > 0
+      ? comments.map(c => {
+          const d = new Date(c.date);
+          const dateStr = `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${d.getFullYear()}`;
+          return `<div class="comments__item">
+            <div class="comments__text">${escapeHtml(c.text)}</div>
+            <div class="comments__date">${dateStr}</div>
+          </div>`;
+        }).join("")
+      : `<p class="comments__empty">${L.commentsEmpty}</p>`;
+    return `
+      <div class="comments" data-event-id="${eventId}">
+        <div class="comments__title">${L.commentsTitle}</div>
+        <div class="comments__list">${commentsList}</div>
+        <div class="comments__form">
+          <input type="text" class="comments__input" placeholder="${L.commentsPlaceholder}" maxlength="280" />
+          <button class="comments__send btn btn--primary btn--sm">${L.commentsSend}</button>
+        </div>
+      </div>`;
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function bindReactions(container) {
+    const reactionsEl = container.querySelector(".reactions");
+    if (!reactionsEl) return;
+    const eventId = reactionsEl.dataset.eventId;
+    reactionsEl.querySelectorAll(".reactions__btn").forEach(btn => {
+      btn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const rid = btn.dataset.reaction;
+        const count = toggleReaction(eventId, rid);
+        btn.querySelector(".reactions__count").textContent = count;
+        btn.classList.add("reactions__btn--active");
+        setTimeout(() => btn.classList.remove("reactions__btn--active"), 300);
+      });
+    });
+  }
+
+  function bindComments(container) {
+    const commentsEl = container.querySelector(".comments");
+    if (!commentsEl) return;
+    const eventId = commentsEl.dataset.eventId;
+    const input = commentsEl.querySelector(".comments__input");
+    const sendBtn = commentsEl.querySelector(".comments__send");
+    if (!input || !sendBtn) return;
+    const submit = () => {
+      const text = input.value.trim();
+      if (!text) return;
+      const comments = addComment(eventId, text);
+      input.value = "";
+      const list = commentsEl.querySelector(".comments__list");
+      const d = new Date();
+      const dateStr = `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${d.getFullYear()}`;
+      const empty = list.querySelector(".comments__empty");
+      if (empty) empty.remove();
+      list.insertAdjacentHTML("beforeend", `
+        <div class="comments__item comments__item--new">
+          <div class="comments__text">${escapeHtml(text)}</div>
+          <div class="comments__date">${dateStr}</div>
+        </div>`);
+      list.scrollTop = list.scrollHeight;
+    };
+    sendBtn.addEventListener("click", (ev) => { ev.stopPropagation(); submit(); });
+    input.addEventListener("keydown", (ev) => { if (ev.key === "Enter") { ev.stopPropagation(); submit(); } });
+    input.addEventListener("click", (ev) => ev.stopPropagation());
   }
 
   function openDayModal(events, day) {
@@ -740,6 +946,172 @@
     setTimeout(() => { btn.innerHTML = `<svg class="event-action__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg> Compartilhar`; }, 2000);
   }
 
+  /* ---------- Quiz ---------- */
+  let quizQuestions = [];
+  let quizIndex = 0;
+  let quizScore = 0;
+
+  function setupQuiz() {
+    if (!CFG.quiz || !CFG.quiz.enabled) {
+      const section = $("#quizSection");
+      if (section) section.style.display = "none";
+      return;
+    }
+    const title = $("#quizTitle");
+    const subtitle = $("#quizSubtitle");
+    if (title) title.textContent = L.quizTitle;
+    if (subtitle) subtitle.textContent = L.quizSubtitle;
+
+    const startBtn = $("#quizStartBtn");
+    if (startBtn) {
+      startBtn.textContent = L.quizStart;
+      startBtn.addEventListener("click", startQuiz);
+    }
+    renderEngagement();
+  }
+
+  function startQuiz() {
+    quizQuestions = generateQuizQuestions(CFG.quiz.questionsPerRound || 10);
+    quizIndex = 0;
+    quizScore = 0;
+    renderQuizQuestion();
+  }
+
+  function renderQuizQuestion() {
+    const content = $("#quizContent");
+    if (!content || quizIndex >= quizQuestions.length) { renderQuizResult(); return; }
+    const q = quizQuestions[quizIndex];
+    content.innerHTML = `
+      <div class="quiz__progress">${quizIndex + 1} / ${quizQuestions.length}</div>
+      <div class="quiz__question">${q.question}</div>
+      <div class="quiz__options">
+        ${q.options.map(o => `<button class="quiz__option" data-answer="${escapeHtml(o)}">${o}</button>`).join("")}
+      </div>
+      <div class="quiz__feedback hidden" id="quizFeedback"></div>
+    `;
+    content.querySelectorAll(".quiz__option").forEach(btn => {
+      btn.addEventListener("click", () => handleQuizAnswer(btn, q));
+    });
+  }
+
+  function handleQuizAnswer(btn, question) {
+    const content = $("#quizContent");
+    const feedback = content.querySelector("#quizFeedback");
+    const isCorrect = btn.dataset.answer === question.correct;
+
+    content.querySelectorAll(".quiz__option").forEach(b => {
+      b.disabled = true;
+      if (b.dataset.answer === question.correct) b.classList.add("quiz__option--correct");
+      else if (b === btn && !isCorrect) b.classList.add("quiz__option--wrong");
+    });
+
+    if (isCorrect) quizScore++;
+    feedback.textContent = isCorrect ? L.quizCorrect : `${L.quizWrong} ${question.correct}`;
+    feedback.className = `quiz__feedback ${isCorrect ? "quiz__feedback--correct" : "quiz__feedback--wrong"}`;
+
+    setTimeout(() => {
+      quizIndex++;
+      renderQuizQuestion();
+    }, 1500);
+  }
+
+  function renderQuizResult() {
+    const content = $("#quizContent");
+    if (!content) return;
+    saveQuizScore(quizScore, quizQuestions.length);
+    const pct = Math.round((quizScore / quizQuestions.length) * 100);
+    let message = "";
+    if (pct >= 90) message = "Impressionante! Voc\u00ea \u00e9 uma lenda!";
+    else if (pct >= 70) message = "Muito bom! Voc\u00ea conhece o Tim\u00e3o!";
+    else if (pct >= 50) message = "Nada mal! Continue estudando a hist\u00f3ria!";
+    else message = "Estude mais sobre o Corinthians!";
+
+    content.innerHTML = `
+      <div class="quiz__result">
+        <div class="quiz__result-score">${quizScore} / ${quizQuestions.length}</div>
+        <div class="quiz__result-pct">${pct}%</div>
+        <div class="quiz__result-msg">${message}</div>
+        <div class="quiz__result-actions">
+          <button class="btn btn--primary" id="quizPlayAgain">${L.quizPlayAgain}</button>
+          <button class="btn btn--ghost" id="quizShareResult">${L.quizShare}</button>
+        </div>
+      </div>
+    `;
+    content.querySelector("#quizPlayAgain").addEventListener("click", startQuiz);
+    content.querySelector("#quizShareResult").addEventListener("click", () => {
+      const text = `${L.quizScore.replace("{score}", quizScore).replace("{total}", quizQuestions.length)} no ${L.quizTitle}! ${message} ${window.location.href}`;
+      if (navigator.share) {
+        navigator.share({ title: L.quizTitle, text }).catch(() => {});
+      } else if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          content.querySelector("#quizShareResult").textContent = "Copiado!";
+        });
+      }
+    });
+    renderEngagement();
+  }
+
+  /* ---------- Engagement ---------- */
+  function renderEngagement() {
+    const widget = $("#engagementWidget");
+    if (!widget) return;
+    const lvl = getEngagementLevel();
+    const nextPts = lvl.next ? lvl.next.min : lvl.points;
+    const progress = lvl.next ? Math.min(100, Math.round(((lvl.points - lvl.min) / (lvl.next.min - lvl.min)) * 100)) : 100;
+    widget.innerHTML = `
+      <div class="engagement">
+        <div class="engagement__icon">${lvl.icon}</div>
+        <div class="engagement__info">
+          <div class="engagement__level">${lvl.title}</div>
+          <div class="engagement__points">${lvl.points} pontos</div>
+          <div class="engagement__bar">
+            <div class="engagement__bar-fill" style="width:${progress}%"></div>
+          </div>
+          ${lvl.next ? `<div class="engagement__next">${lvl.next.min - lvl.points} pts para ${lvl.next.title} ${lvl.next.icon}</div>` : `<div class="engagement__next">N\u00edvel m\u00e1ximo!</div>`}
+        </div>
+      </div>`;
+  }
+
+  /* ---------- Push Notifications ---------- */
+  function setupNotifications() {
+    if (!("Notification" in window) || !("serviceWorker" in navigator)) return;
+    if (Notification.permission === "default") {
+      const banner = document.createElement("div");
+      banner.className = "notification-banner";
+      banner.innerHTML = `
+        <p>Ative as notifica\u00e7\u00f5es para receber lembretes di\u00e1rios sobre efem\u00e9rides corinthianas!</p>
+        <button class="btn btn--primary btn--sm" id="notifAllow">Ativar</button>
+        <button class="btn btn--ghost btn--sm" id="notifDismiss">\u2715</button>`;
+      document.body.appendChild(banner);
+      banner.querySelector("#notifAllow").addEventListener("click", async () => {
+        const result = await Notification.requestPermission();
+        banner.remove();
+        if (result === "granted") scheduleNotification();
+      });
+      banner.querySelector("#notifDismiss").addEventListener("click", () => banner.remove());
+    } else if (Notification.permission === "granted") {
+      scheduleNotification();
+    }
+  }
+
+  function scheduleNotification() {
+    const now = new Date();
+    const mm = pad(now.getMonth() + 1);
+    const dd = pad(now.getDate());
+    const todayEvents = allEvents().filter(e => {
+      const parts = e.date.split("-");
+      return parts[1] === mm && parts[2] === dd;
+    });
+    if (todayEvents.length > 0 && !sessionStorage.getItem("notif_shown")) {
+      sessionStorage.setItem("notif_shown", "1");
+      new Notification(L.onThisDayPrefix + `${dd}/${mm}`, {
+        body: todayEvents.slice(0, 3).map(e => e.title).join(", "),
+        icon: CFG.logo,
+        tag: "aconteceu-hoje",
+      });
+    }
+  }
+
   /* ---------- PWA Install ---------- */
   let deferredPrompt = null;
   window.addEventListener("beforeinstallprompt", (e) => {
@@ -789,6 +1161,8 @@
     injectFilterIcons();
     bindPWAInstall();
     setupDonations();
+    setupQuiz();
+    setupNotifications();
     renderAll();
     window.scrollTo(0, 0);
   }
