@@ -4,6 +4,6 @@
  * Row Level Security (RLS) protects the data server-side.
  */
 window.SUPABASE_CONFIG = {
-  url: "", // e.g., "https://xxxxx.supabase.co"
-  anonKey: "", // e.g., "eyJhbGciOiJIUzI1NiIs..."
+  url: "https://hmvfwraajghaxgiuppmj.supabase.co",
+  anonKey: "sb_publishable_rfZIdSgSRBXTiQXRVCjKUg_SX_oxesX",
 };
