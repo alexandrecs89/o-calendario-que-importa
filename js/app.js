@@ -45,13 +45,18 @@
   const QUIZ_KEY = `${CFG.storagePrefix}_quiz_scores`;
 
   let clubEvents = []; // loaded from JSON
+  let cloudCommunityEvents = []; // loaded from Supabase
+
+  /* ---------- Backend helper ---------- */
+  const SB = () => window.SupabaseBackend;
+  const sbOnline = () => SB() && SB().isOnline();
 
   function loadCommunity() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
     catch { return []; }
   }
   function saveCommunity(ev) { localStorage.setItem(STORAGE_KEY, JSON.stringify(ev)); }
-  function allEvents() { return [...clubEvents, ...loadCommunity()]; }
+  function allEvents() { return [...clubEvents, ...cloudCommunityEvents, ...loadCommunity()]; }
 
   function loadParabens() {
     try { return JSON.parse(localStorage.getItem(PARABENS_KEY)) || {}; }
@@ -66,7 +71,7 @@
     return data[eventId];
   }
 
-  /* ---------- Error reports & suggestions (localStorage) ---------- */
+  /* ---------- Error reports & suggestions (localStorage + Supabase) ---------- */
   function loadStore(key) {
     try { return JSON.parse(localStorage.getItem(key)) || {}; }
     catch { return {}; }
@@ -74,10 +79,13 @@
   function saveStore(key, data) { localStorage.setItem(key, JSON.stringify(data)); }
 
   function reportError(eventId, message) {
+    // Always save to localStorage
     const data = loadStore(ERRORS_KEY);
     if (!data[eventId]) data[eventId] = [];
     data[eventId].push({ message, date: new Date().toISOString() });
     saveStore(ERRORS_KEY, data);
+    // Also send to Supabase
+    if (sbOnline()) SB().reportError(eventId, message);
   }
 
   function suggestVideo(eventId, url) {
@@ -85,6 +93,7 @@
     if (!data[eventId]) data[eventId] = [];
     data[eventId].push({ url, date: new Date().toISOString() });
     saveStore(VIDEO_SUGGESTIONS_KEY, data);
+    if (sbOnline()) SB().suggestVideo(eventId, url);
   }
 
   function suggestNews(eventId, url) {
@@ -92,29 +101,70 @@
     if (!data[eventId]) data[eventId] = [];
     data[eventId].push({ url, date: new Date().toISOString() });
     saveStore(NEWS_SUGGESTIONS_KEY, data);
+    if (sbOnline()) SB().suggestNews(eventId, url);
   }
 
-  /* ---------- Reactions ---------- */
+  /* ---------- Reactions (localStorage + Supabase) ---------- */
   function loadReactions() { return loadStore(REACTIONS_KEY); }
-  function getReactions(eventId) { return loadReactions()[eventId] || {}; }
+  function getReactionsLocal(eventId) { return loadReactions()[eventId] || {}; }
+
+  async function getReactionsAsync(eventId) {
+    if (sbOnline()) {
+      const cloud = await SB().getReactions(eventId);
+      if (cloud) return cloud;
+    }
+    return getReactionsLocal(eventId);
+  }
+
   function toggleReaction(eventId, reactionId) {
+    // Update localStorage immediately (optimistic)
     const data = loadReactions();
     if (!data[eventId]) data[eventId] = {};
     data[eventId][reactionId] = (data[eventId][reactionId] || 0) + 1;
     saveStore(REACTIONS_KEY, data);
     addEngagementPoints(1);
+    // Send to Supabase (fire-and-forget, update UI with cloud count)
+    if (sbOnline()) {
+      SB().incrementReaction(eventId, reactionId).then(cloudCount => {
+        if (cloudCount !== null) {
+          data[eventId][reactionId] = cloudCount;
+          saveStore(REACTIONS_KEY, data);
+          const btn = document.querySelector(`.reactions__btn[data-reaction="${reactionId}"]`);
+          if (btn) {
+            const counter = btn.querySelector(".reactions__count");
+            if (counter) counter.textContent = cloudCount;
+          }
+        }
+      });
+    }
     return data[eventId][reactionId];
   }
 
-  /* ---------- Comments ---------- */
+  /* ---------- Comments (localStorage + Supabase) ---------- */
   function loadComments() { return loadStore(COMMENTS_KEY); }
-  function getComments(eventId) { return loadComments()[eventId] || []; }
+  function getCommentsLocal(eventId) { return loadComments()[eventId] || []; }
+
+  async function getCommentsAsync(eventId) {
+    if (sbOnline()) {
+      const cloud = await SB().getComments(eventId);
+      if (cloud) return cloud.map(c => ({
+        text: c.text,
+        author: c.author_name,
+        date: c.created_at,
+      }));
+    }
+    return getCommentsLocal(eventId);
+  }
+
   function addComment(eventId, text) {
+    // Save to localStorage
     const data = loadComments();
     if (!data[eventId]) data[eventId] = [];
     data[eventId].push({ text, date: new Date().toISOString() });
     saveStore(COMMENTS_KEY, data);
     addEngagementPoints(3);
+    // Also send to Supabase
+    if (sbOnline()) SB().addComment(eventId, text);
     return data[eventId];
   }
 
@@ -152,6 +202,8 @@
     scores.push({ score, total, date: new Date().toISOString() });
     localStorage.setItem(QUIZ_KEY, JSON.stringify(scores));
     addEngagementPoints(score * 2);
+    // Also save to Supabase for global leaderboard
+    if (sbOnline()) SB().saveQuizScore("Fiel Anônimo", score, total);
   }
   function generateQuizQuestions(count) {
     const events = clubEvents.filter(e => e.description && e.description.length > 20);
@@ -577,6 +629,10 @@
     /* SEO: Update dynamic meta tags for sharing */
     updateMetaTags(event);
 
+    /* Cloud: load reactions and comments from Supabase (async, updates UI) */
+    loadCloudReactions(event.id);
+    loadCloudComments(event.id);
+
     /* Bind related items */
     eventModalContent.querySelectorAll(".event-detail__related-item").forEach(item => {
       item.addEventListener("click", () => {
@@ -664,7 +720,7 @@
 
   /* ---------- Reactions & Comments HTML builders ---------- */
   function buildReactionsHtml(eventId) {
-    const reactions = getReactions(eventId);
+    const reactions = getReactionsLocal(eventId);
     const reactionsConfig = L.reactions || [];
     if (reactionsConfig.length === 0) return "";
     return `
@@ -682,8 +738,25 @@
       </div>`;
   }
 
+  /* Load cloud reactions and update counters in the UI */
+  async function loadCloudReactions(eventId) {
+    if (!sbOnline()) return;
+    const cloud = await SB().getReactions(eventId);
+    if (!cloud) return;
+    const reactionsConfig = L.reactions || [];
+    reactionsConfig.forEach(r => {
+      if (cloud[r.id]) {
+        const btn = document.querySelector(`.reactions__btn[data-reaction="${r.id}"]`);
+        if (btn) {
+          const counter = btn.querySelector(".reactions__count");
+          if (counter) counter.textContent = cloud[r.id];
+        }
+      }
+    });
+  }
+
   function buildCommentsHtml(eventId) {
-    const comments = getComments(eventId);
+    const comments = getCommentsLocal(eventId);
     const commentsList = comments.length > 0
       ? comments.map(c => {
           const d = new Date(c.date);
@@ -703,6 +776,26 @@
           <button class="comments__send btn btn--primary btn--sm">${L.commentsSend}</button>
         </div>
       </div>`;
+  }
+
+  /* Load cloud comments and replace comment list in the UI */
+  async function loadCloudComments(eventId) {
+    if (!sbOnline()) return;
+    const cloud = await SB().getComments(eventId);
+    if (!cloud || cloud.length === 0) return;
+    const commentsEl = document.querySelector(`.comments[data-event-id="${eventId}"]`);
+    if (!commentsEl) return;
+    const list = commentsEl.querySelector(".comments__list");
+    if (!list) return;
+    list.innerHTML = cloud.map(c => {
+      const d = new Date(c.created_at);
+      const dateStr = `${pad(d.getDate())}/${pad(d.getMonth() + 1)}/${d.getFullYear()}`;
+      const author = c.author_name && c.author_name !== "Fiel Anônimo" ? `<span class="comments__author">${escapeHtml(c.author_name)}</span> · ` : "";
+      return `<div class="comments__item">
+        <div class="comments__text">${escapeHtml(c.text)}</div>
+        <div class="comments__date">${author}${dateStr}</div>
+      </div>`;
+    }).join("");
   }
 
   function escapeHtml(str) {
@@ -838,6 +931,10 @@
       community: true,
     });
     saveCommunity(community);
+    // Also submit to Supabase for moderation
+    if (sbOnline()) {
+      SB().submitCommunityEvent({ title, date, category, description: description || "Evento adicionado pela comunidade." });
+    }
     addModal.classList.add("hidden");
     $("#addEventForm").reset();
     renderAll();
@@ -1140,9 +1237,12 @@
           <button class="btn btn--primary" id="quizPlayAgain">${L.quizPlayAgain}</button>
           <button class="btn btn--ghost" id="quizShareResult">${L.quizShare}</button>
         </div>
+        <div class="quiz__leaderboard" id="quizLeaderboard"></div>
         <div class="quiz__engagement" id="engagementWidget"></div>
       </div>
     `;
+    // Load global leaderboard from Supabase
+    loadQuizLeaderboard();
     content.querySelector("#quizPlayAgain").addEventListener("click", startQuiz);
     content.querySelector("#quizShareResult").addEventListener("click", () => {
       const text = `${L.quizScore.replace("{score}", quizScore).replace("{total}", quizQuestions.length)} no ${L.quizTitle}! ${message} ${window.location.href}`;
@@ -1155,6 +1255,31 @@
       }
     });
     renderEngagement();
+  }
+
+  /* ---------- Quiz Leaderboard ---------- */
+  async function loadQuizLeaderboard() {
+    const el = document.getElementById("quizLeaderboard");
+    if (!el || !sbOnline()) return;
+    const scores = await SB().getTopScores(10);
+    if (!scores || scores.length === 0) return;
+    el.innerHTML = `
+      <div class="leaderboard">
+        <div class="leaderboard__title">🏆 Ranking Global</div>
+        <div class="leaderboard__list">
+          ${scores.map((s, i) => {
+            const medal = i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}.`;
+            const d = new Date(s.created_at);
+            const dateStr = `${pad(d.getDate())}/${pad(d.getMonth() + 1)}`;
+            return `<div class="leaderboard__item">
+              <span class="leaderboard__rank">${medal}</span>
+              <span class="leaderboard__name">${escapeHtml(s.player_name)}</span>
+              <span class="leaderboard__score">${s.score}/${s.total} (${s.percentage}%)</span>
+              <span class="leaderboard__date">${dateStr}</span>
+            </div>`;
+          }).join("")}
+        </div>
+      </div>`;
   }
 
   /* ---------- Engagement ---------- */
@@ -1271,6 +1396,32 @@
     setupNotifications();
     renderAll();
     window.scrollTo(0, 0);
+
+    // Initialize Supabase backend (non-blocking)
+    if (window.SupabaseBackend) {
+      window.SupabaseBackend.init().then(online => {
+        if (online) {
+          console.log("[Backend] Supabase connected");
+          // Load cloud community events and merge
+          SB().getCommunityEvents().then(events => {
+            if (events && events.length > 0) {
+              cloudCommunityEvents = events.map(e => ({
+                id: e.id,
+                date: e.date,
+                title: e.title,
+                category: e.category,
+                description: e.description,
+                community: true,
+                cloudApproved: true,
+              }));
+              renderAll();
+            }
+          });
+        } else {
+          console.log("[Backend] Supabase offline, using localStorage only");
+        }
+      });
+    }
   }
 
   init();

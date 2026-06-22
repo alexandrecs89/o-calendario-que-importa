@@ -1,4 +1,4 @@
-const CACHE_NAME = 'calendario-v2';
+const CACHE_NAME = 'calendario-v3';
 const ASSETS = [
   '/',
   '/index.html',
@@ -6,6 +6,8 @@ const ASSETS = [
   '/themes/corinthians.css',
   '/js/config.js',
   '/js/events.js',
+  '/js/supabase-config.js',
+  '/js/supabase-client.js',
   '/js/app.js',
   '/js/analytics.js',
   '/data/events.json',
