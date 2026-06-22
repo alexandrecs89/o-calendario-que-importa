@@ -17,6 +17,11 @@ const CLUB_CONFIG = {
     title: "O Calendário Que Importa — Memória Corinthiana",
     description: "O mais completo portal interativo de memória do Sport Club Corinthians Paulista. Calendário, linha do tempo, efemérides e mais.",
     ogImage: "img/logo.png",
+    siteUrl: "https://ocalendarioqueimporta.com.br",
+    canonical: "https://ocalendarioqueimporta.com.br/",
+    language: "pt-BR",
+    sitemap: true,
+    schemaOrg: true,
   },
 
   /* ---------- Theme (CSS variable overrides) ---------- */
@@ -136,6 +141,18 @@ const CLUB_CONFIG = {
   quiz: {
     enabled: true,
     questionsPerRound: 10,
+  },
+
+  /* ---------- Analytics ---------- */
+  analytics: {
+    enabled: true,
+    trackEventViews: true,
+    trackFilters: true,
+    trackSearches: true,
+    trackQuiz: true,
+    trackReactions: true,
+    trackShares: true,
+    provider: "cloudflare", // "cloudflare" | "google" | "none"
   },
 
   /* ---------- Storage key prefix (avoids collision across clubs) ---------- */

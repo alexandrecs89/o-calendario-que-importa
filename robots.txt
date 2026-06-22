@@ -1,0 +1,9 @@
+# robots.txt — O Calendário Que Importa
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ocalendarioqueimporta.com.br/sitemap.xml
+
+# Crawl-delay (optional, be polite)
+Crawl-delay: 1

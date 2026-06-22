@@ -1,4 +1,4 @@
-const CACHE_NAME = 'calendario-v1';
+const CACHE_NAME = 'calendario-v2';
 const ASSETS = [
   '/',
   '/index.html',
@@ -7,6 +7,7 @@ const ASSETS = [
   '/js/config.js',
   '/js/events.js',
   '/js/app.js',
+  '/js/analytics.js',
   '/data/events.json',
   '/img/logo.png',
   '/img/socrates.png',
