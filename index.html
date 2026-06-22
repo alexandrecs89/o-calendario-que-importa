@@ -27,6 +27,55 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon" href="img/logo.png" />
+  <!-- SEO: Canonical URL -->
+  <link rel="canonical" href="https://ocalendarioqueimporta.com.br/" />
+  <!-- SEO: Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "O Calendário Que Importa",
+    "alternateName": "Memória Corinthiana",
+    "url": "https://ocalendarioqueimporta.com.br",
+    "description": "O mais completo portal interativo de memória do Sport Club Corinthians Paulista. 498 eventos históricos, linha do tempo, quiz e mais.",
+    "inLanguage": "pt-BR",
+    "publisher": {
+      "@type": "Organization",
+      "name": "O Calendário Que Importa",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ocalendarioqueimporta.com.br/img/logo.png"
+      }
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://ocalendarioqueimporta.com.br/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "Sport Club Corinthians Paulista",
+    "alternateName": "Corinthians",
+    "foundingDate": "1910-09-01",
+    "url": "https://ocalendarioqueimporta.com.br",
+    "logo": "https://ocalendarioqueimporta.com.br/img/logo.png",
+    "sport": "Football",
+    "location": {
+      "@type": "Place",
+      "name": "Neo Química Arena",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      }
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -188,10 +237,13 @@
   <script src="js/config.js"></script>
   <script src="js/events.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/analytics.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
   </script>
+  <!-- Cloudflare Web Analytics: auto-injected by Cloudflare Pages (enable in dashboard: Speed > Web Analytics) -->
+  <!-- Manual fallback: <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_TOKEN"}'></script> -->
 </body>
 </html>

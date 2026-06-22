@@ -422,6 +422,87 @@
     renderTimelineEvents();
   }
 
+  /* ---------- SEO: Dynamic Meta Tags ---------- */
+  const defaultMeta = {
+    title: CFG.meta.title,
+    description: CFG.meta.description,
+    image: `https://ocalendarioqueimporta.com.br/${CFG.meta.ogImage}`,
+    url: "https://ocalendarioqueimporta.com.br/",
+  };
+
+  function updateMetaTags(event) {
+    if (!event) {
+      // Reset to defaults
+      document.title = defaultMeta.title;
+      setMeta("og:title", defaultMeta.title);
+      setMeta("og:description", defaultMeta.description);
+      setMeta("og:image", defaultMeta.image);
+      setMeta("og:url", defaultMeta.url);
+      setMeta("twitter:title", defaultMeta.title);
+      setMeta("twitter:description", defaultMeta.description);
+      setMeta("twitter:image", defaultMeta.image);
+      removeEventJsonLd();
+      return;
+    }
+
+    const title = `${event.title} — ${CFG.name}`;
+    const desc = event.description ? event.description.substring(0, 160) : CFG.meta.description;
+    const url = `https://ocalendarioqueimporta.com.br/#evento-${event.id}`;
+
+    document.title = title;
+    setMeta("og:title", title);
+    setMeta("og:description", desc);
+    setMeta("og:image", defaultMeta.image);
+    setMeta("og:url", url);
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", desc);
+    setMeta("twitter:image", defaultMeta.image);
+
+    // Inject event-specific JSON-LD
+    injectEventJsonLd(event);
+  }
+
+  function setMeta(property, content) {
+    let el = document.querySelector(`meta[property="${property}"]`) ||
+             document.querySelector(`meta[name="${property}"]`);
+    if (el) {
+      el.setAttribute("content", content);
+    }
+  }
+
+  function injectEventJsonLd(event) {
+    removeEventJsonLd();
+    const categories = getEventCategories(event);
+    const isTitle = categories.includes("titulo");
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": isTitle ? "SportsEvent" : "Event",
+      "name": event.title,
+      "description": event.description || "",
+      "startDate": event.date,
+      "location": {
+        "@type": "Place",
+        "name": "Sport Club Corinthians Paulista",
+        "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressCountry": "BR" }
+      },
+      "organizer": {
+        "@type": "SportsOrganization",
+        "name": "Sport Club Corinthians Paulista",
+        "url": "https://ocalendarioqueimporta.com.br"
+      }
+    };
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "event-jsonld";
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }
+
+  function removeEventJsonLd() {
+    const existing = document.getElementById("event-jsonld");
+    if (existing) existing.remove();
+  }
+
   /* ---------- Event Modal ---------- */
   function openEventModal(event) {
     const related = allEvents().filter(e => {
@@ -487,6 +568,14 @@
     `;
 
     eventModal.classList.remove("hidden");
+
+    /* Analytics: track event view */
+    if (window.CalendarioAnalytics) {
+      window.CalendarioAnalytics.trackEventView(event.id);
+    }
+
+    /* SEO: Update dynamic meta tags for sharing */
+    updateMetaTags(event);
 
     /* Bind related items */
     eventModalContent.querySelectorAll(".event-detail__related-item").forEach(item => {
@@ -556,6 +645,7 @@
         const text = `${title} (${fmtDate(date)}) — ${CFG.name}`;
         const url = window.location.href;
 
+        if (window.CalendarioAnalytics) window.CalendarioAnalytics.trackShare();
         if (navigator.share) {
           navigator.share({ title: CFG.name, text, url }).catch(() => {});
         } else if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -631,6 +721,7 @@
         const rid = btn.dataset.reaction;
         const count = toggleReaction(eventId, rid);
         btn.querySelector(".reactions__count").textContent = count;
+        if (window.CalendarioAnalytics) window.CalendarioAnalytics.trackReaction();
         btn.classList.add("reactions__btn--active");
         setTimeout(() => btn.classList.remove("reactions__btn--active"), 300);
       });
@@ -648,6 +739,7 @@
       const text = input.value.trim();
       if (!text) return;
       const comments = addComment(eventId, text);
+      if (window.CalendarioAnalytics) window.CalendarioAnalytics.trackComment();
       input.value = "";
       const list = commentsEl.querySelector(".comments__list");
       const d = new Date();
@@ -688,9 +780,17 @@
   }
 
   /* ---------- Search ---------- */
+  let _searchDebounceTimer = null;
   function handleSearch() {
     const q = searchInput.value.trim().toLowerCase();
     if (q.length < 2) { searchResults.classList.add("hidden"); return; }
+    /* Analytics: track search (debounced) */
+    if (window.CalendarioAnalytics) {
+      clearTimeout(_searchDebounceTimer);
+      _searchDebounceTimer = setTimeout(() => {
+        window.CalendarioAnalytics.trackSearch(q);
+      }, 1000);
+    }
 
     const results = allEvents().filter(e =>
       e.title.toLowerCase().includes(q) ||
@@ -750,6 +850,10 @@
     const scrollY = window.scrollY;
     renderAll();
     window.scrollTo(0, scrollY);
+    /* Analytics: track filter usage */
+    if (window.CalendarioAnalytics) {
+      window.CalendarioAnalytics.trackFilterUse(cat);
+    }
   }
 
   /* ---------- Navigation ---------- */
@@ -843,8 +947,8 @@
     $("#prevDecade").addEventListener("click", () => { tlYear = Math.max(CFG.timelineStartYear, tlYear - 10); renderTimeline(); });
     $("#nextDecade").addEventListener("click", () => { tlYear = Math.min(new Date().getFullYear(), tlYear + 10); renderTimeline(); });
 
-    $("#closeEventModal").addEventListener("click", () => eventModal.classList.add("hidden"));
-    eventModal.addEventListener("click", (e) => { if (e.target === eventModal) eventModal.classList.add("hidden"); });
+    $("#closeEventModal").addEventListener("click", () => { eventModal.classList.add("hidden"); updateMetaTags(null); });
+    eventModal.addEventListener("click", (e) => { if (e.target === eventModal) { eventModal.classList.add("hidden"); updateMetaTags(null); } });
 
     $("#addEventBtn").addEventListener("click", () => addModal.classList.remove("hidden"));
     $("#closeAddModal").addEventListener("click", () => addModal.classList.add("hidden"));
@@ -1019,6 +1123,7 @@
     const content = $("#quizContent");
     if (!content) return;
     saveQuizScore(quizScore, quizQuestions.length);
+    if (window.CalendarioAnalytics) window.CalendarioAnalytics.trackQuizCompletion(quizScore, quizQuestions.length);
     const pct = Math.round((quizScore / quizQuestions.length) * 100);
     let message = "";
     if (pct >= 90) message = "Impressionante! Voc\u00ea \u00e9 uma lenda!";
